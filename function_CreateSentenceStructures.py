@@ -19,6 +19,7 @@ def CreateSentenceStructures(raw_file_path):
 	:param raw_file_path: Path to directory where raw documents are located
 	:return: Dictionary of lists of SentenceStructure objects keyed on document name stripped of extension
 	"""
+	print("In here", raw_file_path)
 	#Create a dictionary of documents
 	docDictionary = {}
 

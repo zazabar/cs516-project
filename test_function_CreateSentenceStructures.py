@@ -3,12 +3,12 @@ test_function_CreateSentenceStructures.py
 Scope: Performs unit testing on the function CreateSentenceStructures
 Authors: Evan French
 """
-from function_CreateSentenceStructures import CreateSentenceStructures
+import function_CreateSentenceStructures
 import unittest
 import os
 
-class ConstructSentenceStructures(unittest.TestCase):
-	def test_ConstructSentenceStructures(self):
+class CreateSentenceStructures(unittest.TestCase):
+	def test_CreateSentenceStructures(self):
 		directory = 'unit_test_docs'
 		
 		#Make a directory for unit test documents if it doesn't already exist
@@ -29,8 +29,10 @@ class ConstructSentenceStructures(unittest.TestCase):
 		f.write("Small\n")
 		f.write("test")
 		f.close()
-		
-		result = CreateSentenceStructures('.')
+
+		path = '.'
+		result = function_CreateSentenceStructures.CreateSentenceStructures('.')
+		print(result)
 		result_1 = result['test_doc_1']
 		result_2 = result['test_doc_2']
 
