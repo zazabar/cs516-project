@@ -30,9 +30,7 @@ class CreateSentenceStructures(unittest.TestCase):
 		f.write("test")
 		f.close()
 
-		path = '.'
 		result = function_CreateSentenceStructures.CreateSentenceStructures('.')
-		print(result)
 		result_1 = result['test_doc_1']
 		result_2 = result['test_doc_2']
 

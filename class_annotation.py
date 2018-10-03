@@ -4,6 +4,9 @@ Scope: Class representing an annotation
 Authors: Evan French
 """
 
+#Import packages
+import re
+
 class Annotation:
 	"""
 	Annotation represents a line from the annotation file.
@@ -21,15 +24,16 @@ class Annotation:
 		:var endWord: Index of the word after the concept ends.
 		"""
 		
-		segments = inString.split('"')
-		self.concept = segments[1]
-		indexes = segments[2].strip('||t=').strip().split()
-		self.label = segments[3]
+		#Clean up inString into segments we can use
+		parse = re.sub(r'c="', '', inString)
+		concept = re.sub(r'" \d+:\d+.*$', '', parse)
+		after_concept = re.sub(r'c=".*" ', '', inString)
+		segments = after_concept.replace(':', ' ').replace('||t=', ' ').replace('"', '').split()
 
-		start = indexes[0].split(':')
-		end = indexes[1].split(':')
-
-		self.line = start[0]
-		self.startWord = start[1]
-		self.endWord = end[1]
+		#Define Annotation properties
+		self.concept = concept		
+		self.line = segments[0]
+		self.startWord = segments[1]
+		self.endWord = segments[3]
+		self.label = segments[4]
 		
