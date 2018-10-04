@@ -80,6 +80,53 @@ class TestSentenceStructures(unittest.TestCase):
 		self.assertEqual(modified_ss.originalSentenceArray[2], ['his', 'treatment:Start'])
 		self.assertEqual(modified_ss.originalSentenceArray[3], ['medicine', 'treatment'])
 		self.assertEqual(modified_ss.originalSentenceArray[4], ['END', 'treatment:End'])
+
+	def test_CreateAnnotatedSentenceStructures(self):
+		ann_file_path = os.getcwd() + 'unit_test_ann_docs'
+		raw_file_path = os.getcwd() + 'unit_test_raw_docs'
+		
+		#Make a directory for annotation docs if it doesn't already exist
+		if not os.path.exists(ann_file_path):
+			os.mkdir(ann_file_path)
+			
+		# cd into ann_file_path directory
+		os.chdir(ann_file_path)
+		
+		#Create annotation document
+		f = open('test.con','w+')
+		f.write('c="his medicine" 1:2 1:3||t="treatment"')
+		f.close()
+
+		#Make a directory for raw docs if it doesn't already exist
+		if not os.path.exists(raw_file_path):
+			os.mkdir(raw_file_path)
+			
+		# cd into raw_file_path directory
+		os.chdir(raw_file_path)
+		
+		#Create raw document
+		f = open('test.txt','w+')
+		f.write('Pt took his medicine')
+		f.close()
+
+		# cd back into main
+		os.chdir('..')
+
+		result = function_SentenceStructures.CreateAnnotatedSentenceStructures(ann_file_path, raw_file_path)
+		modified_ss = result['test'][0]
+
+		#Tests
+		self.assertEqual(modified_ss.originalSentenceArray[0], ['Pt', ''])
+		self.assertEqual(modified_ss.originalSentenceArray[1], ['took', ''])
+		self.assertEqual(modified_ss.originalSentenceArray[2], ['his', 'treatment:Start'])
+		self.assertEqual(modified_ss.originalSentenceArray[3], ['medicine', 'treatment'])
+		self.assertEqual(modified_ss.originalSentenceArray[4], ['END', 'treatment:End'])
+		
+		#Cleanup
+		os.remove(raw_file_path + '/test.txt')
+		os.remove(ann_file_path + '/test.con')
+		os.rmdir(raw_file_path)
+		os.rmdir(ann_file_path)
 if __name__ == '__main__':
 	unittest.main()
 		

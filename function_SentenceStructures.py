@@ -6,6 +6,8 @@ Authors: Evan French
 
 # Import packages
 import os
+import function_Annotations
+import function_SentenceStructures
 from classes import SentenceStructure
 from class_annotation import Annotation
 
@@ -25,6 +27,7 @@ def CreateSentenceStructures(raw_file_path):
 	docDictionary = {}
 
 	# cd into test file directory
+	cwd = os.getcwd()
 	os.chdir(raw_file_path)
 
 	#Iterate over documents in the raw_file_path directory
@@ -54,8 +57,41 @@ def CreateSentenceStructures(raw_file_path):
 		#Close the document
 		doc.close()
 		
+	#Return to original path
+	os.chdir(cwd)
+	
 	#Return the dictionary
 	return docDictionary
+
+def CreateAnnotatedSentenceStructures(ann_file_path, raw_file_path):
+	"""
+	Create SentenceStructures from raw documents and annotate them
+	
+	:param ann_file_path: Path to directory where annotation documents are located
+	:param raw_file_path: Path to directory where raw documents are located
+	:return: Dictionary of lists of annotated SentenceStructure objects keyed on document name stripped of extension
+	"""
+	#create annotation dictionary
+	annDict = function_Annotations.CreateAnnotationDictionary(ann_file_path)
+
+	#create sentence structure dictionary
+	ssDict = function_SentenceStructures.CreateSentenceStructures(raw_file_path)
+
+	#Iterate over documents
+	for key, value in ssDict.items():
+		docAnnotations = annDict[key]
+		docSentenceStructures = ssDict[key]
+
+		#Annotate each sentence
+		for index, ss in enumerate(docSentenceStructures):
+			#Annotations only for this sentence
+			annotations = [ann for ann in annDict[key] if ann.line == index + 1]
+
+			#Updated SentenceStructure
+			ss = function_SentenceStructures.AnnotateSentenceStructure(ss, annotations)
+
+	#Return the updated ssDict
+	return ssDict
 
 def AnnotateSentenceStructure(ss, annotations):
 	"""

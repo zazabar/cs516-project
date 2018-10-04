@@ -24,6 +24,7 @@ def CreateAnnotationDictionary(annotation_file_path):
 	docDictionary = {}
 
 	# cd into annotation file directory
+	cwd = os.getcwd()
 	os.chdir(annotation_file_path)
 
 	#Iterate over documents in the annotation_file_path directory
@@ -53,5 +54,8 @@ def CreateAnnotationDictionary(annotation_file_path):
 		#Close the document
 		doc.close()
 		
+	#Return to the original directory
+	os.chdir(cwd)
+
 	#Return the dictionary
 	return docDictionary
