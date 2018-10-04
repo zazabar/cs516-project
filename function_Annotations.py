@@ -1,6 +1,6 @@
 """
-function_CreateAnnotationDictionary.py
-Scope: Defines the function CreateAnnotationDictionary
+function_Annotations.py
+Scope: Defines functions related to Annotations
 Authors: Evan French
 """
 

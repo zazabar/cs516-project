@@ -1,12 +1,13 @@
 """
-function_CreateSentenceStructures.py
-Scope: Defines the function CreateSentenceStructures
+function_SentenceStructures.py
+Scope: Defines functions using SentenceStructure objects
 Authors: Evan French
 """
 
 # Import packages
 import os
 from classes import SentenceStructure
+from class_annotation import Annotation
 
 """
 Iterates through all documents in the directory specified in the params and creates a SentenceStructure object for each sentence. 
@@ -19,7 +20,7 @@ def CreateSentenceStructures(raw_file_path):
 	:param raw_file_path: Path to directory where raw documents are located
 	:return: Dictionary of lists of SentenceStructure objects keyed on document name stripped of extension
 	"""
-	print("In here", raw_file_path)
+
 	#Create a dictionary of documents
 	docDictionary = {}
 
@@ -55,3 +56,23 @@ def CreateSentenceStructures(raw_file_path):
 		
 	#Return the dictionary
 	return docDictionary
+
+def AnnotateSentenceStructure(ss, annotations):
+	"""
+	Annotates SentenceStructure object
+	
+	:param ss: SentenceStructure object
+	:param annotions: list of annotations for the sentence
+	:return: Annotated SentenceStructure object
+	"""
+
+	#Iterate over distinct annotations for a sentence
+	for m in annotations:
+		for j in range(m.startWord, m.endWord + 2):
+			if j == m.startWord:
+				ss.originalSentenceArray[j][1] = m.label + ':Start'
+			elif j == m.endWord + 1:
+				ss.originalSentenceArray[j][1] = m.label + ':End'
+			else:
+				ss.originalSentenceArray[j][1] = m.label
+	return ss

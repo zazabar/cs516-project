@@ -31,9 +31,9 @@ class Annotation:
 		segments = after_concept.replace(':', ' ').replace('||t=', ' ').replace('"', '').split()
 
 		#Define Annotation properties
-		self.concept = concept		
-		self.line = segments[0]
-		self.startWord = segments[1]
-		self.endWord = segments[3]
+		self.concept = concept.strip()	
+		self.line = int(segments[0])
+		self.startWord = int(segments[1])
+		self.endWord = int(segments[3])
 		self.label = segments[4]
 		
