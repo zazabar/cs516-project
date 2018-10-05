@@ -1,0 +1,4 @@
+/test_data/*
+/reference_standard_for_test_data/*
+/__pycache__/*
+*.ipynb
