@@ -1,8 +1,8 @@
-
-# coding: utf-8
-
-# In[24]:
-
+"""
+preprocess.py
+Scope: Preprocessing script to identify NUM and DATE objects.
+Authors: Bill Cramer
+"""
 
 import re
 import os
@@ -11,26 +11,39 @@ import bs4 as bs
 import pandas as pd
 from os import listdir
 from os.path import isfile
-import sys
 import shlex, subprocess
 import time
 from subprocess import *
+import sys, getopt
+import shutil
 
 
-# In[133]:
+inFolder = ""
+outFolder = ""
+
+opts, args = getopt.getopt(sys.argv[1:], 'i:o:')
+for opt, arg, in opts:
+     if opt in ('-i'):
+         inFolder = arg
+     elif opt in ('-o'):
+         outFolder = arg
+
+if inFolder == "" or outFolder == "":
+     print("Please specify input and output using -i and -o.")
+     sys.exit(-1)
 
 
-#### users provides input for their text data
-print('Please Enter The Path Where Your Raw Input Text Data is Located')
-originalTextDocsPath = [input()]
+
+originalTextDocsPath = [inFolder]
 
 #### users provides input for where they want their data to land
-print('Please Enter The Path Where You Want Your Data To Be Output')
-pathForInputFoldersForChronos = input()
+#print('Please Enter The Path Where You Want Your Data To Be Output')
+pathForInputFoldersForChronos = outFolder
 
 #### users provides input for the location of Chronos 
-print('Please Provide the Path for the Chronos Tool')
-chronosLocation = input()
+#print('Please Provide the Path for the Chronos Tool')
+chronosLocation = './Chrono-master/Chrono.py'
+
 
 #### this line is needed to make the code below work 
 pathForOutputFoldersForChronos = pathForInputFoldersForChronos
@@ -51,9 +64,9 @@ cleanedFileNameList = []
 for txtFiles in orginalFileNames:
     removeTxt = re.sub(r'.txt','',txtFiles)
     cleanedFileNameList.append(removeTxt)
-    
+         
 #### create new directories (folders) in our path listed above for pathForOutputFoldersForChronos for the Chronos tools
-newDataOutputPath = pathForOutputFoldersForChronos+'/'+'/results/my_output/' 
+newDataOutputPath = pathForOutputFoldersForChronos+'/'+'results/my_output/' 
 if not os.path.exists(newDataOutputPath):
     os.makedirs(newDataOutputPath)
     
@@ -91,7 +104,7 @@ for thoseInputFolder in folderPathsForInputFilesToChronos:
     
 
 
-# In[134]:
+# In[4]:
 
 
 #### the block below creates a listing of the folders that will be input into Chronos 
@@ -107,7 +120,7 @@ for folder in foldersForInput:
      inputFolderList.append(''.join((my_inputPath, folder)))
 
 
-# In[135]:
+# In[5]:
 
 
 
@@ -120,7 +133,7 @@ for filePath in inputFolderList:
             inputTextFilePathList.append(''.join((filePath+'/', file)))
 
 
-# In[136]:
+# In[6]:
 
 
 
@@ -134,12 +147,13 @@ sampleFilesClass = 'sample_files/official_train_MLmatrix_Win5_012618_class.csv'
 joinFilesData = ''.join((noChronoPY, sampleFilesData))
 joinFilesClass = ''.join((noChronoPY, sampleFilesClass))
 ##formatting the way below was needed to input into the subprocess.Popen while the .wait() provides being able to return the this program
-command = "python %s -i %s -x "'.txt'" -o %s -m SVM -d %s -c %s" % (chronosPath,myDataInput,myDataOutput,joinFilesData,joinFilesClass)
+#command = "python3 %s -i %s -x "'.txt'" -o %s -m SVM -d %s -c %s" % (chronosPath,myDataInput,myDataOutput,joinFilesData,joinFilesClass)
+command = ["python3", chronosPath, "-i", myDataInput, "-x", ".txt", "-o", myDataOutput, "-m", "SVM", "-d", joinFilesData, "-c", joinFilesClass]
 
 p = subprocess.Popen(command).wait()
 
 
-# In[137]:
+# In[7]:
 
 
 
@@ -147,7 +161,6 @@ p = subprocess.Popen(command).wait()
 my_OutputPath = ''.join((pathForOutputFoldersForChronos, '/results/my_output/'))
 
 foldersForOutput = os.listdir(my_OutputPath)
-
 outputFolderList =[]
 while len(foldersForOutput) == 0:
     foldersForOutput = os.listdir(my_OutputPath)
@@ -157,12 +170,12 @@ while len(foldersForOutput) == 0:
         outputFolderList.append(''.join((my_OutputPath, outputFolder)))
             
 for outputFolder in foldersForOutput:
-     outputFolderList.append(''.join((my_OutputPath, outputFolder)))
+    outputFolderList.append(''.join((my_OutputPath, outputFolder)))
 
             
 
 
-# In[138]:
+# In[8]:
 
 
 
@@ -171,11 +184,11 @@ outputXMLFilePathList = []
 
 for outputXMLFilePath in outputFolderList:
     for outputXMLFile in os.listdir(outputXMLFilePath):
-        if fnmatch.fnmatch(outputXMLFile, '*.XML'):
+        if fnmatch.fnmatch(outputXMLFile, '*.xml') or fnmatch.fnmatch(outputXMLFile, '*.XML'):
             outputXMLFilePathList.append(''.join((outputXMLFilePath+'/', outputXMLFile)))
 
 
-# In[148]:
+# In[10]:
 
 
 #### the block below uses the XML files to clean the txt files 
@@ -678,6 +691,21 @@ for inputFile1 in inputTextFilePathList:
     numbers2NUM1 = re.sub(r'\d+','NUM',numbers2NUM)
 
 
+    numberExtra = re.sub(r'\%NUM\%|\^NUM\^|\*NUM\*|\+NUM\+|\-NUM\-|\=NUM\=|\#NUM\#|\/NUM\/|\~NUM\~|\`NUM\`|\"NUM\"|\'NUM\'','NUM',numbers2NUM1)
+
+    numberExtra1 = re.sub(r'NUM\%|NUM\^|NUM\*|NUM\+|NUM\-|NUM\=|NUM\#|NUM\/|NUM\~|NUM\`|NUM\"|NUM\'','NUM',numberExtra)
+    
+    numberExtra2 = re.sub(r'\<NUM|\>NUM|NUM\smg|NUMmg|NUML|NUM\sL|NUMml|NUMml\.|NUMC\.|NUMC|NUMF\.|NUMF|NUMmg\.|\%NUM|\^NUM|\*NUM|\+NUM|\-NUM|\=NUM|\#NUM|\/NUM|\~NUM|\`NUM|\"NUM|\'NUM','NUM',numberExtra1)
+    
+    #numberExtra3 = re.sub(r'NUM\s+\,\s+NUM\s+\,\s+NUM\s+\,\s+NUM|NUM\s+\,\s+NUM\s+\,\s+NUM|NUM\s+\,\s+NUM','NUM',numberExtra2)
+    
+    numberExtra3A = re.sub(r'NUMPM|NUM\:NUM|NUMAM|NUM\:NUMPM','NUM',numberExtra2)
+    
+    numberExtra3B = re.sub(r'\w+NUM\w+|\w+NUM|NUM\w+|NUMPM|NUMAM','NUM',numberExtra3A)
+
+    numberExtra3C = re.sub(r'NUM\:NUM', 'NUM', numberExtra3B)
+    
+    numberExtra4 = re.sub(r'NUMNUMNUM|NUMNUM','NUM', numberExtra3C)
 
     ### remap the mapping of list identifers back to their original form
 
@@ -726,7 +754,7 @@ for inputFile1 in inputTextFilePathList:
 
 
 
-    replaceRemapNumberMap1 = re.sub(remapNumberMap11, '1.)',numbers2NUM1)
+    replaceRemapNumberMap1 = re.sub(remapNumberMap11, '1.)',numberExtra4)
     replaceRemapNumberMap11 = re.sub(remapNumberMap12, '2.)',replaceRemapNumberMap1)
     replaceRemapNumberMap12 = re.sub(remapNumberMap13, '3.)',replaceRemapNumberMap11)
     replaceRemapNumberMap13 = re.sub(remapNumberMap14, '4.)',replaceRemapNumberMap12)
@@ -945,7 +973,7 @@ for inputFile1 in inputTextFilePathList:
     replaceRemapNumberMap418 = re.sub(remapNumberMap419, '19. ',replaceRemapNumberMap417)
     replaceRemapNumberMap419 = re.sub(remapNumberMap420, '20. ',replaceRemapNumberMap418)
 
-
+    low = replaceRemapNumberMap419.lower()
     #print(replaceRemapNumberMap419)
 
     # outputTextFile = open('C:/Users/bat/Desktop/0002.txt','w')
@@ -957,12 +985,23 @@ for inputFile1 in inputTextFilePathList:
 
 
     #### store the output file from all the cleaning 
-    mergeOutputName = os.path.join(chronosCleaned+'/',foldersForInput[counter]+'.txt')    
+    mergeOutputName = os.path.join(outFolder+'/',foldersForInput[counter]+'.txt')    
     finialOutputFileName = open(mergeOutputName,'w')
-    finialOutputFileName.write(replaceRemapNumberMap419)
+    finialOutputFileName.write(low)
     finialOutputFileName.close()
-    counter = counter+1
+    #counter = counter+1
     
-print("Ya Done!")
+    #os.remove(mergeOutputName)
+newDataOutputPath1 = outFolder+'/results'
+newDataOutputPath2 = outFolder+'/data'
+newDataOutputPath3 = outFolder+'/chronosCleaned'
+shutil.rmtree(newDataOutputPath1)
+shutil.rmtree(newDataOutputPath2)
+shutil.rmtree(newDataOutputPath3)
+# os.rmdir(newDataOutputPath)
+# os.rmdir(newDataInputPath)
+#os.rmdir(chronosCleaned)
+            
+#print("Ya Done!")
 #print(numberReplace)
 
