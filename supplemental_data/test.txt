@@ -1,0 +1,930 @@
+cell enumeration &id
+cell enumeration phys interp
+autologous blood process
+autologous blood op salvage
+plasma fresh frozen
+frozen blood prep
+frozen blood thaw
+frozen blood freeze/thaw
+blood product/irradiation
+leukacyte transfusion
+vol reduction of blood/prod
+pooling blood platelets
+split blood or products
+onc breast risk score
+cryopreservation oocyte(s)
+cryopreservation ovary tiss
+rbc membranes fatty acids
+routine venipuncture
+plasma volume single
+plasma volume multiple
+red cell mass single
+red cell mass multiple
+blood volume
+red cell survival study
+platelet survival
+breath tst attain/anal c-14
+breath test analysis c-14
+vit b-12 absorption exam
+vit b-12 absrp exam int fac
+vit b-12 absorp combined
+kidney function study
+semen analysis
+psa screening
+screen cerv/vag thin layer
+screen c/v thin layer by md
+"scr c/v cyto,autosys and md"
+"scr c/v cyto,thinlayer,rescr"
+"scr c/v cyto,thinlayer,rescr"
+"scr c/v cyto,thinlayer,rescr"
+"scr c/v cyto, automated sys"
+"scr c/v cyto, autosys, rescr"
+cbc/diffwbc w/o platelet
+cbc without platelet
+fecal blood scrn immunoassay
+"prostate biopsy, any mthd"
+eia hiv-1/hiv-2 screen
+elisa hiv-1/hiv-2 screen
+oral hiv-1/hiv-2 screen
+hiv combination assay
+hpv combo assay ca screen
+warfarin respon genetic test
+cephalin floculation test
+congo red blood test
+blood thymol turbidity
+blood mucoprotein
+screen pap by tech w md supv
+screening pap smear by phys
+catheterize for urine spec
+urine specimen collect mult
+wet mounts/ w preparations
+potassium hydroxide preps
+pinworm examinations
+fern test
+post-coital mucous exam
+appl surface neurostimulator
+biofeedback train any meth
+biofeedback peri/uro/rectal
+speech/hearing therapy
+speech/hearing therapy
+laryngeal function studies
+evaluation of speech fluency
+evaluate speech production
+speech sound lang comprehen
+behavral qualit analys voice
+oral function therapy
+oral speech device eval
+ex for speech device rx 1hr
+ex for speech device rx addl
+use of speech device service
+evaluate swallowing function
+motion fluoroscopy/swallow
+endoscopy swallow tst (fees)
+laryngoscopic sensory test
+fees w/laryngeal sense test
+cardiac rehab
+cardiac rehab/monitor
+limb muscle testing manual
+hand muscle testing manual
+body muscle testing manual
+body muscle testing manual
+range of motion measurements
+range of motion measurements
+canalith repositioning proc
+motion analysis video/3d
+motion test w/ft press meas
+dynamic surface emg
+dynamic fine wire emg
+assessment of aphasia
+developmental testing
+cognitive test by hc pro
+hot or cold packs therapy
+mechanical traction therapy
+vasopneumatic device therapy
+paraffin bath therapy
+whirlpool therapy
+diathermy eg microwave
+infrared therapy
+ultraviolet therapy
+electrical stimulation
+electric current therapy
+contrast bath therapy
+ultrasound therapy
+hydrotherapy
+physical therapy treatment
+therapeutic exercises
+neuromuscular reeducation
+aquatic therapy/exercises
+gait training therapy
+massage therapy
+physical medicine procedure
+manual therapy
+group therapeutic procedures
+pt eval low complex 20 min
+pt eval mod complex 30 min
+pt eval high complex 45 min
+pt re-eval est plan care
+ot eval low complex 30 min
+ot eval mod complex 45 min
+ot eval high complex 60 min
+ot re-eval est plan care
+therapeutic activities
+sensory integration
+self care mngment training
+community/work reintegration
+wheelchair mngment training
+work hardening
+work hardening add-on
+rmvl devital tis 20cm/<
+rmvl devital tis addl 20 cm<
+wound(s) care non-selective
+neg press wound tx < 50 cm
+neg press wound tx > 50 cm
+neg press wnd tx </=50 sq cm
+neg press wound tx >50 cm
+low frequency non-thermal us
+physical performance test
+assistive technology assess
+orthotic mgmt&trainj 1st enc
+prosthetic trainj 1st enc
+orth/prostc mgmt sbsq enc
+physical medicine procedure
+elec stim unattend for press
+elec stim other than wound
+electromagntic tx for ulcers
+development test interp & rep
+autologous prp for ulcers
+cognitive skills development
+ct perfusion w/contrast cbf
+cad breast mri
+cad cxr with interp
+cad cxr remote
+tear film img uni/bi w/i&r
+heart symp image plnr
+heart symp image plnr spect
+tactile breast img uni/bi
+us urine capacity measure
+x-ray exam of jaw
+x-ray exam of jaw
+x-ray exam of mastoids
+x-ray exam of mastoids
+x-ray exam of middle ear
+x-ray exam of facial bones
+x-ray exam of facial bones
+x-ray exam of nasal bones
+x-ray exam of eye sockets
+x-ray exam of eye sockets
+x-ray exam of sinuses
+x-ray exam of sinuses
+x-ray exam pituitary saddle
+x-ray exam of skull
+x-ray exam of skull
+x-ray exam of teeth
+x-ray exam of teeth
+full mouth x-ray of teeth
+x-ray exam of jaw joint
+x-ray exam of jaw joints
+magnetic image jaw joint
+x-ray head for orthodontia
+panoramic x-ray of jaws
+x-ray exam of neck
+throat x-ray & fluoroscopy
+speech evaluation complex
+x-ray exam of salivary gland
+ct head/brain w/o dye
+ct head/brain w/dye
+ct head/brain w/o & w/dye
+ct orbit/ear/fossa w/o dye
+ct orbit/ear/fossa w/dye
+ct orbit/ear/fossa w/o&w/dye
+ct maxillofacial w/o dye
+ct maxillofacial w/dye
+ct maxillofacial w/o & w/dye
+ct soft tissue neck w/o dye
+ct soft tissue neck w/dye
+ct sft tsue nck w/o & w/dye
+ct angiography head
+ct angiography neck
+mri orbit/face/neck w/o dye
+mri orbit/face/neck w/dye
+mri orbt/fac/nck w/o & w/dye
+mr angiography head w/o dye
+mr angiography head w/dye
+mr angiograph head w/o&w/dye
+mr angiography neck w/o dye
+mr angiography neck w/dye
+mr angiograph neck w/o&w/dye
+mri brain w/o dye
+mri brain w/dye
+mri brain w/o & w/dye
+fmri brain by tech
+fmri brain by phys/psych
+xray exam chest 1 view
+x-ray exam chest 2 views
+x-ray exam chest 3 views
+x-ray exam chest 4+ views
+x-ray exam of ribs
+x-ray exam of ribs/chest
+x-ray exam of ribs
+x-ray exam of ribs/chest
+x-ray exam of breastbone
+x-ray exam of breastbone
+ct thorax w/o dye
+ct thorax w/dye
+ct thorax w/o & w/dye
+ct angiography chest
+mri chest w/o dye
+mri chest w/dye
+mri chest w/o & w/dye
+mri angio chest w or w/o dye
+x-ray exam of spine
+x-ray exam neck spine 3/<vws
+x-ray exam of neck spine
+x-ray exam of neck spine
+x-ray exam of thoracic spine
+x-ray exam of thoracic spine
+x-ray exam of thoracic spine
+x-ray exam of trunk spine
+x-ray exam entire spi 1 vw
+x-ray exam entire spi 2/3 vw
+x-ray exam entire spi 4/5 vw
+x-ray exam entire spi 6/> vw
+x-ray exam of lower spine
+x-ray exam of lower spine
+x-ray exam of lower spine
+x-ray exam of lower spine
+ct neck spine w/o dye
+ct neck spine w/dye
+ct neck spine w/o & w/dye
+ct chest spine w/o dye
+ct chest spine w/dye
+ct chest spine w/o & w/dye
+ct lumbar spine w/o dye
+ct lumbar spine w/dye
+ct lumbar spine w/o & w/dye
+mri neck spine w/o dye
+mri neck spine w/dye
+mri chest spine w/o dye
+mri chest spine w/dye
+mri lumbar spine w/o dye
+mri lumbar spine w/dye
+mri neck spine w/o & w/dye
+mri chest spine w/o & w/dye
+mri lumbar spine w/o & w/dye
+mr angio spine w/o&w/dye
+x-ray exam of pelvis
+x-ray exam of pelvis
+ct angiograph pelv w/o&w/dye
+ct pelvis w/o dye
+ct pelvis w/dye
+ct pelvis w/o & w/dye
+mri pelvis w/o dye
+mri pelvis w/dye
+mri pelvis w/o & w/dye
+mr angio pelvis w/o & w/dye
+x-ray exam sacroiliac joints
+x-ray exam sacroiliac joints
+x-ray exam of tailbone
+x-ray exam of collar bone
+x-ray exam of shoulder blade
+x-ray exam of shoulder
+x-ray exam of shoulder
+x-ray exam of shoulders
+x-ray exam of humerus
+x-ray exam of elbow
+x-ray exam of elbow
+x-ray exam of forearm
+x-ray exam of arm infant
+x-ray exam of wrist
+x-ray exam of wrist
+x-ray exam of hand
+x-ray exam of hand
+x-ray exam of finger(s)
+ct upper extremity w/o dye
+ct upper extremity w/dye
+ct uppr extremity w/o&w/dye
+ct angio upr extrm w/o&w/dye
+mri upper extremity w/o dye
+mri upper extremity w/dye
+mri uppr extremity w/o&w/dye
+mri joint upr extrem w/o dye
+mri joint upr extrem w/dye
+mri joint upr extr w/o&w/dye
+mr angio upr extr w/o&w/dye
+x-ray exam hip uni 1 view
+x-ray exam hip uni 2-3 views
+x-ray exam hip uni 4/> views
+x-ray exam hips bi 2 views
+x-ray exam hips bi 3-4 views
+x-ray exam hips bi 5/> views
+x-ray exam of femur 1
+x-ray exam of femur 2/>
+x-ray exam of knee 1 or 2
+x-ray exam of knee 3
+x-ray exam knee 4 or more
+x-ray exam of knees
+x-ray exam of lower leg
+x-ray exam of leg infant
+x-ray exam of ankle
+x-ray exam of ankle
+x-ray exam of foot
+x-ray exam of foot
+x-ray exam of heel
+x-ray exam of toe(s)
+ct lower extremity w/o dye
+ct lower extremity w/dye
+ct lwr extremity w/o&w/dye
+ct angio lwr extr w/o&w/dye
+mri lower extremity w/o dye
+mri lower extremity w/dye
+mri lwr extremity w/o&w/dye
+mri jnt of lwr extre w/o dye
+mri joint of lwr extr w/dye
+mri joint lwr extr w/o&w/dye
+mr ang lwr ext w or w/o dye
+x-ray exam abdomen 1 view
+x-ray exam abdomen 2 views
+x-ray exam abdomen 3+ views
+x-ray exam series abdomen
+ct abdomen w/o dye
+ct abdomen w/dye
+ct abdomen w/o & w/dye
+ct angio abd&pelv w/o&w/dye
+ct angio abdom w/o & w/dye
+ct abd & pelvis
+ct abd & pelv w/contrast
+ct abd & pelv 1/>regns
+mri abdomen w/o dye
+mri abdomen w/dye
+mri abdomen w/o & w/dye
+mri angio abdom w orw/o dye
+contrst x-ray exam of throat
+contrast x-ray esophagus
+cine/vid x-ray throat/esoph
+x-ray exam upper gi tract
+x-ray exam upper gi tract
+x-ray exam upper gi tract
+contrst x-ray uppr gi tract
+contrst x-ray uppr gi tract
+contrst x-ray uppr gi tract
+x-ray exam of small bowel
+ct colonography dx
+ct colonography dx w/dye
+contrast x-ray gallbladder
+x-ray measurement of pelvis
+mri fetal sngl/1st gestation
+cardiac mri for morph
+cardiac mri w/stress img
+cardiac mri for morph w/dye
+card mri w/stress img & dye
+card mri veloc flow mapping
+ct hrt w/o dye w/ca test
+ct hrt w/3d image
+ct hrt w/3d image congen
+ct angio hrt w/3d image
+ct angio abdominal arteries
+fluoroscopy <1 hr phys/qhp
+x-ray nose to rectum
+x-ray exam of body section
+complex body section x-ray
+complex body section x-rays
+cine/video x-rays
+cine/video x-rays add-on
+3d render w/o postprocess
+3d rendering w/postprocess
+cat scan follow-up study
+radiographic procedure
+echo exam of head
+ophth us b & quant a
+ophth us quant a only
+ophth us b w/non-quant a
+echo exam of eye water bath
+echo exam of eye thickness
+echo exam of eye
+echo exam of eye
+us exam of head and neck
+us exam chest
+ultrasound breast complete
+ultrasound breast limited
+us exam abdom complete
+echo exam of abdomen
+us abdl aorta screen aaa
+us exam abdo back wall comp
+us exam abdo back wall lim
+us exam k transpl w/doppler
+us exam spinal canal
+ob us < 14 wks single fetus
+ob us < 14 wks addl fetus
+ob us >/= 14 wks sngl fetus
+ob us >/= 14 wks addl fetus
+ob us detailed sngl fetus
+ob us detailed addl fetus
+ob us limited fetus(s)
+ob us follow-up per fetus
+fetal biophys profile w/nst
+fetal biophys profil w/o nst
+umbilical artery echo
+middle cerebral artery echo
+echo exam of fetal heart
+echo exam of fetal heart
+echo exam of fetal heart
+echo exam of fetal heart
+us exam pelvic complete
+us exam pelvic limited
+us exam scrotum
+us compl joint r-t w/img
+us lmtd jt/nonvasc xtr strux
+us exam infant hips dynamic
+us exam infant hips static
+ultrasound exam follow-up
+us bone density measure
+echo examination procedure
+mri one breast
+mri both breasts
+breast tomosynthesis uni
+breast tomosynthesis bi
+breast tomosynthesis bi
+dx mammo incl cad uni
+dx mammo incl cad bi
+scr mammo bi incl cad
+x-ray stress view
+x-rays for bone age
+x-rays bone length studies
+x-rays bone survey limited
+x-rays bone survey complete
+x-rays bone survey infant
+joint survey single view
+ct bone density axial
+dxa bone density axial
+dxa bone density/peripheral
+magnetic image bone marrow
+dxa bone density study
+fracture assessment via dxa
+thyroid uptake measurement
+thyroid imaging w/blood flow
+thyroid imaging w/blood flow
+thyroid met imaging
+thyroid met imaging/studies
+thyroid met imaging body
+thyroid met uptake
+parathyroid nuclear imaging
+parathyrd planar w/wo subtrj
+parathyrd planar w/spect&ct
+adrenal nuclear imaging
+endocrine nuclear procedure
+bone marrow imaging ltd
+bone marrow imaging mult
+bone marrow imaging body
+red cell survival kinetics
+red cell sequestration
+spleen imaging
+lymph system imaging
+blood/lymph nuclear exam
+liver imaging
+liver imaging with flow
+liver imaging (3d)
+liver image (3d) with flow
+liver and spleen imaging
+liver & spleen image/flow
+hepatobiliary system imaging
+hepatobil syst image w/drug
+salivary gland imaging
+serial salivary imaging
+salivary gland function exam
+esophageal motility study
+gastric mucosa imaging
+gastroesophageal reflux exam
+gastric emptying study
+gastric emptying imag study
+gastric emptying imag study
+acute gi blood loss imaging
+gi protein loss exam
+meckels divert exam
+leveen/shunt patency exam
+gi nuclear procedure
+bone imaging limited area
+bone imaging multiple areas
+bone imaging whole body
+bone imaging 3 phase
+bone imaging (3d)
+musculoskeletal nuclear exam
+cardiac shunt imaging
+vascular flow imaging
+ht muscle image spect sing
+ht muscle image spect mult
+ht muscle image planar sing
+ht musc image planar mult
+acute venous thrombus image
+venous thrombosis imaging
+ven thrombosis images bilat
+heart muscle imaging (pet)
+heart infarct image
+heart infarct image (ef)
+heart infarct image (3d)
+gated heart planar single
+gated heart multiple
+heart first pass single
+heart first pass multiple
+heart image (pet) single
+heart image (pet) multiple
+heart image spect
+heart first pass add-on
+cardiovascular nuclear exam
+lung ventilation imaging
+lung perfusion imaging
+lung ventilat&perfus imaging
+lung perfusion differential
+lung perf&ventilat diferentl
+respiratory nuclear exam
+brain image < 4 views
+brain image w/flow < 4 views
+brain image 4+ views
+brain image w/flow 4 + views
+brain imaging (3d)
+brain imaging (pet)
+brain flow imaging only
+cerebrospinal fluid scan
+csf ventriculography
+csf shunt evaluation
+cerebrospinal fluid scan
+csf leakage imaging
+nuclear exam of tear flow
+nervous system nuclear exam
+kidney imaging morphol
+kidney imaging with flow
+k flow/funct image w/o drug
+k flow/funct image w/drug
+k flow/funct image multiple
+kidney imaging (3d)
+urinary bladder retention
+ureteral reflux study
+testicular imaging w/flow
+genitourinary nuclear exam
+tumor imaging limited area
+tumor imaging mult areas
+tumor imaging whole body
+tumor imaging (3d)
+tumor imaging whole body
+abscess imaging ltd area
+abscess imaging whole body
+nuclear localization/abscess
+pet image ltd area
+pet image skull-thigh
+pet image full body
+pet image w/ct lmtd
+pet image w/ct skull-thigh
+pet image w/ct full body
+nuclear diagnostic exam
+gi tract capsule endoscopy
+esophageal capsule endoscopy
+cpmtr ophth dx img ant segmt
+cmptr ophth img optic nerve
+cptr ophth dx img post segmt
+remote dx retinal imaging
+remote retinal imaging mgmt
+echo transthoracic
+echo transthoracic
+tte w/doppler complete
+tte w/o doppler complete
+tte f-up or lmtd
+doppler echo exam heart 
+"doppler echo exam heart 
+"doppler color flow add-on 
+extracranial study
+extracranial study
+extracranial study
+intracranial study
+intracranial study
+tcd vasoreactivity study
+tcd emboli detect w/o inj
+upr/l xtremity art 2 levels
+upr/lxtr art stdy 3+ lvls
+lwr xtr vasc stdy bilat
+lower extremity study
+lower extremity study
+upper extremity study
+upper extremity study
+extremity study
+extremity study
+extremity study
+vascular study
+vascular study
+vascular study
+vascular study
+penile vascular study
+penile vascular study
+doppler flow testing
+noninvas vasc dx study proc
+low frequency non-thermal us
+radiopharm dx agent noc
+in111 satumomab
+tc99m sestamibi
+technetium tc-99m teboroxime
+tc99m tetrofosmin
+tc99m medronate
+tc99m apcitide
+tl201 thallium
+in111 capromab
+"i131 iodobenguate, dx"
+iodine i-123 sod iodide mil
+tc99m disofenin
+tc99m pertechnetate
+choline c-11
+iodine i-123 sod iodide mic
+tc99m exametazime
+"i131 serum albumin, dx"
+nitrogen n-13 ammonia
+"iodine i-131 iodide cap, dx"
+"i131 iodide sol, dx "
+i131 max 100uci
+"i125 serum albumin, dx"
+tc99m depreotide
+tc99m mebrofenin
+tc99m pyrophosphate
+tc99m pentetate
+tc99m maa
+tc99m sulfur colloid
+"in111 ibritumomab, dx"
+co57/58
+in111 oxyquinoline
+in111 pentetate
+tc99m gluceptate
+tc99m succimer
+f18 fdg
+cr51 chromate
+"i125 iothalamate, dx"
+rb82 rubidium
+ga67 gallium
+tc99m bicisate
+xe133 xenon 10mci
+co57 cyano
+tc99m labeled rbc
+tc99m oxidronate
+tc99m mertiatide
+tc99m fanolesomab
+technetium tc-99m aerosol
+technetium tc99m arcitumomab
+technetium tc-99m auto wbc
+indium in-111 auto wbc
+indium in-111 auto platelet
+indium in-111 pentetreotide
+inj prohance multipack
+inj multihance
+inj multihance multipack
+"gad-base mr contrast nos,1ml  "
+sodium fluoride f-18
+iodine i-123 ioflupane
+florbetapir f18
+gallium ga-68
+fluciclovine f-18
+"pet, dx, for tumor id, noc"
+"pet dx for non-tumor id, noc"
+echocardiography contrast
+tc99 tilmanocept diag 0.5mci
+lumason contrast agent
+"choline c 11, diagnostic"
+"u/s trtmt, not leiomyomata"
+abd us w/contrast
+single energy x-ray study
+"tomosynthesis, mammo screen"
+"recon, cta for surg plan"
+ldct for lung ca screen
+ultrasound exam aaa screen
+set up port xray equipment
+"locm>=400 mg/ml iodine,1ml"
+"inj fe-based mr contrast,1ml"
+"oral mr contrast, 100ml"
+"inj perflexane lip micros,ml"
+"inj octafluoropropane mic,ml"
+"inj perflutren lip micros,ml"
+"hocm <=149 mg/ml iodine, 1ml"
+"hocm 150-199mg/ml iodine,1ml"
+"hocm 200-249mg/ml iodine,1ml"
+"hocm 250-299mg/ml iodine,1ml"
+"hocm 300-349mg/ml iodine,1ml"
+"hocm 350-399mg/ml iodine,1ml"
+"hocm>= 400mg/ml iodine, 1ml"
+"locm 100-199mg/ml iodine,1ml"
+"locm 200-299mg/ml iodine,1ml"
+"locm 300-399mg/ml iodine,1ml"
+flutemetamol f18 diagnostic
+florbetaben f18 diagnostic
+transport portable x-ray
+transport port x-ray multipl
+place intraoc radiation src
+hdr elctrnc skn surf brchytx
+hdr elctr ntrst/ntrcv brchtx
+place po breast cath for rad
+place breast cath for rad
+place breast rad tube/caths
+place ndl musc/tis for rt
+diag bronchoscope/catheter
+ins mark thor for rt perq
+thorax stereo rad targetw/tx
+place needles h&n for rt
+lap ins device for rt
+ins mark abd/pel for rt perq
+ins device for rt guide open
+transperi needle place pros
+place rt device/marker pros
+place needles pelvic for rt
+insert uteri tandems/ovoids
+ins vag brachytx device
+insert heyman uteri capsule
+incise skull for treatment
+srs cranial lesion simple
+srs cran les simple addl
+srs cranial lesion complex
+srs cran les complex addl
+apply srs headframe add-on
+srs spinal lesion
+srs spinal lesion addl
+radiation therapy planning
+radiation therapy planning
+radiation therapy planning
+set radiation therapy field
+set radiation therapy field
+set radiation therapy field
+set radiation therapy field
+radiation therapy planning
+radiation therapy dose plan
+radiotherapy dose plan imrt
+telethx isodose plan simple
+telethx isodose plan cplx
+brachytx isodose plan simple
+brachytx isodose intermed
+brachytx isodose complex
+special teletx port plan
+special radiation dosimetry
+radiation treatment aid(s)
+radiation treatment aid(s)
+radiation treatment aid(s)
+radiation physics consult
+design mlc device for imrt
+radiation physics consult
+srs multisource
+srs linear based
+sbrt delivery
+ntsty modul rad tx dlvr smpl
+ntsty modul rad tx dlvr cplx
+external radiation dosimetry
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiology port film(s)
+neutron beam tx complex
+radiation tx management x5
+radiation therapy management
+stereotactic radiation trmt
+sbrt management
+special radiation treatment
+radiation therapy management
+proton trmt simple w/o comp
+proton trmt simple w/comp
+proton trmt intermediate
+proton treatment complex
+hyperthermia treatment
+hyperthermia treatment
+hyperthermia treatment
+hyperthermia treatment
+hyperthermia treatment
+infuse radioactive materials
+apply intrcav radiat simple
+apply intrcav radiat interm
+apply intrcav radiat compl
+hdr rdncl skn surf brachytx
+hdr rdncl skn surf brachytx
+hdr rdncl ntrstl/icav brchtx
+hdr rdncl ntrstl/icav brchtx
+hdr rdncl ntrstl/icav brchtx
+apply interstit radiat simpl
+apply interstit radiat compl
+hdr brachytx 1 channel
+hdr brachytx 2-12 channel
+apply surface radiation
+radiation handling
+radium/radioisotope therapy
+nuclear rx oral admin
+nuclear rx iv admin
+nuclear rx intracav admin
+nuclr rx interstit colloid
+hematopoietic nuclear tx
+nuclear rx intra-articular
+nuclear rx intra-arterial
+nuclear medicine therapy
+cath place cardio brachytx
+implant radiation dosimeter
+"i131 iodide cap, rx"
+iodine i-125 sodium iodide
+"i131 iodide sol, rx"
+"y90 ibritumomab, rx"
+p32 na phosphate
+p32 chromic phosphate
+sr89 strontium
+sm 153 lexidronam
+radium ra223 dichloride ther
+radiopharm rx agent noc
+"brachytx, non-str, gold-198"
+"brachytx, non-str,hdr ir-192"
+"brachytx, ns, non-hdrir-192"
+"brachytx, non-str,yttrium-90"
+"brachytx, non-str, ha, i-125"
+"brachytx, non-str, ha, p-103"
+"brachy linear, non-str,p-103"
+"brachytx, stranded, i-125"
+"brachytx,non-stranded,i-125"
+"brachytx, stranded, p-103"
+"brachytx, non-stranded,p-103"
+"brachytx, stranded, c-131"
+"brachytx, non-stranded,c-131"
+brachytx cesium-131 chloride
+"brachytx planar, p-103"
+"brachytx, stranded, nos"
+"brachytx, non-stranded, nos"
+"u/s trtmt, not leiomyomata"
+linear acc stereo radsur com
+linear acc based stero radio
+"robot lin-radsurg com, first"
+robt lin-radsurg fractx 2-5
+echo guidance radiotherapy
+stereoscopic x-ray guidance
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation treatment delivery
+radiation tx delivery imrt
+delivery comp imrt
+intrafraction track motion
+brachytherapy radioelements
+breast tomosynthesis bi
+scr mammo bi incl cad
+"lipid panel 
+occult blood feces
+"assay bld/serum cholesterol 
+assay glucose blood quant 
+glucose test 
+glucose tolerance test (gtt) 
+"assay of lipoprotein 
+"assay of triglycerides 
+psa screening
+colon ca screen;barium enema
+glaucoma scrn hgh risk direc
+colon ca scrn; barium enema
+screen cerv/vag thin layer
+screen c/v thin layer by md
+"scr c/v cyto,autosys and md"
+"scr c/v cyto,thinlayer,rescr"
+"scr c/v cyto,thinlayer,rescr"
+"scr c/v cyto,thinlayer,rescr"
+"scr c/v cyto, automated sys"
+"scr c/v cyto, autosys, rescr"
+fecal blood scrn immunoassay
+ultrasound exam aaa screen
+eia hiv-1/hiv-2 screen
+elisa hiv-1/hiv-2 screen
+oral hiv-1/hiv-2 screen
+"colorec ca scr, sto bas dna"
+hiv combination assay
+hpv combo assay ca  screen
+hepb screen high risk indiv
+screen pap by tech w md supv
+screening pap smear by phys
+flu vacc iiv4 no preserv id
+flu vacc iiv3 no preserv id
+iiv3 vacc no prsv 0.25 ml im
+iiv3 vacc no prsv 0.5 ml im
+iiv3 vaccine splt 0.25 ml im
+laiv3 vaccine intranasal
+cciiv3 vac no prsv 0.5 ml im
+iiv no prsv increased ag im
+pcv13 vaccine im
+laiv4 vaccine intranasal
+riv3 vaccine no preserv im
+cciiv4 vac no prsv 0.5 ml im
+riv4 vacc recombinant dna im
+iiv4 vacc no prsv 0.25 ml im
+iiv4 vacc no prsv 0.5 ml im
+iiv4 vacc splt 0.25 ml im
+iiv4 vacc splt 0.5 ml im
+ppsv23 vacc 2 yrs+ subq/im
+hepb vacc 3 dose immunsup im
+hepb vacc 2 dose adolesc im
+hepb vacc 3 dose ped/adol im
+hepb vaccine 3 dose adult im
+hepb vacc 4 dose immunsup im
+cciiv4 vacc abx free im
+agriflu vaccine
+"afluria vacc, 3 yrs & >, im"
+"flulaval vacc, 3 yrs & >, im"
+"fluvirin vacc, 3 yrs & >, im"
+"fluzone vacc, 3 yrs & >, im"
+"influenza virus vaccine, nos"

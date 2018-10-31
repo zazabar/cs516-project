@@ -1,0 +1,1123 @@
+laparoscopy, surgical, total hysterectomy for resection of malignancy (tumor debulking), with omentectomy including salpingo-oophorectomy, unilateral or bilateral, when performed
+esophagectomy, total or near total, with thoracoscopic mobilization of the upper, middle, and lower mediastinal esophagus, with separate laparoscopic proximal gastrectomy, with laparoscopic pyloric drainage procedure if performed, with open cervical pharyngogastrostomy or esophagogastrostomy (ie, thoracoscopic, laparoscopic and cervical incision esophagectomy, mckeown esophagectomy, tri-incisional esophagectomy)
+esophagectomy, distal two-thirds, with laparoscopic mobilization of the abdominal and lower mediastinal esophagus and proximal gastrectomy, with laparoscopic pyloric drainage procedure if performed, with separate thoracoscopic mobilization of the middle and upper mediastinal esophagus and thoracic esophagogastrostomy (ie, laparoscopic thoracoscopic esophagectomy, ivor lewis esophagectomy)
+esophagectomy, total or near total, with laparoscopic mobilization of the abdominal and mediastinal esophagus and proximal gastrectomy, with laparoscopic pyloric drainage procedure if performed, with open cervical pharyngogastrostomy or esophagogastrostomy (ie, laparoscopic transhiatal esophagectomy)
+removal and replacement of total replacement heart system (artificial heart)
+implantation of a total replacement heart system (artificial heart) with recipient cardiectomy
+total disc arthroplasty (artificial disc), anterior approach, including discectomy with end plate preparation (includes osteophytectomy for nerve root or spinal cord decompression and microdissection), cervical, three or more levels
+placement of a posterior intrafacet implant(s), unilateral or bilateral, including imaging and placement of bone graft(s) or synthetic device(s), single level; lumbar
+placement of a posterior intrafacet implant(s), unilateral or bilateral, including imaging and placement of bone graft(s) or synthetic device(s), single level; thoracic
+placement of a posterior intrafacet implant(s), unilateral or bilateral, including imaging and placement of bone graft(s) or synthetic device(s), single level; cervical
+posterior vertebral joint(s) arthroplasty (eg, facet joint[s] replacement), including facetectomy, laminectomy, foraminotomy, and vertebral column fixation, injection of bone cement, when performed, including fluoroscopy, single level, lumbar spine
+arthrodesis, pre-sacral interbody technique, disc space preparation, discectomy, without instrumentation, with image guidance, includes bone graft when performed; l4-l5 interspace (list separately in addition to code for primary procedure)
+arthrodesis, pre-sacral interbody technique, disc space preparation, discectomy, without instrumentation, with image guidance, includes bone graft when performed; l5-s1 interspace
+insertion of posterior spinous process distraction device (including necessary removal of bone or ligament for insertion and imaging guidance), lumbar; single level
+stereotactic placement of infusion catheter(s) in the brain for delivery of therapeutic agent(s), including computerized stereotactic planning and burr hole(s)
+replacement or repair of implantable component or components of total replacement heart system (artificial heart), excluding thoracic unit
+replacement or repair of implantable component or components of total replacement heart system (artificial heart), thoracic unit
+implantation of a total replacement heart system (artificial heart) with recipient cardiectomy
+radical excision external auditory canal lesion; with neck dissection
+radical excision external auditory canal lesion; without neck dissection
+transection or avulsion of; phrenic nerve
+laminectomy with cordotomy with section of both spinothalamic tracts, 2 stages within 14 days; cervical
+laminectomy with cordotomy, with section of both spinothalamic tracts, 1 stage; thoracic
+laminectomy with cordotomy, with section of both spinothalamic tracts, 1 stage; cervical
+laminectomy with cordotomy, with section of 1 spinothalamic tract, 1 stage; thoracic
+laminectomy with cordotomy, with section of 1 spinothalamic tract, 1 stage; cervical
+laminectomy with section of spinal accessory nerve
+laminectomy with rhizotomy; more than 2 segments
+laminectomy with rhizotomy; 1 or 2 segments
+laminectomy and section of dentate ligaments, with or without dural graft, cervical; more than 2 segments
+laminectomy and section of dentate ligaments, with or without dural graft, cervical; 1 or 2 segments
+laminectomy with drainage of intramedullary cyst/syrinx; to peritoneal or pleural space
+laminectomy with drainage of intramedullary cyst/syrinx; to subarachnoid space
+laminectomy with myelotomy (eg, bischof or drez type), cervical, thoracic, or thoracolumbar
+vertebral corpectomy (vertebral body resection), partial or complete, lateral extracavitary approach with decompression of spinal cord and/or nerve root(s) (eg, for tumor or retropulsed bone fragments); thoracic or lumbar, each additional segment (list separately in addition to code for primary procedure)
+vertebral corpectomy (vertebral body resection), partial or complete, lateral extracavitary approach with decompression of spinal cord and/or nerve root(s) (eg, for tumor or retropulsed bone fragments); lumbar, single segment
+vertebral corpectomy (vertebral body resection), partial or complete, lateral extracavitary approach with decompression of spinal cord and/or nerve root(s) (eg, for tumor or retropulsed bone fragments); thoracic, single segment
+vertebral corpectomy (vertebral body resection), partial or complete, transperitoneal or retroperitoneal approach with decompression of spinal cord, cauda equina or nerve root(s), lower thoracic, lumbar, or sacral; each additional segment (list separately in addition to code for primary procedure)
+vertebral corpectomy (vertebral body resection), partial or complete, transperitoneal or retroperitoneal approach with decompression of spinal cord, cauda equina or nerve root(s), lower thoracic, lumbar, or sacral; single segment
+vertebral corpectomy (vertebral body resection), partial or complete, combined thoracolumbar approach with decompression of spinal cord, cauda equina or nerve root(s), lower thoracic or lumbar; each additional segment (list separately in addition to code for primary procedure)
+vertebral corpectomy (vertebral body resection), partial or complete, combined thoracolumbar approach with decompression of spinal cord, cauda equina or nerve root(s), lower thoracic or lumbar; single segment
+vertebral corpectomy (vertebral body resection), partial or complete, transthoracic approach with decompression of spinal cord and/or nerve root(s); thoracic, each additional segment (list separately in addition to code for primary procedure)
+vertebral corpectomy (vertebral body resection), partial or complete, transthoracic approach with decompression of spinal cord and/or nerve root(s); thoracic, single segment
+vertebral corpectomy (vertebral body resection), partial or complete, anterior approach with decompression of spinal cord and/or nerve root(s); cervical, each additional segment (list separately in addition to code for primary procedure)
+vertebral corpectomy (vertebral body resection), partial or complete, anterior approach with decompression of spinal cord and/or nerve root(s); cervical, single segment
+discectomy, anterior, with decompression of spinal cord and/or nerve root(s), including osteophytectomy; thoracic, single interspace
+discectomy, anterior, with decompression of spinal cord and/or nerve root(s), including osteophytectomy; cervical, single interspace
+costovertebral approach with decompression of spinal cord or nerve root(s), (eg, herniated intervertebral disc), thoracic; single segment
+lumbar (including transfacet, or lateral extraforaminal approach) (eg, far lateral herniated intervertebral disc
+transpedicular approach with decompression of spinal cord, equina and/or nerve root(s) (eg, herniated intervertebral disc), single segment; thoracic
+laminoplasty, cervical, with decompression of the spinal cord, 2 or more vertebral segments; with reconstruction of the posterior bony elements (including the application of bridging bone graft and non-segmental fixation devices [eg, wire, suture, mini-plates], when performed)
+laminoplasty, cervical, with decompression of the spinal cord, 2 or more vertebral segments;
+laminectomy, facetectomy and foraminotomy (unilateral or bilateral with decompression of spinal cord, cauda equina and/or nerve root[s], [eg, spinal or lateral recess stenosis]), single vertebral segment; each additional segment, cervical, thoracic, or lumbar (list separately in addition to code for primary procedure)
+laminectomy, facetectomy and foraminotomy (unilateral or bilateral with decompression of spinal cord, cauda equina and/or nerve root[s], [eg, spinal or lateral recess stenosis]), single vertebral segment; lumbar
+laminectomy, facetectomy and foraminotomy (unilateral or bilateral with decompression of spinal cord, cauda equina and/or nerve root[s], [eg, spinal or lateral recess stenosis]), single vertebral segment; thoracic
+laminectomy, facetectomy and foraminotomy (unilateral or bilateral with decompression of spinal cord, cauda equina and/or nerve root[s], [eg, spinal or lateral recess stenosis]), single vertebral segment; cervical
+laminotomy (hemilaminectomy), with decompression of nerve root(s), including partial facetectomy, foraminotomy and/or excision of herniated intervertebral disc, reexploration, single interspace; lumbar
+laminotomy (hemilaminectomy), with decompression of nerve root(s), including partial facetectomy, foraminotomy and/or excision of herniated intervertebral disc, reexploration, single interspace; cervical
+laminotomy (hemilaminectomy), with decompression of nerve root(s), including partial facetectomy, foraminotomy and/or excision of herniated intervertebral disc; each additional interspace, cervical or lumbar (list separately in addition to code for primary procedure)
+laminotomy (hemilaminectomy), with decompression of nerve root(s), including partial facetectomy, foraminotomy and/or excision of herniated intervertebral disc; 1 interspace, lumbar
+laminotomy (hemilaminectomy), with decompression of nerve root(s), including partial facetectomy, foraminotomy and/or excision of herniated intervertebral disc; 1 interspace, cervical
+laminectomy with exploration and/or decompression of spinal cord and/or cauda equina, without facetectomy, foraminotomy or discectomy (eg, spinal stenosis), more than 2 vertebral segments; lumbar
+laminectomy with exploration and/or decompression of spinal cord and/or cauda equina, without facetectomy, foraminotomy or discectomy (eg, spinal stenosis), more than 2 vertebral segments; thoracic
+laminectomy with exploration and/or decompression of spinal cord and/or cauda equina, without facetectomy, foraminotomy or discectomy (eg, spinal stenosis), more than 2 vertebral segments; cervical
+laminectomy with removal of abnormal facets and/or pars inter-articularis with decompression of cauda equina and nerve roots for spondylolisthesis, lumbar (gill type procedure)
+laminectomy with exploration and/or decompression of spinal cord and/or cauda equina, without facetectomy, foraminotomy or discectomy (eg, spinal stenosis), 1 or 2 vertebral segments; sacral
+laminectomy with exploration and/or decompression of spinal cord and/or cauda equina, without facetectomy, foraminotomy or discectomy (eg, spinal stenosis), 1 or 2 vertebral segments; lumbar, except for spondylolisthesis
+laminectomy with exploration and/or decompression of spinal cord and/or cauda equina, without facetectomy, foraminotomy or discectomy (eg, spinal stenosis), 1 or 2 vertebral segments; thoracic
+laminectomy with exploration and/or decompression of spinal cord and/or cauda equina, without facetectomy, foraminotomy or discectomy (eg, spinal stenosis), 1 or 2 vertebral segments; cervical
+implantation, revision or repositioning of tunneled intrathecal or epidural catheter, for long-term medication administration via an external pump or implantable reservoir/infusion pump; with laminectomy
+decompression procedure, percutaneous, of nucleus pulposus of intervertebral disc, any method utilizing needle based technique to remove disc material under fluoroscopic imaging or other form of indirect visualization, with the use of an endoscope, with discography and/or epidural injection(s) at the treated level(s), when performed, single or multiple levels, lumbar
+removal of complete cerebrospinal fluid shunt system; with replacement by similar or other shunt at same operation
+removal of complete cerebrospinal fluid shunt system; without replacement
+replacement or revision of cerebrospinal fluid shunt, obstructed valve, or distal catheter in shunt system
+replacement or irrigation, ventricular catheter
+creation of shunt; ventriculo-peritoneal, -pleural, other terminus
+creation of shunt; ventriculo-atrial, -jugular, -auricular
+ventriculocisternostomy, third ventricle; stereotactic, neuroendoscopic method
+ventriculocisternostomy, third ventricle;
+replacement or irrigation, subarachnoid/subdural catheter
+creation of shunt; subarachnoid/subdural-peritoneal, -pleural, other terminus
+creation of shunt; subarachnoid/subdural-atrial, -jugular, -auricular
+ventriculocisternostomy (torkildsen type operation)
+neuroendoscopy, intracranial; with excision of pituitary tumor, transnasal or trans-sphenoidal approach
+neuroendoscopy, intracranial; with excision of brain tumor, including placement of external ventricular catheter for drainage
+neuroendoscopy, intracranial; with retrieval of foreign body
+neuroendoscopy, intracranial; with dissection of adhesions, fenestration of septum pellucidum or intraventricular cysts (including placement, replacement, or removal of ventricular catheter)
+neuroendoscopy, intracranial, for placement or replacement of ventricular catheter and attachment to shunt system or external drainage (list separately in addition to code for primary procedure)
+craniotomy for repair of encephalocele, skull base
+repair of encephalocele, skull vault, including cranioplasty
+craniotomy for repair of dural/cerebrospinal fluid leak, including surgery for rhinorrhea/otorrhea
+elevation of depressed skull fracture; with repair of dura and/or debridement of brain
+elevation of depressed skull fracture; compound or comminuted, extradural
+elevation of depressed skull fracture; simple, extradural
+revision or removal of intracranial neurostimulator electrodes
+craniectomy for implantation of neurostimulator electrodes, cerebellar; subcortical
+craniectomy for implantation of neurostimulator electrodes, cerebellar; cortical
+twist drill, burr hole, craniotomy, or craniectomy with stereotactic implantation of neurostimulator electrode array in subcortical site (eg, thalamus, globus pallidus, subthalamic nucleus, periventricular, periaqueductal gray), with use of intraoperative microelectrode recording; first array
+twist drill, burr hole, craniotomy, or craniectomy with stereotactic implantation of neurostimulator electrode array in subcortical site (eg, thalamus, globus pallidus, subthalamic nucleus, periventricular, periaqueductal gray), without use of intraoperative microelectrode recording; first array
+craniectomy or craniotomy for implantation of neurostimulator electrodes, cerebral, cortical
+twist drill or burr hole(s) for implantation of neurostimulator electrodes, cortical
+stereotactic localization, including burr hole(s), with insertion of catheter(s) or probe(s) for placement of radiation source
+stereotactic implantation of depth electrodes into the cerebrum for long-term seizure monitoring
+stereotactic biopsy, aspiration, or excision, including burr hole(s), for intracranial lesion; with computed tomography and/or magnetic resonance guidance
+stereotactic biopsy, aspiration, or excision, including burr hole(s), for intracranial lesion
+creation of lesion by stereotactic method, including burr hole(s) and localizing and recording techniques, single or multiple stages; subcortical structure(s) other than globus pallidus or thalamus
+creation of lesion by stereotactic method, including burr hole(s) and localizing and recording techniques, single or multiple stages; globus pallidus or thalamus
+anastomosis, arterial, extracranial-intracranial (eg, middle cerebral/cortical) arteries
+surgery of aneurysm, vascular malformation or carotid-cavernous fistula; by intra-arterial embolization, injection procedure, or balloon catheter
+surgery of aneurysm, vascular malformation or carotid-cavernous fistula; by intracranial electrothrombosis
+surgery of aneurysm, vascular malformation or carotid-cavernous fistula; by intracranial and cervical occlusion of carotid artery
+surgery of intracranial aneurysm, cervical approach by application of occluding clamp to cervical carotid artery (selverstone-crutchfield type)
+surgery of simple intracranial aneurysm, intracranial approach; vertebrobasilar circulation
+surgery of simple intracranial aneurysm, intracranial approach; carotid circulation
+surgery of complex intracranial aneurysm, intracranial approach; vertebrobasilar circulation
+surgery of complex intracranial aneurysm, intracranial approach; carotid circulation
+surgery of intracranial arteriovenous malformation; dural, complex
+surgery of intracranial arteriovenous malformation; dural, simple
+surgery of intracranial arteriovenous malformation; infratentorial, complex
+surgery of intracranial arteriovenous malformation; infratentorial, simple
+surgery of intracranial arteriovenous malformation; supratentorial, complex
+surgery of intracranial arteriovenous malformation; supratentorial, simple
+secondary repair of dura for cerebrospinal fluid leak, anterior, middle or posterior cranial fossa following surgery of the skull base; by local or regionalized vascularized pedicle flap or myocutaneous flap (including galea, temporalis, frontalis or occi
+secondary repair of dura for cerebrospinal fluid leak, anterior, middle or posterior cranial fossa following surgery of the skull base; by free tissue graft (eg, pericranium, fascia, tensor fascia lata, adipose tissue, homologous or synthetic grafts)
+resection or excision of neoplastic, vascular or infectious lesion of base of posterior cranial fossa, jugular foramen, foramen magnum, or c1-c3 vertebral bodies; intradural, including dural repair, with or without graft
+resection or excision of neoplastic, vascular or infectious lesion of base of posterior cranial fossa, jugular foramen, foramen magnum, or c1-c3 vertebral bodies; extradural
+transection or ligation, carotid artery in petrous canal; with repair by anastomosis or graft (list separately in addition to code for primary procedure)
+transection or ligation, carotid artery in cavernous sinus; with repair by anastomosis or graft (list separately in addition to code for primary procedure)
+resection or excision of neoplastic, vascular or infectious lesion of parasellar area, cavernous sinus, clivus or midline skull base; intradural, including dural repair, with or without graft
+resection or excision of neoplastic, vascular or infectious lesion of parasellar area, cavernous sinus, clivus or midline skull base; extradural
+resection or excision of neoplastic, vascular or infectious lesion of infratemporal fossa, parapharyngeal space, petrous apex; intradural, including dural repair, with or without graft
+resection or excision of neoplastic, vascular or infectious lesion of infratemporal fossa, parapharyngeal space, petrous apex; extradural
+resection or excision of neoplastic, vascular or infectious lesion of base of anterior cranial fossa; intradural, including dural repair, with or without graft
+resection or excision of neoplastic, vascular or infectious lesion of base of anterior cranial fossa; extradural
+transpetrosal approach to posterior cranial fossa, clivus or foramen magnum, including ligation of superior petrosal sinus and/or sigmoid sinus
+transtemporal approach to posterior cranial fossa, jugular foramen or midline skull base, including mastoidectomy, decompression of sigmoid sinus and/or facial nerve, with or without mobilization
+orbitocranial zygomatic approach to middle cranial fossa (cavernous sinus and carotid artery, clivus, basilar artery or petrous apex) including osteotomy of zygoma, craniotomy, extra- or intradural elevation of temporal lobe
+infratemporal post-auricular approach to middle cranial fossa (internal auditory meatus, petrous apex, tentorium, cavernous sinus, parasellar area, infratemporal fossa) including mastoidectomy, resection of sigmoid sinus, with or without decompression and
+infratemporal pre-auricular approach to middle cranial fossa (parapharyngeal space, infratemporal and midline skull base, nasopharynx), with or without disarticulation of the mandible, including parotidectomy, craniotomy, decompression and/or mobilization
+bicoronal, transzygomatic and/or lefort i osteotomy approach to anterior cranial fossa with or without internal fixation, without bone graft
+orbitocranial approach to anterior cranial fossa, extradural, including supraorbital ridge osteotomy and elevation of frontal and/or temporal lobe(s); with orbital exenteration
+orbitocranial approach to anterior cranial fossa, extradural, including supraorbital ridge osteotomy and elevation of frontal and/or temporal lobe(s); without orbital exenteration
+craniofacial approach to anterior cranial fossa; intradural, including unilateral or bifrontal craniotomy, elevation or resection of frontal lobe, osteotomy of base of anterior cranial fossa
+craniofacial approach to anterior cranial fossa; extradural, including unilateral or bifrontal craniotomy, elevation of frontal lobe(s), osteotomy of base of anterior cranial fossa
+craniofacial approach to anterior cranial fossa; extradural, including lateral rhinotomy, orbital exenteration, ethmoidectomy, sphenoidectomy and/or maxillectomy
+craniofacial approach to anterior cranial fossa; extradural, including lateral rhinotomy, ethmoidectomy, sphenoidectomy, without maxillectomy or orbital exenteration
+transoral approach to skull base, brain stem or upper spinal cord for biopsy, decompression or excision of lesion; requiring splitting of tongue and/or mandible (including tracheostomy)
+transoral approach to skull base, brain stem or upper spinal cord for biopsy, decompression or excision of lesion;
+craniectomy or craniotomy; with treatment of penetrating wound of brain
+craniectomy or craniotomy; with excision of foreign body from brain
+for multiple subpial transections, with electrocorticography during surgery
+craniotomy with elevation of bone flap; for selective amygdalohippocampectomy
+hypophysectomy or excision of pituitary tumor, transnasal or transseptal approach, nonstereotactic
+craniotomy for hypophysectomy or excision of pituitary tumor, intracranial approach
+craniotomy with elevation of bone flap; for excision of craniopharyngioma
+craniotomy with elevation of bone flap; for excision or coagulation of choroid plexus
+craniotomy with elevation of bone flap; for partial or subtotal (functional) hemispherectomy
+craniotomy with elevation of bone flap; for transection of corpus callosum
+craniotomy with elevation of bone flap; for lobectomy, other than temporal lobe, partial or total, without electrocorticography during surgery
+craniotomy with elevation of bone flap; for lobectomy, other than temporal lobe, partial or total, with electrocorticography during surgery
+craniotomy with elevation of bone flap; for lobectomy, temporal lobe, with electrocorticography during surgery
+craniotomy with elevation of bone flap; for lobectomy, temporal lobe, without electrocorticography during surgery
+craniotomy with elevation of bone flap; for excision of cerebral epileptogenic focus, with electrocorticography during surgery (includes removal of electrode array)
+craniotomy with elevation of bone flap; for removal of epidural or subdural electrode array, without excision of cerebral tissue (separate procedure)
+craniotomy with elevation of bone flap; for excision of epileptogenic focus without electrocorticography during surgery
+craniotomy with elevation of bone flap; for subdural implantation of an electrode array, for long-term seizure monitoring
+subdural implantation of strip electrodes through 1 or more burr or trephine hole(s) for long-term seizure monitoring
+craniectomy, bone flap craniotomy, transtemporal (mastoid) for excision of cerebellopontine angle tumor; combined with middle/posterior fossa craniotomy/craniectomy
+craniectomy, bone flap craniotomy, transtemporal (mastoid) for excision of cerebellopontine angle tumor;
+craniectomy, infratentorial or posterior fossa; for excision or fenestration of cyst
+craniectomy, infratentorial or posterior fossa; for excision of brain abscess
+craniectomy for excision of brain tumor, infratentorial or posterior fossa; midline tumor at base of skull
+craniectomy for excision of brain tumor, infratentorial or posterior fossa; cerebellopontine angle tumor
+craniectomy for excision of brain tumor, infratentorial or posterior fossa; meningioma
+craniectomy for excision of brain tumor, infratentorial or posterior fossa; except meningioma, cerebellopontine angle tumor, or midline tumor at base of skull
+craniectomy, trephination, bone flap craniotomy; for excision or fenestration of cyst, supratentorial
+craniectomy, trephination, bone flap craniotomy; for excision of brain abscess, supratentorial
+craniectomy, trephination, bone flap craniotomy; for excision of meningioma, supratentorial
+craniectomy, trephination, bone flap craniotomy; for excision of brain tumor, supratentorial, except meningioma
+craniectomy, suboccipital; for mesencephalic tractotomy or pedunculotomy
+for section of 1 or more cranial nerves
+craniectomy, suboccipital; for exploration or decompression of cranial nerves
+other cranial decompression, posterior fossa
+craniectomy, suboccipital with cervical laminectomy for decompression of medulla and spinal cord, with or without dural graft (eg, arnold-chiari malformation)
+subtemporal cranial decompression (pseudotumor cerebri, slit ventricle syndrome)
+exploration of orbit (transcranial approach); with removal of lesion
+exploration of orbit (transcranial approach); with biopsy
+decompression of orbit only, transcranial approach
+craniectomy or craniotomy, decompressive, with or without duraplasty, for treatment of intracranial hypertension, without evacuation of associated intraparenchymal hematoma; with lobectomy
+craniectomy or craniotomy, decompressive, with or without duraplasty, for treatment of intracranial hypertension, without evacuation of associated intraparenchymal hematoma; without lobectomy
+craniectomy or craniotomy, drainage of intracranial abscess; infratentorial
+craniectomy or craniotomy, drainage of intracranial abscess; supratentorial
+craniectomy or craniotomy for evacuation of hematoma, infratentorial; intracerebellar
+craniectomy or craniotomy for evacuation of hematoma, infratentorial; extradural or subdural
+craniectomy or craniotomy for evacuation of hematoma, supratentorial; intracerebral
+craniectomy or craniotomy for evacuation of hematoma, supratentorial; extradural or subdural
+craniectomy or craniotomy, exploratory; infratentorial (posterior fossa)
+craniectomy or craniotomy, exploratory; supratentorial
+burr hole(s) or trephine, infratentorial, unilateral or bilateral
+burr hole(s) or trephine, supratentorial, exploratory, not followed by other surgery
+burr hole(s); for implanting ventricular catheter, reservoir, eeg electrode(s), pressure recording device, or other cerebral monitoring device (separate procedure)
+burr hole(s); with aspiration of hematoma or cyst, intracerebral
+burr hole(s) with evacuation and/or drainage of hematoma, extradural or subdural
+burr hole(s) or trephine; with subsequent tapping (aspiration) of intracranial abscess or cyst
+burr hole(s) or trephine; with drainage of brain abscess or cyst
+burr hole(s) or trephine; with biopsy of brain or intracranial lesion
+burr hole(s) for ventricular puncture (including injection of gas, contrast media, dye, or radioactive material)
+twist drill hole(s) for subdural, intracerebral, or ventricular puncture; for evacuation and/or drainage of subdural hematoma
+twist drill hole(s) for subdural, intracerebral, or ventricular puncture; for implanting ventricular catheter, pressure recording device, or other intracerebral monitoring device
+twist drill hole for subdural or ventricular puncture
+parathyroid autotransplantation (list separately in addition to code for primary procedure)
+parathyroidectomy or exploration of parathyroid(s); with mediastinal exploration, sternal split or transthoracic approach
+parathyroidectomy or exploration of parathyroid(s); re-exploration
+parathyroidectomy or exploration of parathyroid(s)
+excision of thyroglossal duct cyst or sinus; recurrent
+excision of thyroglossal duct cyst or sinus
+thyroidectomy, including substernal thyroid; cervical approach
+thyroidectomy, including substernal thyroid; sternal split or transthoracic approach
+thyroidectomy, removal of all remaining thyroid tissue following previous removal of a portion of thyroid
+thyroidectomy, total or subtotal for malignancy; with radical neck dissection
+thyroidectomy, total or subtotal for malignancy; with limited neck dissection
+thyroidectomy, total or complete
+total thyroid lobectomy, unilateral; with contralateral subtotal lobectomy, including isthmusectomy
+total thyroid lobectomy, unilateral; with or without isthmusectomy
+partial thyroid lobectomy, unilateral; with contralateral subtotal lobectomy, including isthmusectomy
+partial thyroid lobectomy, unilateral; with or without isthmusectomy
+excision of cyst or adenoma of thyroid, or transection of isthmus
+incision and drainage of thyroglossal duct cyst, infected
+induced abortion, by 1 or more vaginal suppositories (e.g., prostaglandin) with or without cervical dilation (e.g., laminaria), including hospital admission and visits, delivery of fetus and secundines; with hysterotomy (failed medical evacuation)
+cesarean delivery only, following attempted vaginal delivery after previous cesarean delivery; including postpartum care
+cesarean delivery only, following attempted vaginal delivery after previous cesarean delivery;
+routine obstetric care including antepartum care, cesarean delivery, and postpartum care, following attempted vaginal delivery after previous cesarean delivery
+subtotal or total hysterectomy after cesarean delivery
+cesarean delivery only; including postpartum care
+cesarean delivery only;
+routine obstetric care including antepartum care, cesarean delivery, and postpartum care
+hysterotomy, abdominal (e.g., for hydatidiform mole, abortion)
+follicle puncture for oocyte retrieval, any method
+laparotomy, for staging or restaging of ovarian, tubal, or primary peritoneal malignancy (second look), with or without omentectomy, peritoneal washing, biopsy of abdominal and pelvic peritoneum, diaphragmatic assessment with pelvic and limited para-aortic lymphadenectomy
+bilateral salpingo-oophorectomy with total omentectomy, total abdominal hysterectomy for malignancy
+bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy and radical dissection for debulking; with pelvic lymphadenectomy and limited para-aortic lymphadenectomy
+bilateral salpingo-oophorectomy with omentectomy, total abdominal hysterectomy and radical dissection for debulking
+resection (initial) of ovarian, tubal or primary peritoneal malignancy with bilateral salpingo-oophorectomy and omentectomy; with radical dissection for debulking (i.e., radical excision or destruction, intra-abdominal or retroperitoneal tumors)
+resection (initial) of ovarian, tubal or primary peritoneal malignancy with bilateral salpingo-oophorectomy and omentectomy; with total abdominal hysterectomy, pelvic and limited para-aortic lymphadenectomy
+resection (initial) of ovarian, tubal or primary peritoneal malignancy with bilateral salpingo-oophorectomy and omentectomy;
+oophorectomy, partial or total, unilateral or bilateral; for ovarian, tubal or primary peritoneal malignancy, with para-aortic and pelvic lymph node biopsies, peritoneal washings, peritoneal biopsies, diaphragmatic assessments, with or without salpingectomy(s), with or without omentectomy
+oophorectomy, partial or total, unilateral or bilateral;
+ovarian cystectomy, unilateral or bilateral
+wedge resection or bisection of ovary, unilateral or bilateral
+biopsy of ovary, unilateral or bilateral (separate procedure)
+transposition, ovary(s)
+drainage of ovarian abscess; abdominal approach
+drainage of ovarian abscess; vaginal approach, open
+drainage of ovarian cyst(s), unilateral or bilateral (separate procedure); abdominal approach
+drainage of ovarian cyst(s), unilateral or bilateral (separate procedure); vaginal approach
+lysis of adhesions (salpingolysis, ovariolysis)
+salpingo-oophorectomy, complete or partial, unilateral or bilateral (separate procedure)
+unlisted laparoscopy procedure, oviduct, ovary
+laparoscopy, surgical; with fulguration or excision of lesions of the ovary, pelvic viscera, or peritoneal surface by any method
+laparoscopy, surgical; with removal of adnexal structures (partial or total oophorectomy and/or salpingectomy)
+laparoscopy, surgical; with lysis of adhesions (salpingolysis, ovariolysis) (separate procedure)
+laparoscopy, surgical, with total hysterectomy, for uterus greater than 250 g; with removal of tube(s) and/or ovary(s)
+laparoscopy, surgical, with total hysterectomy, for uterus greater than 250 g
+laparoscopy, surgical, with total hysterectomy, for uterus 250 g or less; with removal of tube(s) and/or ovary(s)
+laparoscopy, surgical, with total hysterectomy, for uterus 250 g or less
+laparoscopy, surgical, with vaginal hysterectomy, for uterus greater than 250 g; with removal of tube(s) and/or ovary(s)
+laparoscopy, surgical, with vaginal hysterectomy, for uterus greater than 250 g
+laparoscopy, surgical, with vaginal hysterectomy, for uterus 250 g or less; with removal of tubes(s) and /or ovary(s)
+laparoscopy, surgical, with vaginal hysterectomy, for uterus 250 g or less
+laparoscopy, surgical, with radical hysterectomy, with bilateral total pelvic lymphadenectomy and para-aortic lymph node sampling (biopsy), with removal of tube(s) and ovary(s), if performed
+laparoscopy, surgical, supracervical hysterectomy, for uterus greater than 250 g; with removal of tube(s) and/or ovary(s)
+laparoscopy, surgical, supracervical hysterectomy, for uterus greater than 250 g
+laparoscopy, surgical, supracervical hysterectomy, for uterus 250 g or less; with removal of tube(s) and/or ovary(s)
+laparoscopy, surgical, supracervical hysterectomy, for uterus 250 g or less
+vaginal hysterectomy, for uterus greater than 250 g; with repair of enterocele
+vaginal hysterectomy, for uterus greater than 250 g; with colpo-urethrocystopexy (marshall-marchetti-krantz type, pereyra type) with or without endoscopic control
+vaginal hysterectomy, for uterus greater than 250 g; with removal of tube(s) and/or ovary(s), with repair of enterocele
+vaginal hysterectomy, for uterus greater than 250 g; with removal of tube(s) and/or ovary(s)
+vaginal hysterectomy, for uterus greater than 250 g
+vaginal hysterectomy, radical (schauta type operation)
+vaginal hysterectomy, with total or partial vaginectomy; with repair of enterocele
+vaginal hysterectomy, for uterus 250 g or less;
+vaginal hysterectomy, for uterus 250 g or less; with repair of enterocele
+vaginal hysterectomy, for uterus 250 g or less; with colpo-urethrocystopexy (marshall-marchetti-krantz type, pereyra type) with or without endoscopic control
+vaginal hysterectomy, for uterus 250 g or less; with removal of tube(s), and/or ovary(s), with repair of enterocele
+vaginal hysterectomy, for uterus 250 g or less; with removal of tube(s), and/or ovary(s)
+vaginal hysterectomy, for uterus 250 g or less
+pelvic exenteration for gynecologic malignancy, with total abdominal hysterectomy or cervicectomy, with or without removal of tube(s), with or without removal of ovary(s), with removal of bladder and ureteral transplantations, and/or abdominoperineal resection of rectum and colon and colostomy, or any combination thereof
+radical abdominal hysterectomy, with bilateral total pelvic lymphadenectomy and para-aortic lymph node sampling (biopsy), with or without removal of tube(s), with or without removal of ovary(s)
+total abdominal hysterectomy, including partial vaginectomy, with para-aortic and pelvic lymph node sampling, with or without removal of tube(s), with or without removal of ovary(s)
+supracervical abdominal hysterectomy (subtotal hysterectomy), with or without removal of tube(s), with or without removal of ovary(s)
+total abdominal hysterectomy (corpus and cervix), with or without removal of tube(s), with or without removal of ovary(s); with colpo-urethrocystopexy (eg, marshall-marchetti-krantz, burch)
+total abdominal hysterectomy (corpus and cervix), with or without removal of tube(s), with or without removal of ovary(s)
+closure of rectovaginal fistula; abdominal approach, with concomitant colostomy
+laparoscopy, surgical prostatectomy, retropubic radical, including nerve sparing, includes robotic assistance, when performed
+prostatectomy, retropubic radical, with or without nerve sparing; with bilateral pelvic lymphadenectomy, including external iliac, hypogastric, and obturator nodes
+prostatectomy, retropubic radical, with or without nerve sparing; with lymph node biopsy(s) (limited pelvic lymphadenectomy)
+prostatectomy, retropubic radical, with or without nerve sparing;
+prostatectomy (including control of postoperative bleeding, vasectomy, meatotomy, urethral calibration and/or dilation, and internal urethrotomy); retropubic, subtotal
+prostatectomy (including control of postoperative bleeding, vasectomy, meatotomy, urethral calibration and/or dilation, and internal urethrotomy); suprapubic, subtotal, 1 or 2 stages
+prostatectomy, perineal radical; with bilateral pelvic lymphadenectomy, including external iliac, hypogastric and obturator nodes
+prostatectomy, perineal radical; with lymph node biopsy(s) (limited pelvic lymphadenectomy)
+prostatectomy, perineal radical
+biopsy, prostate; incisional, any approach
+closure of vesicouterine fistula; with hysterectomy
+unlisted laparoscopic nephrectomy
+laparoscopy, surgical; nephrectomy with total ureterectomy
+laparoscopy, surgical; donor nephrectomy (including cold preservation), from living donor
+laparoscopy, surgical; nephrectomy, including partial ureterectomy
+laparoscopy, surgical; radical nephrectomy (includes removal of gerota's fascia and surrounding fatty tissue, removal of regional lymph nodes, and adrenalectomy)
+laparoscopy, surgical; partial nephrectomy
+laparoscopy, surgical; ablation of renal mass lesion(s), including intraoperative ultrasound guidance and monitoring, when performed
+laparoscopy, surgical; ablation of renal cysts
+pyeloplasty (foley y-pyeloplasty), plastic operation on renal pelvis, with or without plastic operation on ureter, nephropexy, nephrostomy, pyelostomy, or ureteral splinting; complicated (congenital kidney abnormality, secondary pyeloplasty, solitary kidney, calycoplasty)
+pyeloplasty (foley y-pyeloplasty), plastic operation on renal pelvis, with or without plastic operation on ureter, nephropexy, nephrostomy, pyelostomy, or ureteral splinting; simple
+renal autotransplantation, reimplantation of kidney
+renal allotransplantation, implantation of graft; with recipient nephrectomy
+renal allotransplantation, implantation of graft; without recipient nephrectomy
+recipient nephrectomy (separate procedure)
+donor nephrectomy (including cold preservation); open, from living donor
+excision of perinephric cyst
+excision or unroofing of cyst(s) of kidney
+ablation, open, 1 or more renal mass lesion(s), cryosurgical, including intraoperative ultrasound guidance and monitoring, if performed
+nephrectomy, partial
+nephrectomy with total ureterectomy and bladder cuff; through separate incision
+nephrectomy with total ureterectomy and bladder cuff; through same incision
+nephrectomy, including partial ureterectomy, any open approach including rib resection; radical, with regional lymphadenectomy and/or vena caval thrombectomy
+nephrectomy, including partial ureterectomy, any open approach including rib resection; complicated because of previous surgery on same kidney
+nephrectomy, including partial ureterectomy, any open approach including rib resection;
+renal biopsy; by surgical exposure of kidney
+pyelotomy; complicated (e.g., secondary operation, congenital kidney abnormality)
+pyelotomy; with removal of calculus (pyelolithotomy, pelviolithotomy, including coagulum pyelolithotomy)
+pyelotomy; with drainage, pyelostomy
+pyelotomy; with exploration
+nephrolithotomy; removal of large staghorn calculus filling renal pelvis and calyces (including anatrophic pyelolithotomy)
+nephrolithotomy; complicated by congenital kidney abnormality
+nephrolithotomy; secondary surgical operation for calculus
+nephrolithotomy; removal of calculus
+nephrotomy, with exploration
+nephrostomy, nephrotomy with drainage
+drainage of perirenal or renal abscess, open
+ renal exploration, not necessitating other specific procedures
+free omental flap with microvascular anastomosis
+omental flap, intra-abdominal (list separately in addition to code for primary procedure)
+suture, secondary, of abdominal wall for evisceration or dehiscence
+unlisted laparoscopy procedure, hernioplasty, herniorrhaphy, herniotomy
+laparoscopy, surgical, repair, recurrent incisional hernia (includes mesh insertion, when performed); incarcerated or strangulated
+laparoscopy, surgical, repair, recurrent incisional hernia (includes mesh insertion, when performed); reducible
+laparoscopy, surgical, repair, incisional hernia (includes mesh insertion, when performed); incarcerated or strangulated
+laparoscopy, surgical, repair, incisional hernia (includes mesh insertion, when performed); reducible
+laparoscopy, surgical, repair, ventral, umbilical, spigelian or epigastric hernia (includes mesh insertion, when performed); incarcerated or strangulated
+laparoscopy, surgical, repair, ventral, umbilical, spigelian or epigastric hernia (includes mesh insertion, when performed); reducible
+laparoscopy, surgical; repair recurrent inguinal hernia
+laparoscopy, surgical; repair initial inguinal hernia
+repair of omphalocele (gross type operation); second stage
+repair of omphalocele (gross type operation); first stage
+repair of large omphalocele or gastroschisis; with removal of prosthesis, final reduction and closure, in operating room
+repair of large omphalocele or gastroschisis; with or without prosthesis
+repair of small omphalocele, with primary closure
+repair spigelian hernia
+repair umbilical hernia, age 5 years or older; incarcerated or strangulated
+repair umbilical hernia, age 5 years or older; reducible
+repair umbilical hernia, younger than age 5 years; incarcerated or strangulated
+repair umbilical hernia, younger than age 5 years; reducible
+repair epigastric hernia (eg, preperitoneal fat); incarcerated or strangulated
+repair epigastric hernia (eg, preperitoneal fat); reducible (separate procedure)
+repair recurrent incisional or ventral hernia; incarcerated or strangulated
+repair recurrent incisional or ventral hernia; reducible
+repair initial incisional or ventral hernia; incarcerated or strangulated
+repair initial incisional or ventral hernia; reducible
+repair recurrent femoral hernia; incarcerated or strangulated
+repair recurrent femoral hernia; reducible
+incarcerated or strangulated
+repair initial femoral hernia, any age; reducible
+repair inguinal hernia, sliding, any age
+repair recurrent inguinal hernia, any age; incarcerated or strangulated
+repair recurrent inguinal hernia, any age; reducible
+repair initial inguinal hernia, age 5 years or older; incarcerated or strangulated
+repair initial inguinal hernia, age 5 years or older; reducible
+repair initial inguinal hernia, age 6 months to younger than 5 years, with or without hydrocelectomy; incarcerated or strangulated
+repair initial inguinal hernia, age 6 months to younger than 5 years, with or without hydrocelectomy; reducible
+repair, initial inguinal hernia, full term infant younger than age 6 months, or preterm infant older than 50 weeks postconception age and younger than age 6 months at the time of surgery, with or without hydrocelectomy; incarcerated or strangulated
+repair, initial inguinal hernia, full term infant younger than age 6 months, or preterm infant older than 50 weeks postconception age and younger than age 6 months at the time of surgery, with or without hydrocelectomy; reducible
+repair, initial inguinal hernia, preterm infant (younger than 37 weeks gestation at birth), performed from birth up to 50 weeks postconception age, with or without hydrocelectomy; incarcerated or strangulated
+repair, initial inguinal hernia, preterm infant (younger than 37 weeks gestation at birth), performed from birth up to 50 weeks postconception age, with or without hydrocelectomy; reducible
+ revision  of peritoneal-venous shunt
+insertion of peritoneal-venous shunt
+insertion of tunneled intraperitoneal catheter for dialysis, open
+insertion of tunneled intraperitoneal catheter, with subcutaneous port (ie, totally implantable)
+placement of interstitial device(s) for radiation therapy guidance (eg, fiducial markers, dosimeter), open, intra-abdominal, intrapelvic, and/or retroperitoneum, including image guidance, if performed, single or multiple (list separately in addition to code for primary procedure)
+removal of peritoneal foreign body from peritoneal cavity
+laparoscopy, surgical; with omentopexy (omental tacking procedure) (list separately in addition to code for primary procedure)
+laparoscopy, surgical; with revision of previously placed intraperitoneal cannula or catheter, with removal of intraluminal obstructive material if performed
+laparoscopy, surgical; with insertion of tunneled intraperitoneal catheter
+ laparoscopy, surgical; with biopsy (single or multiple)
+laparoscopy, abdomen, peritoneum, and omentum, diagnostic, with or without collection of specimen(s) by brushing or washing (separate procedure)
+omentectomy, epiploectomy, resection of omentum (separate procedure)
+umbilectomy, omphalectomy, excision of umbilicus (separate procedure)
+staging laparotomy for hodgkin's disease or lymphoma (includes splenectomy, needle or open biopsies of both liver lobes, possibly also removal of abdominal nodes, abdominal node and/or bone marrow biopsies, ovarian repositioning)
+excision of presacral or sacrococcygeal tumor
+excision or destruction, open, intra-abdominal tumors, cysts or endometriomas, 1 or more peritoneal, mesenteric, or retroperitoneal primary or secondary tumors; largest tumor greater than 10.0 cm diameter
+excision or destruction, open, intra-abdominal tumors, cysts or endometriomas, 1 or more peritoneal, mesenteric, or retroperitoneal primary or secondary tumors; largest tumor 5.1-10.0 cm diameter
+excision or destruction, open, intra-abdominal tumors, cysts or endometriomas, 1 or more peritoneal, mesenteric, or retroperitoneal primary or secondary tumors; largest tumor 5 cm diameter or less
+drainage of retroperitoneal abscess, open
+drainage of subdiaphragmatic or subphrenic abscess, open
+drainage of peritoneal abscess or localized peritonitis, exclusive of appendiceal abscess, open
+exploration, retroperitoneal area with or without biopsy(s) (separate procedure)
+reopening of recent laparotomy
+exploratory laparotomy, exploratory celiotomy with or without biopsy(s) (separate procedure)
+pancreaticojejunostomy, side-to-side anastomosis (puestow-type operation)
+pancreatorrhaphy for injury
+internal anastomosis of pancreatic cyst to gastrointestinal tract; roux-en-y
+internal anastomosis of pancreatic cyst to gastrointestinal tract; direct
+external drainage, pseudocyst of pancreas; open
+marsupialization of pancreatic cyst
+pancreatectomy, total or subtotal, with autologous transplantation of pancreas or pancreatic islet cells
+pancreatectomy, total
+pancreatectomy, proximal subtotal with near-total duodenectomy, choledochoenterostomy and duodenojejunostomy (pylorus-sparing, whipple-type procedure); without pancreatojejunostomy
+pancreatectomy, proximal subtotal with near-total duodenectomy, choledochoenterostomy and duodenojejunostomy (pylorus-sparing, whipple-type procedure); with pancreatojejunostomy
+pancreatectomy, proximal subtotal with total duodenectomy, partial gastrectomy, choledochoenterostomy and gastrojejunostomy (whipple-type procedure); without pancreatojejunostomy
+pancreatectomy, proximal subtotal with total duodenectomy, partial gastrectomy, choledochoenterostomy and gastrojejunostomy (whipple-type procedure); with pancreatojejunostomy
+excision of ampulla of vater
+pancreatectomy, distal, near-total with preservation of duodenum (child-type procedure)
+pancreatectomy, distal subtotal, with or without splenectomy; with pancreaticojejunostomy
+pancreatectomy, distal subtotal, with or without splenectomy; without pancreaticojejunostomy
+excision of lesion of pancreas (eg, cyst, adenoma)
+resection or debridement of pancreas and peripancreatic tissue for acute necrotizing pancreatitis
+biopsy of pancreas, open (eg, fine needle aspiration, needle core biopsy, wedge biopsy)
+removal of pancreatic calculus
+placement of drains, peripancreatic, for acute pancreatitis; with cholecystostomy, gastrostomy, and jejunostomy
+placement of drains, peripancreatic, for acute pancreatitis;
+suture of extrahepatic biliary duct for pre-existing injury (separate procedure)
+u-tube hepaticoenterostomy
+reconstruction, plastic, of extrahepatic biliary ducts with end-to-end anastomosis
+anastomosis, roux-en-y, of intrahepatic biliary ducts and gastrointestinal tract
+anastomosis, roux-en-y, of extrahepatic biliary ducts and gastrointestinal tract
+anastomosis, of intrahepatic ducts and gastrointestinal tract
+anastomosis, of extrahepatic biliary ducts and gastrointestinal tract
+cholecystoenterostomy; roux-en-y with gastroenterostomy
+cholecystoenterostomy; roux-en-y
+cholecystoenterostomy; with gastroenterostomy
+cholecystoenterostomy; direct
+excision of choledochal cyst
+excision of bile duct tumor, with or without primary repair of bile duct; intrahepatic
+excision of bile duct tumor, with or without primary repair of bile duct; extrahepatic
+portoenterostomy (eg, kasai procedure)
+exploration for congenital atresia of bile ducts, without repair, with or without liver biopsy, with or without cholangiography
+cholecystectomy with exploration of common duct; with transduodenal sphincterotomy or sphincteroplasty, with or without cholangiography
+cholecystectomy with exploration of common duct; with choledochoenterostomy
+cholecystectomy with exploration of common duct;
+cholecystectomy; with cholangiography
+cholecystectomy;
+laparoscopy, surgical; cholecystoenterostomy
+laparoscopy, surgical; cholecystectomy with exploration of common duct
+laparoscopy, surgical; cholecystectomy with cholangiography
+laparoscopy, surgical; cholecystectomy
+laparoscopy, surgical; with guided transhepatic cholangiography with biopsy
+laparoscopy, surgical; with guided transhepatic cholangiography, without biopsy
+cholecystotomy or cholecystostomy, open, with exploration, drainage, or removal of calculus (separate procedure)
+transduodenal sphincterotomy or sphincteroplasty, with or without transduodenal extraction of calculus (separate procedure)
+choledochotomy or choledochostomy with exploration, drainage, or removal of calculus, with or without cholecystotomy; with transduodenal sphincterotomy or sphincteroplasty
+choledochotomy or choledochostomy with exploration, drainage, or removal of calculus, with or without cholecystotomy; without transduodenal sphincterotomy or sphincteroplasty
+hepaticotomy or hepaticostomy with exploration, drainage, or removal of calculus
+unlisted procedure, liver
+ablation, open, of 1 or more liver tumor(s); cryosurgical
+ablation, open, of 1 or more liver tumor(s); radiofrequency
+unlisted laparoscopic procedure, liver
+laparoscopy, surgical, ablation of 1 or more liver tumor(s); cryosurgical
+laparoscopy, surgical, ablation of 1 or more liver tumor(s); radiofrequency
+management of liver hemorrhage; re-exploration of hepatic wound for removal of packing
+management of liver hemorrhage; exploration of hepatic wound, extensive debridement, coagulation and/or suture, with or without packing of liver
+management of liver hemorrhage; complex suture of liver wound or injury, with or without hepatic artery ligatio
+management of liver hemorrhage; simple suture of liver wound or injury
+marsupialization of cyst or abscess of liver
+donor hepatectomy (including cold preservation), from living donor; total right lobectomy (segments v, vi, vii and viii)
+donor hepatectomy (including cold preservation), from living donor; total left lobectomy (segments ii, iii and iv)
+donor hepatectomy (including cold preservation), from living donor; left lateral segment only (segments ii and iii)
+liver allotransplantation; orthotopic, partial or whole, from cadaver or living donor, any age
+hepatectomy, resection of liver; total right lobectomy
+hepatectomy, resection of liver; total left lobectomy
+hepatectomy, resection of liver; trisegmentectomy
+hepatectomy, resection of liver; partial lobectomy
+biopsy of liver, wedge
+laparotomy, with aspiration and/or injection of hepatic parasitic (eg, amoebic or echinococcal) cyst(s) or abscess(es
+hepatotomy; for open drainage of abscess or cyst, 1 or 2 stages
+exploration, repair, and presacral drainage for rectal injury; with colostomy
+exploration, repair, and presacral drainage for rectal injury
+laparoscopy, surgical; proctectomy, combined abdominoperineal pull-through procedure (eg, colo-anal anastomosis), with creation of colonic reservoir (eg, j-pouch), with diverting enterostomy, when performed
+laparoscopy, surgical; proctectomy, complete, combined abdominoperineal, with colostomy
+excision of ileoanal reservoir with ileostomy
+pelvic exenteration for colorectal malignancy, with proctectomy (with or without colostomy), with removal of bladder and ureteral transplantations, and/or hysterectomy, or cervicectomy, with or without removal of tube(s), with or without removal of ovary(s), or any combination thereof
+proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with subtotal or total colectomy, with multiple biopsies
+proctectomy, complete (for congenital megacolon), abdominal and perineal approach; with pull-through procedure and anastomosis (eg, swenson, duhamel, or soave type operation)
+proctectomy, combined abdominoperineal pull-through procedure (eg, colo-anal anastomosis), with creation of colonic reservoir (eg, j-pouch), with diverting enterostomy when performed
+proctectomy, partial, with anastomosis; transsacral approach only (kraske type)
+proctectomy, partial, with anastomosis; abdominal and transsacral approach
+proctectomy, partial, with rectal mucosectomy, ileoanal anastomosis, creation of ileal reservoir (s or j), with or without loop ileostomy
+proctectomy, combined abdominoperineal, pull-through procedure (eg, colo-anal anastomosis)
+proctectomy; partial resection of rectum, transabdominal approach
+proctectomy; complete, combined abdominoperineal, with colostomy
+unlisted laparoscopy procedure, appendix
+laparoscopy, surgical, appendectomy
+appendectomy; for ruptured appendix with abscess or generalized peritonitis
+appendectomy; when done for indicated purpose at time of other major procedure (not as separate procedure) (list separately in addition to code for primary procedure)
+appendectomy
+incision and drainage of appendiceal abscess; open
+suture of mesentery (separate procedure)
+excision of lesion of mesentery (separate procedure)
+excision of meckel's diverticulum (diverticulectomy) or omphalomesenteric duct
+exclusion of small intestine from pelvis by mesh or other prosthesis, or native tissue (eg, bladder or omentum)
+closure of enteroenteric or enterocolic fistula
+closure of intestinal cutaneous fistula
+closure of enterostomy, large or small intestine; with resection and colorectal anastomosis (eg, closure of hartmann type procedure)
+closure of enterostomy, large or small intestine; with resection and anastomosis other than colorectal
+closure of enterostomy, large or small intestine
+intestinal stricturoplasty (enterotomy and enterorrhaphy) with or without dilation, for intestinal obstruction
+suture of large intestine (colorrhaphy) for perforated ulcer, diverticulum, wound, injury or rupture (single or multiple perforations); with colostomy
+suture of large intestine (colorrhaphy) for perforated ulcer, diverticulum, wound, injury or rupture (single or multiple perforations); without colostomy
+suture of small intestine (enterorrhaphy) for perforated ulcer, diverticulum, wound, injury or rupture; multiple perforations
+suture of small intestine (enterorrhaphy) for perforated ulcer, diverticulum, wound, injury or rupture; single perforation
+revision of colostomy; with repair of paracolostomy hernia (separate procedure)
+revision of colostomy; complicated (reconstruction in-depth) (separate procedure)
+revision of colostomy; simple (release of superficial scar) (separate procedure)
+colostomy or skin level cecostomy; with multiple biopsies (eg, for congenital megacolon) (separate procedure)
+colostomy or skin level cecostomy;
+continent ileostomy (kock procedure) (separate procedure)
+revision of ileostomy; complicated (reconstruction in-depth) (separate procedure)
+revision of ileostomy; simple (release of superficial scar) (separate procedure)
+ileostomy or jejunostomy, non-tube
+enterostomy-external fistulization of intestines procedures
+laparoscopy, surgical, closure of enterostomy, large or small intestine, with resection and anastomosis
+laparoscopy, surgical, mobilization (take-down) of splenic flexure performed in conjunction with partial colectomy (list separately in addition to primary procedure)
+laparoscopy, surgical; colectomy, total, abdominal, with proctectomy, with ileostomy
+laparoscopy, surgical; colectomy, total, abdominal, with proctectomy, with ileoanal anastomosis, creation of ileal reservoir (s or j), with loop ileostomy, includes rectal mucosectomy, when performed
+laparoscopy, surgical; colectomy, total, abdominal, without proctectomy, with ileostomy or ileoproctostomy
+laparoscopy, surgical; colectomy, partial, with anastomosis, with coloproctostomy (low pelvic anastomosis) with colostomy
+laparoscopy, surgical; colectomy, partial, with anastomosis, with coloproctostomy (low pelvic anastomosis)
+laparoscopy, surgical; colectomy, partial, with end colostomy and closure of distal segment (hartmann type procedure)
+laparoscopy, surgical; colectomy, partial, with removal of terminal ileum with ileocolostomy
+laparoscopy, surgical; colectomy, partial, with anastomosis
+laparoscopy, surgical; each additional small intestine resection and anastomosis (list separately in addition to code for primary procedure)
+laparoscopy, surgical; enterectomy, resection of small intestine, single resection and anastomosis
+laparoscopy, surgical, colostomy or skin level cecostomy
+laparoscopy, surgical; ileostomy or jejunostomy, non-tube
+laparoscopy, surgical; jejunostomy (eg, for decompression or feeding)
+laparoscopy, surgical, enterolysis (freeing of intestinal adhesion) (separate procedure)
+colectomy, partial, with removal of terminal ileum with ileocolostomy
+colectomy, total, abdominal, with proctectomy; with ileoanal anastomosis, creation of ileal reservoir (s or j), includes loop ileostomy, and rectal mucosectomy, when performed
+colectomy, total, abdominal, with proctectomy; with ileoanal anastomosis, includes loop ileostomy, and rectal mucosectomy, when performed
+colectomy, total, abdominal, with proctectomy; with continent ileostomy
+colectomy, total, abdominal, with proctectomy; with ileostomy
+colectomy, total, abdominal, without proctectomy; with continent ileostomy
+colectomy, total, abdominal, without proctectomy; with ileostomy or ileoproctostomy
+colectomy, partial; abdominal and transanal approach
+colectomy, partial; with coloproctostomy (low pelvic anastomosis), with colostomy
+colectomy, partial; with coloproctostomy (low pelvic anastomosis)
+colectomy, partial; with resection, with colostomy or ileostomy and creation of mucofistula
+colectomy, partial; with end colostomy and closure of distal segment (hartmann type procedure)
+colectomy, partial; with skin level cecostomy or colostomy
+colectomy, partial; with anastomosis
+mobilization (take-down) of splenic flexure performed in conjunction with partial colectomy (list separately in addition to primary procedure)
+removal of transplanted intestinal allograft, complete
+enteroenterostomy, anastomosis of intestine, with or without cutaneous enterostomy (separate procedure)
+enterectomy, resection of small intestine for congenital atresia, single resection and anastomosis of proximal segment of intestine; each additional resection and anastomosis (list separately in addition to code for primary procedure)
+enterectomy, resection of small intestine for congenital atresia, single resection and anastomosis of proximal segment of intestine; with tapering
+enterectomy, resection of small intestine for congenital atresia, single resection and anastomosis of proximal segment of intestine; without tapering
+enterectomy, resection of small intestine; with enterostomy
+enterectomy, resection of small intestine; each additional resection and anastomosis (list separately in addition to code for primary procedure)
+enterectomy, resection of small intestine; single resection and anastomosis
+excision of 1 or more lesions of small or large intestine not requiring anastomosis, exteriorization, or fistulization; multiple enterotomies
+excision of 1 or more lesions of small or large intestine not requiring anastomosis, exteriorization, or fistulization; single enterotomy
+colotomy, for exploration, biopsy(s), or foreign body removal
+enterotomy, small intestine, other than duodenum; for decompression (eg, baker tube)
+enterotomy, small intestine, other than duodenum; for exploration, biopsy(s), or foreign body removal
+tube or needle catheter jejunostomy for enteral alimentation, intraoperative, any method (list separately in addition to primary procedure)
+duodenotomy, for exploration, biopsy(s), or foreign body removal
+enterolysis (freeing of intestinal adhesion) (separate procedure)
+gastric restrictive procedure, open; removal and replacement of subcutaneous port component only
+gastric restrictive procedure, open; removal of subcutaneous port component only
+gastric restrictive procedure, open; revision of subcutaneous port component only
+closure of gastrocolic fistula
+closure of gastrostomy, surgical
+revision of gastrojejunal anastomosis (gastrojejunostomy) with reconstruction, with or without partial gastrectomy or intestine resection; with vagotomy
+revision of gastrojejunal anastomosis (gastrojejunostomy) with reconstruction, with or without partial gastrectomy or intestine resection; without vagotomy
+revision of gastroduodenal anastomosis (gastroduodenostomy) with reconstruction; with vagotomy
+revision of gastroduodenal anastomosis (gastroduodenostomy) with reconstruction; without vagotomy
+revision, open, of gastric restrictive procedure for morbid obesity, other than adjustable gastric restrictive device (separate procedure)
+gastric restrictive procedure, with gastric bypass for morbid obesity; with small intestine reconstruction to limit absorption
+gastric restrictive procedure, with gastric bypass for morbid obesity; with short limb (150 cm or less) roux-en-y gastroenterostomy
+gastric restrictive procedure with partial gastrectomy, pylorus-preserving duodenoileostomy and ileoileostomy (50 to 100 cm common channel) to limit absorption (biliopancreatic diversion with duodenal switch)
+gastric restrictive procedure, without gastric bypass, for morbid obesity; other than vertical-banded gastroplasty
+gastric restrictive procedure, without gastric bypass, for morbid obesity; vertical-banded gastroplasty
+gastrorrhaphy, suture of perforated duodenal or gastric ulcer, wound, or injury
+gastrojejunostomy; with vagotomy, any type
+gastrojejunostomy; without vagotomy
+gastroduodenostomy
+pyloroplasty
+laparoscopy, surgical, gastric restrictive procedure; longitudinal gastrectomy (ie, sleeve gastrectomy)
+laparoscopy, surgical, gastric restrictive procedure; removal of adjustable gastric restrictive device and subcutaneous port components
+laparoscopy, surgical, gastric restrictive procedure; removal and replacement of adjustable gastric restrictive device component only
+laparoscopy, surgical, gastric restrictive procedure; removal of adjustable gastric restrictive device component only
+laparoscopy, surgical, gastric restrictive procedure; revision of adjustable gastric restrictive device component only
+laparoscopy, surgical, gastric restrictive procedure; placement of adjustable gastric restrictive device (eg, gastric band and subcutaneous port components)
+laparoscopy, surgical, gastric restrictive procedure; with gastric bypass and small intestine reconstruction to limit absorption
+laparoscopy, surgical, gastric restrictive procedure; with gastric bypass and roux-en-y gastroenterostomy (roux limb 150 cm or less)
+vagotomy including pyloroplasty, with or without gastrostomy; parietal cell (highly selective)
+vagotomy including pyloroplasty, with or without gastrostomy; truncal or selective
+gastrectomy, partial, distal; with formation of intestinal pouch
+gastrectomy, partial, distal; with roux-en-y reconstruction
+gastrectomy, partial, distal; with gastrojejunostomy
+gastrectomy, partial, distal; with gastroduodenostomy
+gastrectomy, total; with formation of intestinal pouch, any type
+gastrectomy, total; with roux-en-y reconstruction
+gastrectomy, total; with esophagoenterostomy
+excision, local; malignant tumor of stomach
+excision, local; ulcer or benign tumor of stomach
+biopsy of stomach, by laparotomy
+pylopmyotomy - incision of pyeloric muscle
+gastrotomy; with suture repair of pre-existing esophagogastric laceration (eg, mallory-weiss)
+gastrotomy; with suture repair of bleeding ulcer
+gastrotomy; with exploration or foreign body removal
+free jejunum transfer with microvascular anastomosis
+gastrointestinal reconstruction for previous esophagectomy, for obstructing esophageal lesion or fistula, or for previous esophageal exclusion; with stomach, with or without pyloroplasty
+repair, paraesophageal hiatal hernia (including fundoplication), via laparotomy, except neonatal; with implantation of mesh or other prosthesis
+repair, paraesophageal hiatal hernia (including fundoplication), via laparotomy, except neonatal; without implantation of mesh or other prosthesis
+esophagogastric fundoplasty partial or complete; thoracotomy
+esophagogastric fundoplasty partial or complete; laparotomy
+esophagogastric fundoplasty; with fundic patch (thal-nissen procedure)
+esophagogastrostomy (cardioplasty), with or without vagotomy and pyloroplasty, transabdominal or transthoracic approach
+laparoscopy, surgical, esophagogastric fundoplasty (eg, nissen, toupet procedures)
+partial esophagectomy, thoracoabdominal or abdominal approach, with or without proximal gastrectomy; with esophagogastrostomy, with or without pyloroplasty
+partial esophagectomy, distal two-thirds, with thoracotomy only, with or without proximal gastrectomy, with thoracic esophagogastrostomy, with or without pyloroplasty
+partial esophagectomy, distal two-thirds, with thoracotomy and separate abdominal incision, with or without proximal gastrectomy; with colon interposition or small intestine reconstruction, including intestine mobilization, preparation, and anastomosis(es)
+partial esophagectomy, distal two-thirds, with thoracotomy and separate abdominal incision, with or without proximal gastrectomy; with thoracic esophagogastrostomy, with or without pyloroplasty (ivor lewis)
+excision of parotid tumor or parotid gland; total, with unilateral radical neck dissection
+excision of parotid tumor or parotid gland; total, en bloc removal with sacrifice of facial nerve
+excision of parotid tumor or parotid gland; total, with dissection and preservation of facial nerve
+glossectomy; composite procedure with resection floor of mouth, mandibular resection, and radical neck dissection (commando type)
+glossectomy; complete or total, with or without tracheostomy, with unilateral radical neck dissection
+glossectomy; complete or total, with or without tracheostomy, without radical neck dissection
+glossectomy; partial, with unilateral radical neck dissection
+resection, diaphragm; with complex repair (eg, prosthetic material, local muscle flap)
+resection, diaphragm; with simple repair (eg, primary suture)
+imbrication of diaphragm for eventration, transthoracic or transabdominal, paralytic or nonparalytic
+repair, diaphragmatic hernia (other than neonatal), traumatic; chronic
+repair, diaphragmatic hernia (other than neonatal), traumatic; acute
+repair, neonatal diaphragmatic hernia, with or without chest tube insertion and with or without creation of ventral hernia
+repair, laceration of diaphragm, any approach
+resection of mediastinal tumor
+resection of mediastinal cyst
+mediastinotomy with exploration, drainage, removal of foreign body, or biopsy; transthoracic approach, including either transthoracic or median sternotomy
+mediastinotomy with exploration, drainage, removal of foreign body, or biopsy; cervical approach
+cervical lymphadenectomy (modified radical neck dissection)
+cervical lymphadenectomy (complete)
+dissection, deep jugular node(s)
+lymphangiotomy or other operations on lymphatic channels
+injection procedure for splenoportography
+laparoscopy, surgical, splenectomy
+repair of ruptured spleen (splenorrhaphy) with or without partial splenectomy
+splenectomy; total, en bloc for extensive disease, in conjunction with other procedure (list in addition to code for primary procedure)
+splenectomy; partial (separate procedure)
+splenectomy; total (separate procedure)
+distal revascularization and interval ligation (dril), upper extremity hemodialysis access (steal syndrome)
+revision, open, arteriovenous fistula; with thrombectomy, autogenous or nonautogenous dialysis graft (separate procedure)
+revision, open, arteriovenous fistula; without thrombectomy, autogenous or nonautogenous dialysis graft (separate procedure)
+creation of arteriovenous fistula by other than direct arteriovenous anastomosis (separate procedure); non autogenous graft
+creation of arteriovenous fistula by other than direct arteriovenous anastomosis (separate procedure); autogenous graft
+arteriovenous anastomosis, open; direct, any site (e.g., cimino type) (separate procedure)
+arteriovenous anastomosis, open; by forearm vein transposition
+arteriovenous anastomosis, open; by upper arm basilic vein transposition
+arteriovenous anastomosis, open; by upper arm cephalic vein transposition
+insertion of cannula for hemodialysis, other purpose (separate procedure); arteriovenous, external revision, or closure
+insertion of cannula for hemodialysis, other purpose (separate procedure); arteriovenous, external (scribner type)
+insertion of cannula for hemodialysis, other purpose (separate procedure); vein to vein
+exploration for postoperative hemorrhage, thrombosis or infection; abdomen
+creation of distal arteriovenous fistula during lower extremity bypass surgery (non-hemodialysis)
+bypass graft, with other than vein; popliteal-tibial or -peroneal artery
+bypass graft, with other than vein; femoral-anterior tibial, posterior tibial, or peroneal artery
+bypass graft, with other than vein; femoral-femoral
+bypass graft, with other than vein; femoral-popliteal
+bypass graft, with other than vein; axillary-femoral-femoral
+bypass graft, with other than vein; axillary-axillary
+bypass graft, with other than vein; axillary-popliteal or -tibial
+bypass graft, with other than vein; axillary-femoral
+bypass graft, with other than vein; subclavian-axillary
+in-situ vein bypass; popliteal-tibial, peroneal
+in-situ vein bypass; femoral-anterior tibial, posterior tibial, or peroneal artery
+in-situ vein bypass; femoral-popliteal
+bypass graft, with vein; popliteal-tibial, -peroneal artery or other distal vessels
+bypass graft, with vein; tibial-tibial, peroneal-tibial, or tibial/peroneal trunk-tibial
+bypass graft, with vein; femoral-anterior tibial, posterior tibial, peroneal artery or other distal vessels
+bypass graft, with vein; femoral-femoral
+bypass graft, with vein; femoral-popliteal
+bypass graft, with vein; axillary-femoral-femoral
+bypass graft, with vein; brachial-brachial
+bypass graft, with vein; brachial-ulnar or -radial
+bypass graft, with vein; axillary-brachial
+bypass graft, with vein; axillary-femoral
+bypass graft, with vein; axillary-axillary
+bypass graft, with vein; subclavian-axillary
+bypass graft subclavian- brachial
+reoperation, carotid, thromboendarterectomy, more than 1 month after original operation (list separately in addition to code for primary procedure)
+thromboendarterectomy, including patch graft, if performed; carotid, vertebral, subclavian, by neck incision
+direct repair of aneurysm, pseudoaneurysm, or excision (partial or total) and graft insertion, with or without patch graft; for ruptured aneurysm, abdominal aorta involving iliac vessels (common, hypogastric, external)
+direct repair of aneurysm, pseudoaneurysm, or excision (partial or total) and graft insertion, with or without patch graft; for aneurysm, pseudoaneurysm, and associated occlusive disease, abdominal aorta involving iliac vessels (common, hypogastric, external)
+direct repair of aneurysm, pseudoaneurysm, or excision (partial or total) and graft insertion, with or without patch graft; for ruptured aneurysm, abdominal aorta involving visceral vessels (mesenteric, celiac, renal)
+direct repair of aneurysm, pseudoaneurysm, or excision (partial or total) and graft insertion, with or without patch graft; for aneurysm, pseudoaneurysm, and associated occlusive disease, abdominal aorta involving visceral vessels (mesenteric, celiac, renal)
+direct repair of aneurysm, pseudoaneurysm, or excision (partial or total) and graft insertion, with or without patch graft; for ruptured aneurysm, abdominal aorta
+direct repair of aneurysm, pseudoaneurysm, or excision (partial or total) and graft insertion, with or without patch graft; for aneurysm, pseudoaneurysm, and associated occlusive disease, abdominal aorta
+open repair of infrarenal aortic aneurysm or dissection, plus repair of associated arterial trauma, following unsuccessful endovascular repair; aorto-bifemoral prosthesis
+open repair of infrarenal aortic aneurysm or dissection, plus repair of associated arterial trauma, following unsuccessful endovascular repair; aorto-bi-iliac prosthesis
+open repair of infrarenal aortic aneurysm or dissection, plus repair of associated arterial trauma, following unsuccessful endovascular repair; tube prosthesis
+heart transplant, with or without recipient cardiectomy
+repair of pulmonary atresia with ventricular septal defect, by construction or replacement of conduit from right or left ventricle to pulmonary artery
+repair of thoracoabdominal aortic aneurysm with graft, with or without cardiopulmonary bypass
+descending thoracic aorta graft, with or without bypass
+obliteration of aortopulmonary septal defect; with cardiopulmonary bypass
+obliteration of aortopulmonary septal defect; without cardiopulmonary bypass
+total repair, truncus arteriosus (rastelli type operation)
+aortic root translocation with ventricular septal defect and pulmonary stenosis repair (ie, nikaidoh procedure); with reimplantation of 1 or both coronary ostia
+aortic root translocation with ventricular septal defect and pulmonary stenosis repair (ie, nikaidoh procedure); without coronary ostium reimplantation
+repair of transposition of the great arteries, aortic pulmonary artery reconstruction (eg, jatene type); with closure of ventricular septal defect
+repair of transposition of the great arteries, atrial baffle procedure (eg, mustard or senning type) with cardiopulmonary bypass; with closure of ventricular septal defect
+repair of transposition of the great arteries, atrial baffle procedure (eg, mustard or senning type) with cardiopulmonary bypass;
+repair of transposition of the great arteries with ventricular septal defect and subpulmonary stenosis; without surgical enlargement of ventricular septal defect
+atrial septectomy or septostomy; open heart, with inflow occlusion
+atrial septectomy or septostomy; open heart with cardiopulmonary bypass
+atrial septectomy or septostomy; closed heart (blalock-hanlon type operation)
+repair of cor triatriatum or supravalvular mitral ring by resection of left atrial membrane
+closure of aortico-left ventricular tunnel
+repair sinus of valsalva aneurysm, with cardiopulmonary bypass
+repair sinus of valsalva fistula, with cardiopulmonary bypass; with repair of ventricular septal defect
+repair sinus of valsalva fistula, with cardiopulmonary bypass;
+complete repair tetralogy of fallot with pulmonary atresia including construction of conduit from right ventricle to pulmonary artery and closure of ventricular septal defect
+complete repair tetralogy of fallot without pulmonary atresia;
+closure of single ventricular septal defect, with or without patch; with removal of pulmonary artery band, with or without gusset
+closure of single ventricular septal defect, with or without patch; with pulmonary valvotomy or infundibular resection (acyanotic)
+closure of single ventricular septal defect, with or without patch;
+closure of multiple ventricular septal defects; with removal of pulmonary artery band, with or without gusset
+closure of multiple ventricular septal defects; with pulmonary valvotomy or infundibular resection (acyanotic)
+closure of multiple ventricular septal defects;
+repair of complete atrioventricular canal, with or without prosthetic valve
+repair of intermediate or transitional atrioventricular canal, with or without atrioventricular valve repair
+repair of incomplete or partial atrioventricular canal (ostium primum atrial septal defect), with or without atrioventricular valve repair
+repair of atrial septal defect and ventricular septal defect, with direct or patch closure
+direct or patch closure, sinus venosus, with or without anomalous pulmonary venous drainage
+repair atrial septal defect, secundum, with cardiopulmonary bypass, with or without patch
+repair of single ventricle with aortic outflow obstruction and aortic arch hypoplasia (hypoplastic left heart syndrome) (eg, norwood procedure)
+repair of complex cardiac anomalies (e.g., single ventricle by modified fontan)
+repair of complex cardiac anomalies (eg, tricuspid atresia) by closure of atrial septal defect and anastomosis of atria or vena cava to pulmonary artery (simple fontan procedure)
+repair of double outlet right ventricle with intraventricular tunnel repair; with repair of right ventricular outflow tract obstruction
+repair of double outlet right ventricle with intraventricular tunnel repair;
+repair of complex cardiac anomalies (eg, single ventricle with subaortic obstruction) by surgical enlargement of ventricular septal defect
+repair of complex cardiac anomaly other than pulmonary atresia with ventricular septal defect by construction or replacement of conduit from right or left ventricle to pulmonary artery
+closure of semilunar valve (aortic or pulmonary) by suture or patch
+closure of atrioventricular valve (mitral or tricuspid) by suture or patch
+surgical ventricular restoration procedure, includes prosthetic patch, when performed (eg, ventricular remodeling, svr, saver, dor procedures)
+repair of postinfarction ventricular septal defect, with or without myocardial resection
+myocardial resection (eg, ventricular aneurysmectomy)
+coronary artery bypass, using arterial graft(s);  4 or moreoronary arterial grafts
+coronary artery bypass, using arterial graft(s); 3coronary arterial grafts
+coronary artery bypass, using arterial graft(s); 2 coronary arterial grafts
+coronary artery bypass, using arterial graft(s); single arterial graft
+coronary artery bypass, vein only; 4 coronary venous grafts
+coronary artery bypass, vein only; 3 coronary venous grafts
+coronary artery bypass, vein only; 2 coronary venous grafts
+coronary artery bypass, vein only; single coronary venous graft
+repair of non-structural prosthetic valve dysfunction with cardiopulmonary bypass (separate procedure)
+outflow tract augmentation (gusset), with or without commissurotomy or infundibular resection
+right ventricular resection for infundibular stenosis, with or without commissurotomy
+replacement, pulmonary valve
+valvotomy, pulmonary valve, closed heart; via pulmonary artery
+valvotomy, pulmonary valve, closed heart; transventricular
+tricuspid valve repositioning and plication for ebstein anomaly
+replacement, tricuspid valve, with cardiopulmonary bypass
+valvuloplasty, tricuspid valve; with ring insertion
+valvuloplasty, tricuspid valve; without ring insertion
+valvectomy, tricuspid valve, with cardiopulmonary bypass
+replacement, mitral valve, with cardiopulmonary bypass
+valvuloplasty, mitral valve, with cardiopulmonary bypass; radical reconstruction, with or without ring
+valvuloplasty, mitral valve, with cardiopulmonary bypass; with prosthetic ring
+valvuloplasty, mitral valve, with cardiopulmonary bypass;
+valvotomy, mitral valve; closed heart
+aortoplasty (gusset) for supravalvular stenosis
+ventriculomyotomy (-myectomy) for idiopathic hypertrophic subaortic stenosis (eg, asymmetric septal hypertrophy)
+resection or incision of subvalvular tissue for discrete subvalvular aortic stenosis
+repair of left ventricular outflow tract obstruction by patch enlargement of the outflow tract
+replacement, aortic valve; by translocation of autologous pulmonary valve with allograft replacement of pulmonary valve (ross procedure)
+replacement, aortic valve; with transventricular aortic annulus enlargement (konno procedure)
+replacement, aortic valve; with aortic annulus enlargement, noncoronary sinus
+replacement, aortic valve, open, with cardiopulmonary bypass; with stentless tissue valve
+replacement, aortic valve, with cardiopulmonary bypass; with allograft valve (freehand)
+replacement, aortic valve, open, with cardiopulmonary bypass; with prosthetic valve other than homograft or stentless valve
+construction of apical-aortic conduit
+valvuloplasty, aortic valve, open, with cardiopulmonary bypass; complex (eg, leaflet extension, leaflet resection, leaflet reconstruction, or annuloplasty)
+valvuloplasty, aortic valve, open, with cardiopulmonary bypass; simple (ie, valvotomy, debridement, debulking, and/or simple commissural resuspension)
+transcatheter aortic valve replacement (tavr/tavi) with prosthetic valve; transapical exposure (eg, left thoracotomy)
+transcatheter aortic valve replacement (tavr/tavi) with prosthetic valve; transaortic approach (eg, median sternotomy, mediastinotomy)
+cardiotomy, exploratory (includes removal of foreign body, atrial or ventricular thrombus); with cardiopulmonary bypass
+cardiotomy, exploratory (includes removal of foreign body, atrial or ventricular thrombus); without bypass
+repair of cardiac wound; with cardiopulmonary bypass
+repair of cardiac wound; without bypass
+repositioning of previously implanted subcutaneous implantable defibrillator electrode
+removal of subcutaneous implantable defibrillator electrode
+insertion of subcutaneous implantable defibrillator electrode
+insertion or replacement of permanent subcutaneous implantable defibrillator system, with subcutaneous electrode, including defibrillation threshold evaluation, induction of arrhythmia, evaluation of sensing for arrhythmia termination, and programming or reprogramming of sensing or therapeutic parameters, when performed
+endoscopy, surgical; operative tissue ablation and reconstruction of atria, extensive (eg, maze procedure), without cardiopulmonary bypass
+endoscopy, surgical; operative tissue ablation and reconstruction of atria, limited (eg, modified maze procedure), without cardiopulmonary bypass
+removal of implantable defibrillator pulse generator with replacement of implantable defibrillator pulse generator; multiple lead system
+removal of implantable defibrillator pulse generator with replacement of implantable defibrillator pulse generator; dual lead system
+removal of implantable defibrillator pulse generator with replacement of implantable defibrillator pulse generator; single lead system
+operative ablation of ventricular arrhythmogenic focus with cardiopulmonary bypass
+operative tissue ablation and reconstruction of atria, performed at the time of other cardiac procedure(s), extensive (eg, maze procedure), with cardiopulmonary bypass (list separately in addition to code for primary procedure)
+operative tissue ablation and reconstruction of atria, performed at the time of other cardiac procedure(s), extensive (eg, maze procedure), without cardiopulmonary bypass (list separately in addition to code for primary procedure)
+operative tissue ablation and reconstruction of atria, performed at the time of other cardiac procedure(s), limited (eg, modified maze procedure) (list separately in addition to code for primary procedure)
+operative tissue ablation and reconstruction of atria, extensive (eg, maze procedure); with cardiopulmonary bypass
+operative tissue ablation and reconstruction of atria, extensive (eg, maze procedure); without cardiopulmonary bypass
+operative tissue ablation and reconstruction of atria, limited (eg, modified maze procedure)
+operative ablation of supraventricular arrhythmogenic focus or pathway (eg, wolff-parkinson-white, atrioventricular node re-entry), tract(s) and/or focus (foci); with cardiopulmonary bypass
+operative ablation of supraventricular arrhythmogenic focus or pathway (eg, wolff-parkinson-white, atrioventricular node re-entry), tract(s) and/or focus (foci); without cardiopulmonary bypass
+insertion or replacement of permanent implantable defibrillator system, with transvenous lead(s), single or dual chamber
+removal of implantable defibrillator pulse generator with replacement of implantable defibrillator pulse generator; by transvenous extraction
+removal of single or dual chamber implantable defibrillator electrode(s); by thoracotomy
+removal of implantable defibrillator pulse generator only
+insertion of implantable defibrillator pulse generator only; with existing single lead
+removal of permanent transvenous electrode(s) by thoracotomy
+removal of permanent epicardial pacemaker and electrodes by thoracotomy; dual lead system
+removal of permanent epicardial pacemaker and electrodes by thoracotomy; single lead system, atrial or ventricular
+removal of transvenous pacemaker electrode(s); dual lead system
+removal of transvenous pacemaker electrode(s); single lead system, atrial or ventricular
+removal of permanent pacemaker pulse generator only
+insertion of implantable defibrillator pulse generator only; with existing multiple leads
+insertion of implantable defibrillator pulse generator only; with existing dual leads
+removal of permanent pacemaker pulse generator with replacement of pacemaker pulse generator; multiple lead system
+removal of permanent pacemaker pulse generator with replacement of pacemaker pulse generator; dual lead system
+removal of permanent pacemaker pulse generator with replacement of pacemaker pulse generator; single lead system
+repositioning of previously implanted cardiac venous system (left ventricular) electrode (including removal, insertion and/or replacement of existing generator)
+insertion of pacing electrode, cardiac venous system, for left ventricular pacing, at time of insertion of implantable defibrillator or pacemaker pulse generator (e.g., for upgrade to dual chamber system) (list separately in addition to code for primary procedure)
+insertion of pacing electrode, cardiac venous system, for left ventricular pacing, with attachment to previously placed pacemaker or implantable defibrillator pulse generator (including revision of pocket, removal, insertion, and/or replacement of existing generator)
+relocation of skin pocket for implantable defibrillator
+relocation of skin pocket for pacemaker
+insertion of pacemaker pulse generator only; with existing multiple leads
+repair of 2 transvenous electrodes for permanent pacemaker or implantable defibrillator
+repair of single transvenous electrode, permanent pacemaker or implantable defibrillator
+insertion of 2 transvenous electrodes, permanent pacemaker or implantable defibrillator
+insertion of a single transvenous electrode, permanent pacemaker or implantable defibrillator
+repositioning of previously implanted transvenous pacemaker or implantable defibrillator (right atrial or right ventricular) electrode
+ upgrade of implanted pacemaker system, conversion of single chamber system to dual chamber system (includes removal of previously placed pulse generator, testing of existing lead, insertion of new lead, insertion of new pulse generator)
+insertion of pacemaker pulse generator only; with existing dual leads
+insertion of pacemaker pulse generator only; with existing single lead
+insertion of new or replacement of permanent pacemaker with transvenous electrode(s); atrial and ventricular
+insertion of new or replacement of permanent pacemaker with transvenous electrode(s); ventricular
+insertion of new or replacement of permanent pacemaker with transvenous electrode(s); atrial
+insertion of epicardial electrode(s); endoscopic approach (e.g., thoracoscopy, pericardioscopy)
+insertion of epicardial electrode(s); open incision (e.g., thoracotomy, median sternotomy, subxiphoid approach)
+resection of external cardiac tumor
+excision of intracardiac tumor, resection with cardiopulmonary bypass
+resection of pericardial cyst or tumor
+pericardiectomy, subtotal or complete; with cardiopulmonary bypass
+pericardiectomy, subtotal or complete; without cardiopulmonary bypass
+creation of pericardial window or partial resection for drainage
+pericardiotomy for removal of clot or foreign body (primary procedure)
+pneumothorax, therapeutic, intrapleural injection of air
+pneumonolysis, extraperiosteal, including filling or packing procedures
+thoracoplasty, schede type or extrapleural (all stages); with closure of bronchopleural fistula
+thoracoplasty, schede type or extrapleural (all stages);
+open closure of major bronchial fistula
+repair lung hernia through chest wall
+thoracoscopy, surgical; with resection-plication for emphysematous lung (bullous or non-bullous) for lung volume reduction (lvrs), unilateral includes any pleural procedure, when performed
+thoracoscopy, surgical; with removal of lung (pneumonectomy)
+thoracoscopy, surgical; with removal of two lobes (bilobectomy)
+thoracoscopy, surgical; with removal of a single lung segment (segmentectomy)
+thoracoscopy, surgical; with diagnostic wedge resection followed by anatomic lung resection (list separately in addition to code for primary procedure)
+thoracoscopy, surgical; with therapeutic wedge resection (eg, mass or nodule), each additional resection, ipsilateral (list separately in addition to code for primary procedure)
+thoracoscopy, surgical; with therapeutic wedge resection (eg, mass, nodule), initial unilateral
+thoracoscopy, surgical; with lobectomy (single lobe)
+thoracoscopy, surgical; with excision of mediastinal cyst, tumor, or mass
+thoracoscopy, surgical; with excision of pericardial cyst, tumor, or mass
+thoracoscopy, surgical; with creation of pericardial window or partial resection of pericardial sac for drainage
+thoracoscopy, surgical; with removal of clot or foreign body from pericardial sac
+thoracoscopy, surgical; with resection-plication of bullae, includes any pleural procedure when performed
+thoracoscopy, surgical; with total pulmonary decortication, including intrapleural pneumonolysis
+thoracoscopy, surgical; with partial pulmonary decortication
+thoracoscopy; with biopsy(ies) of pleura
+thoracoscopy; with diagnostic biopsy(ies) of lung nodule(s) or mass(es) (eg, wedge, incisional), unilateral
+thoracoscopy; with diagnostic biopsy(ies) of lung infiltrate(s) (eg, wedge, incisional), unilateral
+placement of interstitial device(s) for radiation therapy guidance (eg, fiducial markers, dosimeter), percutaneous, intrathoracic, single or multiple
+extrapleural enucleation of empyema (empyemectomy)
+thoracotomy; with diagnostic wedge resection followed by anatomic lung resection (list separately in addition to code for primary procedure)
+thoracotomy; with therapeutic wedge resection (eg, mass or nodule), each additional resection, ipsilateral (list separately in addition to code for primary procedure)
+thoracotomy; with therapeutic wedge resection (eg, mass, nodule), initial
+resection of apical lung tumor (eg, pancoast tumor), including chest wall resection, rib(s) resection(s), neurovascular dissection, when performed; with chest wall reconstruction
+resection of apical lung tumor (eg, pancoast tumor), including chest wall resection, rib(s) resection(s), neurovascular dissection, when performed; without chest wall reconstruction(s)
+resection and repair of portion of bronchus (bronchoplasty) when performed at time of lobectomy or segmentectomy (list separately in addition to code for primary procedure)
+removal of lung, other than pneumonectomy; with resection-plication of emphysematous lung(s) (bullous or non-bullous) for lung volume reduction, sternal split or transthoracic approach, includes any pleural procedure, when performed
+removal of lung, other than pneumonectomy; with all remaining lung following previous removal of a portion of lung (completion pneumonectomy)
+removal of lung, other than pneumonectomy; with circumferential resection of segment of bronchus followed by broncho-bronchial anastomosis (sleeve lobectomy)
+removal of lung, other than pneumonectomy; single segment (segmentectomy)
+removal of lung, other than pneumonectomy; 2 lobes (bilobectomy)
+removal of lung, other than pneumonectomy; single lobe (lobectomy)
+removal of lung, pneumonectomy; extrapleural
+removal of lung, pneumonectomy; with resection of segment of trachea followed by broncho-tracheal anastomosis (sleeve pneumonectomy)
+removal of lung, pneumonectomy;
+decortication and parietal pleurectomy
+pleurectomy, parietal (separate procedure)
+decortication, pulmonary (separate procedure); partial
+decortication, pulmonary (separate procedure); total
+pleural scarification for repeat pneumothorax
+pneumonostomy, with open drainage of abscess or cyst
+thoracotomy; with removal of intrapulmonary foreign body
+thoracotomy; with resection-plication of bullae, includes any pleural procedure when performed
+thoracotomy; with cyst(s) removal, includes pleural procedure when performed
+thoracotomy; with open intrapleural pneumonolysis
+thoracotomy; for postoperative complications
+thoracotomy; with control of traumatic hemorrhage and/or repair of lung tear
+thoracotomy; with exploration
+thoracotomy, with diagnostic biopsy(ies) of lung nodule(s) or mass(es) (eg, wedge, incisional), unilateral
+thoracotomy, with diagnostic biopsy(ies) of lung infiltrate(s) (eg, wedge, incisional), unilateral
+bronchoplasty; excision stenosis and anastomosis
+bronchoplasty; graft repair
+unlisted procedure, larynx
+cricotracheal resection
+laryngoplasty, medialization, unilateral
+laryngoscopy, direct, operative, with arytenoidectomy; with operating microscope or telescope
+laryngoscopy, direct, operative, with arytenoidectomy;
+laryngoplasty; for laryngeal stenosis, with graft, with indwelling stent placement, age 12 years or older
+laryngoplasty; for laryngeal stenosis, with graft, with indwelling stent placement, younger than 12 years of age
+laryngoplasty; for laryngeal stenosis, with graft, without indwelling stent placement, age 12 years or older
+laryngoplasty; for laryngeal stenosis, with graft, without indwelling stent placement, younger than 12 years of age
+epiglottidectomy
+arytenoidectomy or arytenoidopexy, external approach
+pharyngolaryngectomy, with radical neck dissection; with reconstruction
+pharyngolaryngectomy, with radical neck dissection; without reconstruction
+partial laryngectomy (hemilaryngectomy); antero-latero-vertical
+partial laryngectomy (hemilaryngectomy); anterovertical
+partial laryngectomy (hemilaryngectomy); laterovertical
+partial laryngectomy (hemilaryngectomy); horizontal
+laryngectomy; subtotal supraglottic, with radical neck dissection
+laryngectomy; subtotal supraglottic, without radical neck dissection
+laryngectomy; total, with radical neck dissection
+laryngotomy (thyrotomy, laryngofissure); with removal of tumor or laryngocele, cordectomy
+amputation, toe; interphalangeal joint
+amputation, toe; metatarsophalangeal joint
+amputation, metatarsal, with toe, single
+amputation, foot; transmetatarsal
+amputation, foot; midtarsal (e.g., chopart type procedure)
+ankle disarticulation
+amputation, ankle, through malleoli of tibia and fibula (e.g., syme, pirogoff type procedures), with plastic closure and resection of nerves
+amputation, leg, through tibia and fibula; re-amputation
+amputation, leg, through tibia and fibula; secondary closure or scar revision
+amputation, leg, through tibia and fibula; open, circular (guillotine)
+amputation, leg, through tibia and fibula;
+open treatment of distal tibiofibular joint (syndesmosis) disruption, includes internal fixation, when performed
+open treatment of fracture of weight bearing articular surface/portion of distal tibia (eg, pilon or tibial plafond), with internal fixation, when performed; of both tibia and fibula
+open treatment of fracture of weight bearing articular surface/portion of distal tibia (eg, pilon or tibial plafond), with internal fixation, when performed; of tibia only
+open treatment of fracture of weight bearing articular surface/portion of distal tibia (eg, pilon or tibial plafond), with internal fixation, when performed; of fibula only
+open treatment of trimalleolar ankle fracture, includes internal fixation, when performed, medial and/or lateral malleolus; with fixation of posterior lip
+open treatment of trimalleolar ankle fracture, includes internal fixation, when performed, medial and/or lateral malleolus; without fixation of posterior lip
+open treatment of bimalleolar ankle fracture (eg, lateral and medial malleoli, or lateral and posterior malleoli, or medial and posterior malleoli), includes internal fixation, when performed
+open treatment of distal fibular fracture (lateral malleolus), includes internal fixation, when performed
+open treatment of proximal fibula or shaft fracture, includes internal fixation, when performed
+open treatment of posterior malleolus fracture, includes internal fixation, when performed
+open treatment of medial malleolus fracture, includes internal fixation, when performed
+treatment of tibial shaft fracture (with or without fibular fracture) by intramedullary implant, with or without interlocking screws and/or cerclage
+open treatment of tibial shaft fracture (with or without fibular fracture), with plate/screws, with or without cerclage
+disarticulation at knee
+amputation, thigh, through femur, any level; open, circular (guillotine)
+amputation, thigh, through femur, any level; immediate fitting technique including first cast
+amputation, thigh, through femur, any level;
+open treatment of intercondylar spine(s) and/or tuberosity fracture(s) of the knee, includes internal fixation, when performed
+open treatment of tibial fracture, proximal (plateau); bicondylar, with or without internal fixation
+open treatment of tibial fracture, proximal (plateau); unicondylar, includes internal fixation, when performed
+open treatment of distal femoral epiphyseal separation, includes internal fixation, when performed
+open treatment of femoral fracture, distal end, medial or lateral condyle, includes internal fixation, when performed
+open treatment of femoral supracondylar or transcondylar fracture with intercondylar extension, includes internal fixation, when performed
+open treatment of femoral supracondylar or transcondylar fracture without intercondylar extension, includes internal fixation, when performed
+open treatment of femoral shaft fracture with plate/screws, with or without cerclage
+open treatment of femoral shaft fracture, with or without external fixation, with insertion of intramedullary implant, with or without cerclage and/or locking screws
+revision of total knee arthroplasty, with or without allograft; femoral and entire tibial component
+revision of total knee athroplasty, with or without allograft, one component
+arthroplasty, knee, condyle and plateau; medial and lateral compartments with or without patella resurfacing (total knee arthroplasty)
+arthroplasty, knee, condyle and plateau; medial or lateral compartment
+arthroplasty, knee, hinge prosthesis (eg, walldius type)
+arthroplasty, femoral condyles or tibial plateau(s), knee; with debridement and partial synovectomy
+arthroplasty, femoral condyles or tibial plateau(s), knee
+arthroplasty, knee, tibial plateau; with debridement and partial synovectomy
+arthroplasty, knee, tibial plateau
+arthroplasty, patella; with prosthesis
+disarticulation of hip
+interpelviabdominal amputation (hindquarter amputation)
+arthrodesis, sacroiliac joint (including obtaining graft)
+open treatment of femoral fracture, proximal end, head, includes internal fixation, when performed
+open treatment of hip dislocation, traumatic, with acetabular wall and femoral head fracture, with or without internal or external fixation
+open treatment of greater trochanteric fracture, includes internal fixation, when performed
+treatment of intertrochanteric, peritrochanteric, or subtrochanteric femoral fracture; with intramedullary implant, with or without interlocking screws and/or cerclage
+treatment of intertrochanteric, peritrochanteric, or subtrochanteric femoral fracture; with plate/screw type implant, with or without cerclage
+open treatment of femoral fracture, proximal end, neck, internal fixation or prosthetic replacement
+open treatment of slipped femoral epiphysis; osteotomy and internal fixation
+open treatment of slipped femoral epiphysis; osteoplasty of femoral neck (heyman type procedure)
+open treatment of slipped femoral epiphysis; closed manipulation with single or multiple pinning
+open treatment of slipped femoral epiphysis; single or multiple pinning or bone graft (includes obtaining graft)
+revision of total hip arthroplasty; femoral component only, with or without allograft
+revision of total hip arthroplasty; acetabular component only, with or without autograft or allograft
+revision of total hip arthroplasty; both components, with or without autograft or allograft
+conversion of previous hip surgery to total hip arthroplasty, with or without autograft or allograft
+arthroplasty, acetabular and proximal femoral prosthetic replacement (total hip arthroplasty), with or without autograft or allograft
+hemiarthroplasty, hip, partial (eg, femoral stem prosthesis, bipolar arthroplasty)
+amputation, finger or thumb, primary or secondary, any joint or phalanx, single, including neurectomies; with local advancement flaps (v-y, hood)
+amputation, finger or thumb, primary or secondary, any joint or phalanx, single, including neurectomies; with direct closure
+amputation, metacarpal, with finger or thumb (ray amputation), single, with or without interosseous transfer
+transfer, toe-to-hand with microvascular anastomosis; great toe wrap-around with bone graft
+transmetacarpal amputation; re-amputation
+transmetacarpal amputation; secondary closure or scar revision
+transmetacarpal amputation;
+disarticulation through wrist; re-amputation
+disarticulation through wrist; secondary closure or scar revision
+disarticulation through wrist
+amputation, forearm, through radius and ulna; re-amputation
+amputation, forearm, through radius and ulna; open, circular (guillotine)
+amputation, forearm, through radius and ulna
+open treatment of ulnar styloid fracture
+open treatment of distal radial intra-articular fracture or epiphyseal separation; with internal fixation of 3 or more fragments
+open treatment of distal radial intra-articular fracture or epiphyseal separation; with internal fixation of 2 fragments
+open treatment of distal radial extra-articular fracture or epiphyseal separation, with internal fixation
+open treatment of radial and ulnar shaft fractures, with internal fixation, when performed; of radius and ulna
+open treatment of radial and ulnar shaft fractures, with internal fixation, when performed; of radius or ulna
+open treatment of ulnar shaft fracture, includes internal fixation, when performed
+open treatment of radial shaft fracture, includes internal fixation, when performed, and open treatment of distal radioulnar joint dislocation (galeazzi fracture/ dislocation), includes internal fixation, when performed, includes repair of triangular fibrocartilage complex
+open treatment of radial shaft fracture, includes internal fixation, when performed, and open treatment of distal radioulnar joint dislocation (galeazzi fracture/ dislocation), includes percutaneous skeletal fixation when performed
+open treatment of radial shaft fracture, includes internal fixation, when performed
+reconstruction for stabilization of unstable distal ulna or distal radioulnar joint, secondary by soft tissue stabilization (eg, tendon transfer, tendon graft or weave, or tenodesis) with or without open reduction of distal radioulnar joint
+amputation, arm through humerus; with implant
+amputation, arm through humerus; re-amputation
+amputation, arm through humerus; open, circular (guillotine)
+amputation, arm through humerus; with primary closure
+open treatment of ulnar fracture, proximal end (eg, olecranon or coronoid process[es]), includes internal fixation, when performed
+open treatment of radial head or neck fracture, includes internal fixation or radial head excision, when performed; with radial head prosthetic replacement
+open treatment of radial head or neck fracture, includes internal fixation or radial head excision, when performed;
+open treatment of monteggia type of fracture dislocation at elbow (fracture proximal end of ulna with dislocation of radial head), includes internal fixation, when performed
+open treatment of periarticular fracture and/or dislocation of the elbow (fracture distal humerus and proximal ulna and/or proximal radius); with implant arthroplasty
+open treatment of periarticular fracture and/or dislocation of the elbow (fracture distal humerus and proximal ulna and/or proximal radius);
+open treatment of humeral condylar fracture, medial or lateral, includes internal fixation, when performed
+open treatment of humeral epicondylar fracture, medial or lateral, includes internal fixation, when performed
+open treatment of humeral supracondylar or transcondylar fracture, includes internal fixation, when performed; with intercondylar extension
+open treatment of humeral supracondylar or transcondylar fracture, includes internal fixation, when performed; without intercondylar extension
+treatment of humeral shaft fracture, with insertion of intramedullary implant, with or without cerclage and/or locking screws
+open treatment of humeral shaft fracture with plate/screws, with or without cerclage
+disarticulation of shoulder
+interthoracoscapular amputation (forequarter)
+open treatment of shoulder dislocation, with surgical or anatomical neck fracture, includes internal fixation, when performed
+open treatment of shoulder dislocation, with fracture of greater humeral tuberosity, includes internal fixation, when performed
+open treatment of greater humeral tuberosity fracture, includes internal fixation, when performed
+open treatment of proximal humeral (surgical or anatomical neck) fracture, includes internal fixation, when performed, includes repair of tuberosity(s), when performed; with proximal humeral prosthetic replacement
+open treatment of proximal humeral (surgical or anatomical neck) fracture, includes internal fixation, when performed, includes repair of tuberosity(s), when performed;
+insertion of interlaminar/interspinous process stabilization/distraction device, without fusion, including image guidance when performed, with open decompression, lumbar; single level
+revision including replacement of total disc arthroplasty (artificial disc), anterior approach, single interspace; lumbar
+revision including replacement of total disc arthroplasty (artificial disc), anterior approach, single interspace; cervical
+total disc arthroplasty (artificial disc), anterior approach, including discectomy to prepare interspace (other than for decompression), single interspace, lumbar
+total disc arthroplasty (artificial disc), anterior approach, including discectomy with end plate preparation (includes osteophytectomy for nerve root or spinal cord decompression and microdissection); single interspace, cervical
+arthrodesis, anterior, for spinal deformity, with or without cast; 8 or more vertebral segments
+arthrodesis, anterior, for spinal deformity, with or without cast; 4 to 7 vertebral segments
+arthrodesis, anterior, for spinal deformity, with or without cast; 2 to 3 vertebral segments
+arthrodesis, posterior, for spinal deformity, with or without cast; 13 or more vertebral segments
+arthrodesis, posterior, for spinal deformity, with or without cast; 7 to 12 vertebral segments
+arthrodesis, posterior, for spinal deformity, with or without cast; up to 6 vertebral segments
+arthrodesis, combined posterior or posterolateral technique with posterior interbody technique including laminectomy and/or discectomy sufficient to prepare interspace (other than for decompression), single interspace and segment; lumbar
+arthrodesis, posterior interbody technique, including laminectomy and/or discectomy to prepare interspace (other than for decompression), single interspace; lumbar
+arthrodesis, posterior or posterolateral technique, single level; lumbar (with lateral transverse technique, when performed)
+arthrodesis, posterior or posterolateral technique, single level; thoracic (with lateral transverse technique, when performed)
+arthrodesis, posterior or posterolateral technique, single level; cervical below c2 segment
+arthrodesis, posterior technique, atlas-axis (c1-c2)
+arthrodesis, posterior technique, craniocervical (occiput-c2)
+arthrodesis, pre-sacral interbody technique, including disc space preparation, discectomy, with posterior instrumentation, with image guidance, includes bone graft when performed, l5-s1 interspace
+arthrodesis, anterior interbody technique, including minimal discectomy to prepare interspace (other than for decompression); lumbar
+arthrodesis, anterior interbody technique, including minimal discectomy to prepare interspace (other than for decompression); thoracic
+arthrodesis, anterior interbody technique, including minimal discectomy to prepare interspace (other than for decompression); cervical below c2
+arthrodesis, anterior interbody, including disc space preparation, discectomy, osteophytectomy and decompression of spinal cord and/or nerve roots; cervical below c2
+arthrodesis, anterior transoral or extraoral technique, clivus-c1-c2 (atlas-axis), with or without excision of odontoid process
+arthrodesis, lateral extracavitary technique, including minimal discectomy to prepare interspace (other than for decompression); lumbar
+arthrodesis, lateral extracavitary technique, including minimal discectomy to prepare interspace (other than for decompression); thoracic
+osteotomy of spine, including discectomy, anterior approach, single vertebral segment; lumbar
+osteotomy of spine, including discectomy, anterior approach, single vertebral segment; thoracic
+osteotomy of spine, including discectomy, anterior approach, single vertebral segment; cervical
+exploration of penetrating wound (separate procedure); abdomen/flank/back
+exploration of penetrating wound (separate procedure); chest
+revision of reconstructed breast
+periprosthetic capsulectomy, breast
+open periprosthetic capsulotomy, breast
+breast reconstruction with transverse rectus abdominis myocutaneous flap (tram), double pedicle, including closure of donor site
+breast reconstruction with transverse rectus abdominis myocutaneous flap (tram), single pedicle, including closure of donor site; with microvascular anastomosis (supercharging)
+breast reconstruction with transverse rectus abdominis myocutaneous flap (tram), single pedicle, including closure of donor site;
+breast reconstruction with other technique
+breast reconstruction with free flap
+breast reconstruction with latissimus dorsi flap, without prosthetic implant
+breast reconstruction, immediate or delayed, with tissue expander, including subsequent expansion
+correction of inverted nipples
+nipple/areola reconstruction
+delayed insertion of breast prosthesis following mastopexy, mastectomy or in reconstruction
+immediate insertion of breast prosthesis following mastopexy, mastectomy or in reconstruction
+removal of mammary implant material
+removal of intact mammary implant
+mammaplasty, augmentation; with prosthetic implant
+mammaplasty, augmentation; without prosthetic implant
+reduction mammaplasty
+mastopexy
+mastectomy, modified radical, including axillary lymph nodes, with or without pectoralis minor muscle, but excluding pectoralis major muscle
+mastectomy, radical, including pectoral muscles, axillary and internal mammary lymph nodes (urban type operation)
+mastectomy, radical, including pectoral muscles, axillary lymph nodes
+mastectomy, subcutaneous
+mastectomy, simple, complete
+mastectomy, partial (eg, lumpectomy, tylectomy, quadrantectomy, segmentectomy); with axillary lymphadenectomy
+mastectomy, partial (eg, lumpectomy, tylectomy, quadrantectomy, segmentectomy);
+mastectomy for gynecomastia
+excision of chest wall tumor involving ribs, with plastic reconstruction; with mediastinal lymphadenectomy
+excision of breast lesion identified by pre-operative placement of radiological marker, open, single lesion; each additional lesion separately identified by a preoperative radiological marker (list separately in addition to code for primary procedures) excision of breast lesion identified by pre-operative placement of radiological marker, open, single lesion
+excision of breast lesion identified by pre-operative placement of radiological marker, open, single lesion
+excision of cyst, fibroadenoma, or other benign or malignant tumor, aberrant breast tissue, duct lesion, nipple or areolar lesion (except 19300), open, male or female, 1 or more lesions
+excision of lactiferous duct fistula
+nipple exploration, with or without excision of a solitary lactiferous duct or a papilloma lactiferous duct
+biopsy of breast; open, incisional
+removal of tissue expander(s) without insertion of prosthesis removal of tissue expander(s) with insertion of prosthesis
+excision of nail and nail matrix, partial or complete (e.g., ingrown or deformed nail), for permanent removal; with amputation of tuft of distal phalanx
+removal of prosthetic material or mesh, abdominal wall for infection (eg, for chronic or recurrent mesh infection or necrotizing soft tissue infection) (list separately in addition to code for primary procedure)
