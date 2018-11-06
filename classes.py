@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
 """
 classes.py
 Scope: Defines the major classes used by the module.
@@ -51,7 +48,6 @@ class SentenceStructure:
 		
 		#Split the string by whitespace and add it to the array.
 		counter = 0
-        
 		processdT = dNClean(inString)
         
 		for x in processdT.split():
@@ -91,5 +87,4 @@ class Annotation:
 		self.startWord = int(segments[1])
 		self.endWord = int(segments[3])
 		self.label = segments[4]
-		
-
+	
