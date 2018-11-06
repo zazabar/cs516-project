@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 """
 classes.py
 Scope: Defines the major classes used by the module.
@@ -5,6 +8,7 @@ Authors: Jeffrey Smith, Bill Cramer, Evan French
 """
 
 import re
+from function_preprocessing import dNClean
 
 #Author: Jeffrey Smith
 class SentenceStructure:
@@ -20,11 +24,12 @@ class SentenceStructure:
 		:var originalSentence: Copy of the original string.
 		:var originalSentenceArray: An array of [string,string] tuples. The first string is a token, and the second is a holder for tags.
 		"""
-		self.originalSentence = inString
+		processed = dNClean(inString)
+		self.originalSentence = processed
 		self.originalSentenceArray = []
 		
 		#Split the string by whitespace and add it to the array.
-		for x in inString.split():
+		for x in processed.split():
 			token = [x,""]
 			self.originalSentenceArray.append(token)
 			
@@ -43,7 +48,9 @@ class SentenceStructure:
 		
 		#Split the string by whitespace and add it to the array.
 		counter = 0
-		for x in inString.split():
+		processdT = dNClean(inString)
+        
+		for x in processdT.split():
 			if not x == "END":
 				token = [x,"",counter]
 				self.modifiedSentenceArray.append(token)
@@ -80,4 +87,4 @@ class Annotation:
 		self.startWord = int(segments[1])
 		self.endWord = int(segments[3])
 		self.label = segments[4]
-		
+	
