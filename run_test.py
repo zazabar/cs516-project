@@ -13,23 +13,39 @@ np.set_printoptions(threshold=np.nan)
 
 #CONSTANTS
 MAX_SENTENCE_LENGTH = 205
+EMBEDDING_SIZE = 200
+
+FEATURE_INDEX_MAP = {"PUNC_OTHER" : 0,
+					"PUNC_COMMA" : 1,
+					"PUNC_PERIOD" : 2,
+					"IS_NUM" : 3,
+					"IS_DATE" : 4}
+
+EXTRA_FEATURE_SIZE = len(FEATURE_INDEX_MAP)
 
 #Author: Jeffrey Smith
 def main():
 	"""
 	Main function of the application. Call -h or --help for command line inputs.
 	"""
+	
+	classes = []
+	classes.append("NONE")
+	classes.append("PROBLEM")
+	classes.append("TEST")
+	classes.append("TREATMENT")
+	
 	dict_ = CreateAnnotatedSentenceStructures("./subtest_an", "./subtest_in")
 	
 	AddModifiedSentenceArray(dict_)
 
 	bx, by, bs, mapping = GenerateEmbeddings(dict_)
 	
-	confusionMatrixList = trainNetwork(bx,by,bs,mapping,dict_,buckets=10,epochs=20)
+	trainNetwork(bx,by,bs,mapping,dict_,EMBEDDING_SIZE + EXTRA_FEATURE_SIZE, classes, buckets=20,epochs=20)
 	
 
 #Author: Jeffrey Smith
-def trainNetwork(batchX, batchY, seqLen, fileMap, dict, buckets=10, epochs=20):
+def trainNetwork(batchX, batchY, seqLen, fileMap, dict, numFeatures, classes, buckets=10, epochs=20):
 	"""
 	Trains a neural network model. If one is not given, creates one.
 	"""		
@@ -40,8 +56,10 @@ def trainNetwork(batchX, batchY, seqLen, fileMap, dict, buckets=10, epochs=20):
 	
 	#Create and train the model 10x for 10FoldCrossValidation
 	confusionMatrixList = []
+	sentenceLenienceList = []
+	
 	for k in range(0, buckets):
-		myAgent = agent.Agent(200,4,MAX_SENTENCE_LENGTH)
+		myAgent = agent.Agent(numFeatures,4,MAX_SENTENCE_LENGTH)
 		
 		#Train for 20 epochs.
 		for j in range(0, epochs):
@@ -69,6 +87,7 @@ def trainNetwork(batchX, batchY, seqLen, fileMap, dict, buckets=10, epochs=20):
 		file.close()
 		
 		cf_ = myAgent.evalWithStructure(batchX[k], batchY[k], seqLen[k], k, fileMap, batchMap, dict)
+		sentenceLenienceList.append(cf_)
 		file = open("./outCFS", 'a')
 		outstr = np.array2string(cf_)
 		file.write(outstr)
@@ -76,8 +95,84 @@ def trainNetwork(batchX, batchY, seqLen, fileMap, dict, buckets=10, epochs=20):
 		file.close()
 					
 		myAgent.cleanUp()
+		
+	#Run analysis generation.
+	
+	#Start with Majority Sense Baseline
+	classCount = len(confusionMatrixList[0])
+	majoritySenseData = np.zeros((1, classCount), dtype=np.int32)
+	
+	for i in confusionMatrixList:
+		for j in range(0, classCount):
+			for k in range(0, classCount):
+				majoritySenseData[0,k] += i[j,k]
+				
+	classNoneMicroPrecision = 1.0 * majoritySenseData[0,0] / np.sum(majoritySenseData[0,:])
+	classNoneMicroRecall = 1.0
+	classNoneMicroF1Score = 2 * (classNoneMicroPrecision/(classNoneMicroPrecision+1.0))
+	
+	classNoneMacroPrecision = classNoneMicroPrecision/classCount
+	classNoneMacroRecall = 1.0/classCount
+	classNoneMacroF1Score = classNoneMicroF1Score/classCount
+	
+	#Now for all the individual buckets.
+	precisionMicroList = np.zeros((classCount, len(confusionMatrixList)), dtype=np.float32)
+	recallMicroList = np.zeros((classCount, len(confusionMatrixList)), dtype=np.float32)
+	f1MicroList = np.zeros((classCount, len(confusionMatrixList)), dtype=np.float32)
+	precisionMacroList = []
+	recallMacroList = []
+	f1MacroList = []
+	
+	for i in range(0,len(confusionMatrixList)):
+		for j in range(0, classCount):
+			precisionMicroList[j,i] = 1.0 * confusionMatrixList[i][j,j] / np.sum(confusionMatrixList[i][j,:])
+			recallMicroList[j,i] = 1.0 * confusionMatrixList[i][j,j] / np.sum(confusionMatrixList[i][:,j])
+			f1MicroList[j,i] = 2.0 * ((precisionMicroList[j,i] * recallMicroList[j,i]) / (precisionMicroList[j,i] + recallMicroList[j,i]))
+			
+		precisionMacroList.append((np.sum(precisionMicroList[:,i])/classCount))
+		recallMacroList.append((np.sum(recallMicroList[:,i])/classCount))
+		f1MacroList.append((np.sum(f1MicroList[:,i])/classCount))
+		
+	#Process Sentence Lenience Lists
+	totalSentenceLenience = np.zeros((classCount, 3), dtype=np.int32)
+	
+	for i in sentenceLenienceList:
+		totalSentenceLenience[:,:] += i[:,:]
+			
+	#Write Information to file
+	file = open("./analysis.txt", 'a')
+	
+	file.write("===Majority Sense Baseline===\n")
+	file.write("Micro Precision: \t" + str(classNoneMicroPrecision) + "\n")
+	file.write("Micro Recall: \t" + str(classNoneMicroRecall) + "\n")
+	file.write("Micro F1: \t" + str(classNoneMicroF1Score) + "\n")
+	file.write("Macro Precision: \t" + str(classNoneMacroPrecision) + "\n")
+	file.write("Macro Recall: \t" + str(classNoneMacroRecall) + "\n")
+	file.write("Macro F1: \t" + str(classNoneMacroF1Score) + "\n\n")
+	
+	file.write("===Summary===\n\n")
+	
+	file.write("=Macro=\n")
+	file.write("Macro F1 Total Average: \t" + str(sum(f1MacroList)/buckets) + "\n")
+	file.write("Macro F1 Minimum: \t" + str(min(f1MacroList)) + "\n")
+	file.write("Macro F1 Maximum: \t" + str(max(f1MacroList)) + "\n\n")
+	
+	file.write("=Sentence Level=\n")
+	file.write("CLASS \tSTRICT \tLENIENT \tMISS\n")
+	for i in range(0, classCount):
+		file.write(str(classes[i]) + " \t" + str(totalSentenceLenience[i,0]) + " \t" + str(totalSentenceLenience[i,1]) + " \t" + str(totalSentenceLenience[i,2]) + "\n")
+	file.write("\n")	
+		
+	for i in range(0, classCount):
+		file.write("=" + str(classes[i]) + "=\n")
+		file.write("Micro Precision Average: \t" + str(np.sum(precisionMicroList[i,:])/buckets) + "\n")
+		file.write("Micro Recall Average: \t" + str(np.sum(recallMicroList[i,:])/buckets) + "\n")
+		file.write("Micro F1 Average: \t" + str(np.sum(f1MicroList[i,:])/buckets) + "\n")
+		file.write("\n")
+		
+	file.close()
 
-	return confusionMatrixList
+	return
 	
 
 #Author: Jeffrey Smith
@@ -164,6 +259,8 @@ def GenerateEmbeddings(d):
 	seqList = []
 	mapping = [] #A map to tie things back together.
 	
+		undefined = []
+	
 	try:
 		k = d.keys()
 		for k_ in k:
@@ -177,20 +274,9 @@ def GenerateEmbeddings(d):
 			#x: list of sentences
 			for x in d[k_]:
 				f.write("START\n")
-				#print("START SENTENCE")
-				tArray = np.zeros((MAX_SENTENCE_LENGTH,200), dtype=np.float32)
+				tArray = np.zeros((MAX_SENTENCE_LENGTH,EMBEDDING_SIZE + EXTRA_FEATURE_SIZE), dtype=np.float32)
 				cArray = np.zeros((MAX_SENTENCE_LENGTH), dtype=np.float32)
 
-				"""
-				print("\n Original Sentence: " + str(x.originalSentence))
-				print("Debug1")
-				for q in x.originalSentenceArray:
-					print(q[0])				
-				print("Debug2")
-				for q in x.modifiedSentenceArray:
-					print(q[0])
-				print("DebugDone")	
-				"""		
 				for z in range(0,len(x.modifiedSentenceArray)):
 					p.stdin.write(x.modifiedSentenceArray[z][0] + "\n")
 					p.stdin.flush()
@@ -209,19 +295,40 @@ def GenerateEmbeddings(d):
 						t = p.stdout.readline()
 
 						if "UNDEF" in t:
-							f.write(("0.0 " * 200) + str(class_) + "\n")
+							f.write(("0.0 " * EMBEDDING_SIZE) + str(class_) + "\n")
+							undefined.append(x.modifiedSentenceArray[z][0])
 							break
 						elif len(t) > 2:
 							#Temp Generate Embeddings
 							tSplit = t.split();
-							tArray[z][0:200] = tSplit[1:201]
+							tArray[z][0:EMBEDDING_SIZE] = tSplit[1:EMBEDDING_SIZE+1]
 							cArray[z] = class_
 							
 							f.write(t + " " + str(class_) + "\n")
 							break
 						else:
 							print(t)
-				
+							
+					#Generate Extra Features
+					if x.modifiedSentenceArray[z][0] == ":":
+						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
+					elif x.modifiedSentenceArray[z][0] == ";":
+						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
+					elif x.modifiedSentenceArray[z][0] == ",":
+						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_COMMA"]] = 1.0
+					elif x.modifiedSentenceArray[z][0] == ".":
+						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_PERIOD"]] = 1.0
+					elif x.modifiedSentenceArray[z][0] == "[" or x.modifiedSentenceArray[z][0] == "]" or x.modifiedSentenceArray[z][0] == "(" or x.modifiedSentenceArray[z][0] == ")":
+						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
+					elif x.modifiedSentenceArray[z][0] == "&quot;":
+						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
+					elif x.modifiedSentenceArray[z][0] == "'" or x.modifiedSentenceArray[z][0] == "'s":
+						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0				
+					elif x.modifiedSentenceArray[z][0] == "num":
+						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["IS_NUM"]] = 1.0	
+					elif x.modifiedSentenceArray[z][0] == "date":
+						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["IS_DATE"]] = 1.0			
+						
 				#Add embeddings to our arrays.
 				embeddingList.append(tArray);
 				classList.append(cArray);
@@ -242,6 +349,14 @@ def GenerateEmbeddings(d):
 		p.stdin.flush()
 		
 	p.terminate()
+	
+	#Debug 
+	#Write words to file that were undefined in embedding list.
+	xF = open('undef.txt', 'a')
+	for x in undefined:
+		xF.write(x)
+		xF.write("\n")
+	xF.close()
 
 	return embeddingList, classList, seqList, mapping
 	

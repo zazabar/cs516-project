@@ -1,300 +1,388 @@
+#!/usr/bin/env python
+# coding: utf-8
 """
 preprocess.py
-Scope: Preprocessing script to identify NUM and DATE objects.
+Scope: Converts Dates to DATE and Numbers to NUM
 Authors: Bill Cramer
 """
 
+# Import packages
 import re
-import os
-import fnmatch
-import bs4 as bs
-import pandas as pd
-from os import listdir
-from os.path import isfile
-import shlex, subprocess
-import time
-from subprocess import *
-import sys, getopt
-import shutil
 
 
-inFolder = ""
-outFolder = ""
-
-opts, args = getopt.getopt(sys.argv[1:], 'i:o:')
-for opt, arg, in opts:
-     if opt in ('-i'):
-         inFolder = arg
-     elif opt in ('-o'):
-         outFolder = arg
-
-if inFolder == "" or outFolder == "":
-     print("Please specify input and output using -i and -o.")
-     sys.exit(-1)
-
-
-
-originalTextDocsPath = [inFolder]
-
-#### users provides input for where they want their data to land
-#print('Please Enter The Path Where You Want Your Data To Be Output')
-pathForInputFoldersForChronos = outFolder
-
-#### users provides input for the location of Chronos 
-#print('Please Provide the Path for the Chronos Tool')
-chronosLocation = './Chrono-master/Chrono.py'
-
-
-#### this line is needed to make the code below work 
-pathForOutputFoldersForChronos = pathForInputFoldersForChronos
-
-#### this returns a path listing for the original txt documents being used. All docs must be in one folder with no sub folders
-originalTextDocsList = []
-
-for originalTextDocsLocations in originalTextDocsPath:
-    for originalTextFile in os.listdir(originalTextDocsLocations):
-        if fnmatch.fnmatch(originalTextFile, '*.txt'):
-            originalTextDocsList.append(''.join((originalTextDocsLocations+'/', originalTextFile)))
-
-#### list the orignal file names which will include .txt
-orginalFileNames = os.listdir(originalTextDocsPath[0])
-
-#### remove the .txt from the list of file names leaving a listing of just the file names and append to a list
-cleanedFileNameList = []
-for txtFiles in orginalFileNames:
-    removeTxt = re.sub(r'.txt','',txtFiles)
-    cleanedFileNameList.append(removeTxt)
-         
-#### create new directories (folders) in our path listed above for pathForOutputFoldersForChronos for the Chronos tools
-newDataOutputPath = pathForOutputFoldersForChronos+'/'+'results/my_output/' 
-if not os.path.exists(newDataOutputPath):
-    os.makedirs(newDataOutputPath)
+"""
+Takes in a string and converts all dates to a singular DATE and all numbers to a singular NUM. 
+"""
+def preprocess(sentence):
     
-#### create new directories (folders) in our path listed above for pathForInputFoldersForChronos for the Chronos tools
-newDataInputPath = pathForInputFoldersForChronos+'/'+'data/my_input' 
-if not os.path.exists(newDataInputPath):
-    os.makedirs(newDataInputPath)
-    
-#### create new directory to store the results from using Chronos to clean our input data
-chronosCleaned = pathForOutputFoldersForChronos+'/'+'chronosCleaned'
-if not os.path.exists(chronosCleaned):
-    os.makedirs(chronosCleaned)
+    preNum = re.sub(r'\d+\#|\d+\%|\d+\^|\d+\*','NUM',sentence)
 
-#### the block below creates a listing of the input folders feeding into Chronos     
-folderPathsForInputFilesToChronos = []    
-
-for newInputFolderNames in cleanedFileNameList:
-    newInputFolders = ''.join((newDataInputPath+'/', newInputFolderNames))
-    newpathInputForChronos = newInputFolders 
-    if not os.path.exists(newpathInputForChronos):
-        os.makedirs(newpathInputForChronos)
-        folderPathsForInputFilesToChronos.append(newpathInputForChronos)
-   
-##### copy the original text files to the Chronos folder structure and create .dct files per Chronos requirement
-documentCounter=0
-for thoseInputFolder in folderPathsForInputFilesToChronos:
-    thoseOrginalDocsOpen = open(originalTextDocsList[documentCounter]).read()
-    nameTheTextFiles = open(os.path.join(thoseInputFolder+'/',orginalFileNames[documentCounter]),'w')
-    nameTheTextFiles.write(thoseOrginalDocsOpen)
-    nameTheTextFiles.close()
-    nameTheDCTFiles = open(os.path.join(thoseInputFolder+'/',cleanedFileNameList[documentCounter]+'.dct'),'w')
-    nameTheDCTFiles.write('09/01/2018')
-    nameTheDCTFiles.close()
-    documentCounter = documentCounter+1
-    
+    batch1 = re.sub(r'\d+\/\d+\/\d+','DATE',preNum)
+    batch2 = re.sub(r'\d\d\d\d\-\d+\-\d+','DATE',batch1)
+    #'9-11-2014'
+    batch3 = re.sub(r'\d+\-\d+\-\d\d\d\d','DATE',batch2)
+    #09.11.2014
+    batch4 = re.sub(r'\d\d\d\d\.\d+\.\d+','DATE',batch3)
+    batch5 = re.sub(r'\d+\.\d+\.\d\d\d\d','DATE',batch4)
+    #'Monday, 3 of August 2006'
+    batch6 = re.sub(r'\D+\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch5)
+    #Sunday, 9 November 2014
+    batch7 = re.sub(r'\D+\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch6)
+    #11-18
+    batch8 = re.sub(r'\d\d\-\d+','DATE',batch7)
 
 
-# In[4]:
+    sreplaceJan = re.sub(r'Jan\/\w+\/\w+','DATE', batch8)
+    sreplaceJan1 = re.sub(r'JAN\/\w+\/\w+','DATE', sreplaceJan)
+    sreplaceFeb = re.sub(r'Feb\/\w+\/\w+','DATE', sreplaceJan1)
+    sreplaceFeb1 = re.sub(r'FEB\/\w+\/\w+','DATE', sreplaceFeb)
+    sreplaceMar = re.sub(r'Mar\/\w+\/\w+','DATE', sreplaceFeb1)
+    sreplaceMar1 = re.sub(r'MAR\/\w+\/\w+','DATE', sreplaceMar)
+    sreplaceMar2 = re.sub(r'March\/\w+\/\w+','DATE', sreplaceMar1)
+    sreplaceMar3 = re.sub(r'MARCH\/\w+\/\w+','DATE', sreplaceMar2)
+    sreplaceApr = re.sub(r'Apr\/\w+\/\w+','DATE', sreplaceMar3)
+    sreplaceApr1 = re.sub(r'APR\/\w+\/\w+','DATE', sreplaceApr)
+    sreplaceApr2 = re.sub(r'April\/\w+\/\w+','DATE', sreplaceApr1)
+    sreplaceApr3 = re.sub(r'APRIL\/\w+\/\w+','DATE', sreplaceApr2)
+    sreplaceMay = re.sub(r'May\/\w+\/\w+','DATE', sreplaceApr3)
+    sreplaceMay1 = re.sub(r'MAY\/\w+\/\w+','DATE', sreplaceMay)
+    sreplaceJune = re.sub(r'Jun\/\w+\/\w+','DATE', sreplaceMay1)
+    sreplaceJune1 = re.sub(r'JUN\/\w+\/\w+','DATE', sreplaceJune)
+    sreplaceJune2 = re.sub(r'June\/\w+\/\w+','DATE', sreplaceJune1)
+    sreplaceJune3 = re.sub(r'JUNE\/\w+\/\w+','DATE', sreplaceJune2)
+    sreplaceJuly = re.sub(r'July\/\w+\/\w+','DATE', sreplaceJune3)
+    sreplaceJuly1 = re.sub(r'JULY\/\w+\/\w+','DATE', sreplaceJuly)
+    sreplaceAug = re.sub(r'Aug\/\w+\/\w+','DATE', sreplaceJuly1)
+    sreplaceAug1 = re.sub(r'AUG\/\w+\/\w+','DATE', sreplaceAug)
+    sreplaceSept = re.sub(r'Sept\/\w+\/\w+','DATE', sreplaceAug1)
+    sreplaceSept1 = re.sub(r'SEPT\/\w+\/\w+','DATE', sreplaceSept)
+    sreplaceOct = re.sub(r'Oct\/\w+\/\w+','DATE', sreplaceSept1)
+    sreplaceOct1 = re.sub(r'OCT\/\w+\/\w+','DATE', sreplaceOct)
+    sreplaceNov = re.sub(r'Nov\/\w+\/\w+','DATE', sreplaceOct1)
+    sreplaceNov1 = re.sub(r'NOV\/\w+\/\w+','DATE', sreplaceNov)
+    sreplaceDec = re.sub(r'Dec\/\w+\/\w+','DATE', sreplaceNov1)
+    sreplaceDec1 = re.sub(r'DEC\/\w+\/\w+','DATE', sreplaceDec)
+
+    sRreplaceJan = re.sub(r'\d+\/Jan\/\d+','DATE', sreplaceDec1)
+    sRreplaceJan1 = re.sub(r'\d+\/JAN\/\d+','DATE', sRreplaceJan)
+    sRreplaceFeb = re.sub(r'\d+\/Feb\/\d+','DATE', sRreplaceJan1)
+    sRreplaceFeb1 = re.sub(r'\d+\/FEB\/\d+','DATE', sRreplaceFeb)
+    sRreplaceMar = re.sub(r'\d+\/Mar\/\d+','DATE', sRreplaceFeb1)
+    sRreplaceMar1 = re.sub(r'\d+\/MAR\/\d+','DATE', sRreplaceMar)
+    sRreplaceMar2 = re.sub(r'\d+\/March\/\d+','DATE', sRreplaceMar1)
+    sRreplaceMar3 = re.sub(r'\d+\/MARCH\/\d+','DATE', sRreplaceMar2)
+    sRreplaceApr = re.sub(r'\d+\/Apr\/\d+','DATE', sRreplaceMar3)
+    sRreplaceApr1 = re.sub(r'\d+\/APR\/\d+','DATE', sRreplaceApr)
+    sRreplaceApr2 = re.sub(r'\d+\/April\/\d+','DATE', sRreplaceApr1)
+    sRreplaceApr3 = re.sub(r'\d+\/APRIL\/\d+','DATE', sRreplaceApr2)
+    sRreplaceMay = re.sub(r'\d+\/May\/\d+','DATE', sRreplaceApr3)
+    sRreplaceMay1 = re.sub(r'\d+\/MAY\/\d+','DATE', sRreplaceMay)
+    sRreplaceJune = re.sub(r'\d+\/Jun\/\d+','DATE', sRreplaceMay1)
+    sRreplaceJune1 = re.sub(r'\d+\/JUN\/\d+','DATE', sRreplaceJune)
+    sRreplaceJune2 = re.sub(r'\d+\/June\/\d+','DATE', sRreplaceJune1)
+    sRreplaceJune3 = re.sub(r'\d+\/JUNE\/\d+','DATE', sRreplaceJune2)
+    sRreplaceJuly = re.sub(r'\d+\/July\/\d+','DATE', sRreplaceJune3)
+    sRreplaceJuly1 = re.sub(r'\d+\/JULY\/\d+','DATE', sRreplaceJuly)
+    sRreplaceAug = re.sub(r'\d+\/Aug\/\d+','DATE', sRreplaceJuly1)
+    sRreplaceAug1 = re.sub(r'\d+\/AUG\/\d+','DATE', sRreplaceAug)
+    sRreplaceSept = re.sub(r'\d+\/Sept\/\d+','DATE', sRreplaceAug1)
+    sRreplaceSept1 = re.sub(r'\d+\/SEPT\/\d+','DATE', sRreplaceSept)
+    sRreplaceOct = re.sub(r'\d+\/Oct\/\d+','DATE', sRreplaceSept1)
+    sRreplaceOct1 = re.sub(r'\d+\/OCT\/\d+','DATE', sRreplaceOct)
+    sRreplaceNov = re.sub(r'\d+\/Nov\/\d+','DATE', sRreplaceOct1)
+    sRreplaceNov1 = re.sub(r'\d+\/NOV\/\d+','DATE', sRreplaceNov)
+    sRreplaceDec = re.sub(r'\d+\/Dec\/\d+','DATE', sRreplaceNov1)
+    sRreplaceDec1 = re.sub(r'\d+\/DEC\/\d+','DATE', sRreplaceDec)
+
+    sRreplaceJanR = re.sub(r'\d\/Jan\/\d+','DATE', sRreplaceDec1)
+    sRreplaceJan1R = re.sub(r'\d\/JAN\/\d+','DATE', sRreplaceJanR)
+    sRreplaceFebR = re.sub(r'\d\/Feb\/\d+','DATE', sRreplaceJan1R)
+    sRreplaceFeb1R = re.sub(r'\d\/FEB\/\d+','DATE', sRreplaceFebR)
+    sRreplaceMarR = re.sub(r'\d\/Mar\/\d+','DATE', sRreplaceFeb1R)
+    sRreplaceMar1R = re.sub(r'\d\/MAR\/\d+','DATE', sRreplaceMarR)
+    sRreplaceMar2R = re.sub(r'\d\/March\/\d+','DATE', sRreplaceMar1R)
+    sRreplaceMar3R = re.sub(r'\d\/MARCH\/\d+','DATE', sRreplaceMar2R)
+    sRreplaceAprR = re.sub(r'\d\/Apr\/\d+','DATE', sRreplaceMar3R)
+    sRreplaceApr1R = re.sub(r'\d\/APR\/\d+','DATE', sRreplaceAprR)
+    sRreplaceApr2R = re.sub(r'\d\/April\/\d+','DATE', sRreplaceApr1R)
+    sRreplaceApr3R = re.sub(r'\d\/APRIL\/\d+','DATE', sRreplaceApr2R)
+    sRreplaceMayR = re.sub(r'\d\/May\/\d+','DATE', sRreplaceApr3R)
+    sRreplaceMay1R = re.sub(r'\d\/MAY\/\d+','DATE', sRreplaceMayR)
+    sRreplaceJuneR = re.sub(r'\d\/Jun\/\d+','DATE', sRreplaceMay1R)
+    sRreplaceJune1R = re.sub(r'\d\/JUN\/\d+','DATE', sRreplaceJuneR)
+    sRreplaceJune2R = re.sub(r'\d\/June\/\d+','DATE', sRreplaceJune1R)
+    sRreplaceJune3R = re.sub(r'\d\/JUNE\/\d+','DATE', sRreplaceJune2R)
+    sRreplaceJulyR = re.sub(r'\d\/July\/\d+','DATE', sRreplaceJune3R)
+    sRreplaceJuly1R = re.sub(r'\d\/JULY\/\d+','DATE', sRreplaceJulyR)
+    sRreplaceAugR = re.sub(r'\d\/Aug\/\d+','DATE', sRreplaceJuly1R)
+    sRreplaceAug1R = re.sub(r'\d\/AUG\/\d+','DATE', sRreplaceAugR)
+    sRreplaceSeptR = re.sub(r'\d\/Sept\/\d+','DATE', sRreplaceAug1R)
+    sRreplaceSept1R = re.sub(r'\d\/SEPT\/\d+','DATE', sRreplaceSeptR)
+    sRreplaceOctR = re.sub(r'\d\/Oct\/\d+','DATE', sRreplaceSept1R)
+    sRreplaceOct1R = re.sub(r'\d\/OCT\/\d+','DATE', sRreplaceOctR)
+    sRreplaceNovR = re.sub(r'\d\/Nov\/\d+','DATE', sRreplaceOct1R)
+    sRreplaceNov1R = re.sub(r'\d\/NOV\/\d+','DATE', sRreplaceNovR)
+    sRreplaceDecR = re.sub(r'\d\/Dec\/\d+','DATE', sRreplaceNov1R)
+    sRreplaceDec1R = re.sub(r'\d\/DEC\/\d+','DATE', sRreplaceDecR)
 
 
-#### the block below creates a listing of the folders that will be input into Chronos 
-my_inputPath = ''.join((pathForInputFoldersForChronos, '/data/my_input/'))
+    ######
+    sRreplaceJanA = re.sub(r'\d+\/January\/\d+','DATE', sRreplaceDec1R)
+    sRreplaceJan1A = re.sub(r'\d+\/JANUARY\/\d+','DATE', sRreplaceJanA)
+    sRreplaceFebA = re.sub(r'\d+\/February\/\d+','DATE', sRreplaceJan1A)
+    sRreplaceFeb1A = re.sub(r'\d+\/FEBRUARY\/\d+','DATE', sRreplaceFebA)
+    sRreplaceMarA = re.sub(r'\d+\/March\/\d+','DATE', sRreplaceFeb1A)
+    sRreplaceMar1A = re.sub(r'\d+\/MARCH\/\d+','DATE', sRreplaceMarA)
+    sRreplaceMar2A = re.sub(r'\d+\/March\/\d+','DATE', sRreplaceMar1A)
+    sRreplaceMar3A = re.sub(r'\d+\/MARCH\/\d+','DATE', sRreplaceMar2A)
+    sRreplaceAprA = re.sub(r'\d+\/April\/\d+','DATE', sRreplaceMar3A)
+    sRreplaceApr1A = re.sub(r'\d+\/APRIL\/\d+','DATE', sRreplaceAprA)
+    sRreplaceApr2A = re.sub(r'\d+\/April\/\d+','DATE', sRreplaceApr1A)
+    sRreplaceApr3A = re.sub(r'\d+\/APRIL\/\d+','DATE', sRreplaceApr2A)
+    sRreplaceMayA = re.sub(r'\d+\/May\/\d+','DATE', sRreplaceApr3A)
+    sRreplaceMay1A = re.sub(r'\d+\/MAY\/\d+','DATE', sRreplaceMayA)
+    sRreplaceJuneA = re.sub(r'\d+\/June\/\d+','DATE', sRreplaceMay1A)
+    sRreplaceJune1A = re.sub(r'\d+\/JUNE\/\d+','DATE', sRreplaceJuneA)
+    sRreplaceJune2A = re.sub(r'\d+\/June\/\d+','DATE', sRreplaceJune1A)
+    sRreplaceJune3A = re.sub(r'\d+\/JUNE\/\d+','DATE', sRreplaceJune2A)
+    sRreplaceJulyA = re.sub(r'\d+\/July\/\d+','DATE', sRreplaceJune3A)
+    sRreplaceJuly1A = re.sub(r'\d+\/JULY\/\d+','DATE', sRreplaceJulyA)
+    sRreplaceAugA = re.sub(r'\d+\/August\/\d+','DATE', sRreplaceJuly1A)
+    sRreplaceAug1A = re.sub(r'\d+\/AUGUST\/\d+','DATE', sRreplaceAugA)
+    sRreplaceSeptA = re.sub(r'\d+\/September\/\d+','DATE', sRreplaceAug1A)
+    sRreplaceSept1A = re.sub(r'\d+\/SEPTEMBER\/\d+','DATE', sRreplaceSeptA)
+    sRreplaceOctA = re.sub(r'\d+\/October\/\d+','DATE', sRreplaceSept1A)
+    sRreplaceOct1A = re.sub(r'\d+\/OCTOBER\/\d+','DATE', sRreplaceOctA)
+    sRreplaceNovA = re.sub(r'\d+\/November\/\d+','DATE', sRreplaceOct1A)
+    sRreplaceNov1A = re.sub(r'\d+\/NOVEMBER\/\d+','DATE', sRreplaceNovA)
+    sRreplaceDecA = re.sub(r'\d+\/December\/\d+','DATE', sRreplaceNov1A)
+    sRreplaceDec1A = re.sub(r'\d+\/DECEMBER\/\d+','DATE', sRreplaceDecA)
 
-foldersForInput = os.listdir(my_inputPath)
+    sRreplaceJanRB = re.sub(r'\d\/January\/\d+','DATE', sRreplaceDec1A)
+    sRreplaceJan1RB = re.sub(r'\d\/JANUARY\/\d+','DATE', sRreplaceJanRB)
+    sRreplaceFebRB = re.sub(r'\d\/February\/\d+','DATE', sRreplaceJan1RB)
+    sRreplaceFeb1RB = re.sub(r'\d\/FEBRUARY\/\d+','DATE', sRreplaceFebRB)
+    sRreplaceMarRB = re.sub(r'\d\/March\/\d+','DATE', sRreplaceFeb1RB)
+    sRreplaceMar1RB = re.sub(r'\d\/MARCH\/\d+','DATE', sRreplaceMarRB)
+    sRreplaceMar2RB = re.sub(r'\d\/March\/\d+','DATE', sRreplaceMar1RB)
+    sRreplaceMar3RB = re.sub(r'\d\/MARCH\/\d+','DATE', sRreplaceMar2RB)
+    sRreplaceAprRB = re.sub(r'\d\/April\/\d+','DATE', sRreplaceMar3RB)
+    sRreplaceApr1RB = re.sub(r'\d\/APR\/\d+','DATE', sRreplaceAprRB)
+    sRreplaceApr2RB = re.sub(r'\d\/April\/\d+','DATE', sRreplaceApr1RB)
+    sRreplaceApr3RB = re.sub(r'\d\/APRIL\/\d+','DATE', sRreplaceApr2RB)
+    sRreplaceMayRB = re.sub(r'\d\/May\/\d+','DATE', sRreplaceApr3RB)
+    sRreplaceMay1RB = re.sub(r'\d\/MAY\/\d+','DATE', sRreplaceMayRB)
+    sRreplaceJuneRB = re.sub(r'\d\/June\/\d+','DATE', sRreplaceMay1RB)
+    sRreplaceJune1RB = re.sub(r'\d\/JUNE\/\d+','DATE', sRreplaceJuneRB)
+    sRreplaceJune2RB = re.sub(r'\d\/June\/\d+','DATE', sRreplaceJune1RB)
+    sRreplaceJune3RB = re.sub(r'\d\/JUNE\/\d+','DATE', sRreplaceJune2RB)
+    sRreplaceJulyRB = re.sub(r'\d\/July\/\d+','DATE', sRreplaceJune3RB)
+    sRreplaceJuly1RB = re.sub(r'\d\/JULY\/\d+','DATE', sRreplaceJulyRB)
+    sRreplaceAugRB = re.sub(r'\d\/August\/\d+','DATE', sRreplaceJuly1RB)
+    sRreplaceAug1RB = re.sub(r'\d\/AUGUST\/\d+','DATE', sRreplaceAugRB)
+    sRreplaceSeptRB = re.sub(r'\d\/September\/\d+','DATE', sRreplaceAug1RB)
+    sRreplaceSept1RB = re.sub(r'\d\/SEPTEMBER\/\d+','DATE', sRreplaceSeptRB)
+    sRreplaceOctRB = re.sub(r'\d\/October\/\d+','DATE', sRreplaceSept1RB)
+    sRreplaceOct1RB = re.sub(r'\d\/OCTOBER\/\d+','DATE', sRreplaceOctRB)
+    sRreplaceNovRB = re.sub(r'\d\/November\/\d+','DATE', sRreplaceOct1RB)
+    sRreplaceNov1RB = re.sub(r'\d\/NOVEMBER\/\d+','DATE', sRreplaceNovRB)
+    sRreplaceDecRB = re.sub(r'\d\/December\/\d+','DATE', sRreplaceNov1RB)
+    sRreplaceDec1RB = re.sub(r'\d\/DECEMBER\/\d+','DATE', sRreplaceDecRB)
 
-foldersForInput
+    sRreplaceJanRQ = re.sub(r'Jan\/\d+','DATE', sRreplaceDec1RB)
+    sRreplaceJan1RQ = re.sub(r'JAN\/\d+','DATE', sRreplaceJanRQ)
+    sRreplaceFebRQ = re.sub(r'Feb\/\d+','DATE', sRreplaceJan1RQ)
+    sRreplaceFeb1RQ = re.sub(r'FEB\/\d+','DATE', sRreplaceFebRQ)
+    sRreplaceMarRQ = re.sub(r'Mar\/\d+','DATE', sRreplaceFeb1RQ)
+    sRreplaceMar1RQ = re.sub(r'MAR\/\d+','DATE', sRreplaceMarRQ)
+    sRreplaceMar2RQ = re.sub(r'March\/\d+','DATE', sRreplaceMar1RQ)
+    sRreplaceMar3RQ = re.sub(r'MARCH\/\d+','DATE', sRreplaceMar2RQ)
+    sRreplaceAprRQ = re.sub(r'Apr\/\d+','DATE', sRreplaceMar3RQ)
+    sRreplaceApr1RQ = re.sub(r'APR\/\d+','DATE', sRreplaceAprRQ)
+    sRreplaceApr2RQ = re.sub(r'April\/\d+','DATE', sRreplaceApr1RQ)
+    sRreplaceApr3RQ = re.sub(r'APRIL\/\d+','DATE', sRreplaceApr2RQ)
+    sRreplaceMayRQ = re.sub(r'May\/\d+','DATE', sRreplaceApr3RQ)
+    sRreplaceMay1RQ = re.sub(r'MAY\/\d+','DATE', sRreplaceMayRQ)
+    sRreplaceJuneRQ = re.sub(r'Jun\/\d+','DATE', sRreplaceMay1RQ)
+    sRreplaceJune1RQ = re.sub(r'JUN\/\d+','DATE', sRreplaceJuneRQ)
+    sRreplaceJune2RQ = re.sub(r'June\/\d+','DATE', sRreplaceJune1RQ)
+    sRreplaceJune3RQ = re.sub(r'JUNE\/\d+','DATE', sRreplaceJune2RQ)
+    sRreplaceJulyRQ = re.sub(r'July\/\d+','DATE', sRreplaceJune3RQ)
+    sRreplaceJuly1RQ = re.sub(r'JULY\/\d+','DATE', sRreplaceJulyRQ)
+    sRreplaceAugRQ = re.sub(r'Aug\/\d+','DATE', sRreplaceJuly1RQ)
+    sRreplaceAug1RQ = re.sub(r'AUG\/\d+','DATE', sRreplaceAugRQ)
+    sRreplaceSeptRQ = re.sub(r'Sept\/\d+','DATE', sRreplaceAug1RQ)
+    sRreplaceSept1RQ = re.sub(r'SEPT\/\d+','DATE', sRreplaceSeptRQ)
+    sRreplaceOctRQ = re.sub(r'Oct\/\d+','DATE', sRreplaceSept1RQ)
+    sRreplaceOct1RQ = re.sub(r'OCT\/\d+','DATE', sRreplaceOctRQ)
+    sRreplaceNovRQ = re.sub(r'Nov\/\d+','DATE', sRreplaceOct1RQ)
+    sRreplaceNov1RQ = re.sub(r'NOV\/\d+','DATE', sRreplaceNovRQ)
+    sRreplaceDecRQ = re.sub(r'Dec\/\d+','DATE', sRreplaceNov1RQ)
+    sRreplaceDec1RQ = re.sub(r'DEC\/\d+','DATE', sRreplaceDecRQ)
 
-inputFolderList =[]
+    sRreplaceJanAK = re.sub(r'January\/\d+','DATE', sRreplaceDec1RQ)
+    sRreplaceJan1AK = re.sub(r'JANUARY\/\d+','DATE', sRreplaceJanAK)
+    sRreplaceFebAK = re.sub(r'February\/\d+','DATE', sRreplaceJan1AK)
+    sRreplaceFeb1AK = re.sub(r'FEBRUARY\/\d+','DATE', sRreplaceFebAK)
+    sRreplaceMarAK = re.sub(r'March\/\d+','DATE', sRreplaceFeb1AK)
+    sRreplaceMar1AK = re.sub(r'MARCH\/\d+','DATE', sRreplaceMarAK)
+    sRreplaceMar2AK = re.sub(r'March\/\d+','DATE', sRreplaceMar1AK)
+    sRreplaceMar3AK = re.sub(r'MARCH\/\d+','DATE', sRreplaceMar2AK)
+    sRreplaceAprAK = re.sub(r'April\/\d+','DATE', sRreplaceMar3AK)
+    sRreplaceApr1AK = re.sub(r'APRIL\/\d+','DATE', sRreplaceAprAK)
+    sRreplaceApr2AK = re.sub(r'April\/\d+','DATE', sRreplaceApr1AK)
+    sRreplaceApr3AK = re.sub(r'APRIL\/\d+','DATE', sRreplaceApr2AK)
+    sRreplaceMayAK = re.sub(r'May\/\d+','DATE', sRreplaceApr3AK)
+    sRreplaceMay1AK = re.sub(r'MAY\/\d+','DATE', sRreplaceMayAK)
+    sRreplaceJuneAK = re.sub(r'June\/\d+','DATE', sRreplaceMay1AK)
+    sRreplaceJune1AK = re.sub(r'JUNE\/\d+','DATE', sRreplaceJuneAK)
+    sRreplaceJune2AK = re.sub(r'June\/\d+','DATE', sRreplaceJune1AK)
+    sRreplaceJune3AK = re.sub(r'JUNE\/\d+','DATE', sRreplaceJune2AK)
+    sRreplaceJulyAK = re.sub(r'July\/\d+','DATE', sRreplaceJune3AK)
+    sRreplaceJuly1AK = re.sub(r'JULY\/\d+','DATE', sRreplaceJulyAK)
+    sRreplaceAugAK = re.sub(r'August\/\d+','DATE', sRreplaceJuly1AK)
+    sRreplaceAug1AK = re.sub(r'AUGUST\/\d+','DATE', sRreplaceAugAK)
+    sRreplaceSeptAK = re.sub(r'September\/\d+','DATE', sRreplaceAug1AK)
+    sRreplaceSept1AK = re.sub(r'SEPTEMBER\/\d+','DATE', sRreplaceSeptAK)
+    sRreplaceOctAK = re.sub(r'October\/\d+','DATE', sRreplaceSept1AK)
+    sRreplaceOct1AK = re.sub(r'OCTOBER\/\d+','DATE', sRreplaceOctAK)
+    sRreplaceNovAK = re.sub(r'November\/\d+','DATE', sRreplaceOct1AK)
+    sRreplaceNov1AK = re.sub(r'NOVEMBER\/\d+','DATE', sRreplaceNovAK)
+    sRreplaceDecAK = re.sub(r'December\/\d+','DATE', sRreplaceNov1AK)
+    sRreplaceDec1AK = re.sub(r'DECEMBER\/\d+','DATE', sRreplaceDecAK)
 
-for folder in foldersForInput:
-     inputFolderList.append(''.join((my_inputPath, folder)))
+    ##
 
+    jRreplaceJanRQ = re.sub(r'Jan\s+\d+','DATE DATE', sRreplaceDec1AK)
+    jRreplaceJan1RQ = re.sub(r'JAN\s+\d+','DATE DATE', jRreplaceJanRQ)
+    jRreplaceFebRQ = re.sub(r'Feb\s+\d+','DATE DATE', jRreplaceJan1RQ)
+    jRreplaceFeb1RQ = re.sub(r'FEB\s+\d+','DATE DATE', jRreplaceFebRQ)
+    jRreplaceMarRQ = re.sub(r'Mar\s+\d+','DATE DATE', jRreplaceFeb1RQ)
+    jRreplaceMar1RQ = re.sub(r'MAR\s+\d+','DATE DATE', jRreplaceMarRQ)
+    jRreplaceMar2RQ = re.sub(r'March\s+\d+','DATE DATE', jRreplaceMar1RQ)
+    jRreplaceMar3RQ = re.sub(r'MARCH\s+\d+','DATE DATE', jRreplaceMar2RQ)
+    jRreplaceAprRQ = re.sub(r'Apr\s+\d+','DATE DATE', jRreplaceMar3RQ)
+    jRreplaceApr1RQ = re.sub(r'APR\s+\d+','DATE DATE', jRreplaceAprRQ)
+    jRreplaceApr2RQ = re.sub(r'April\s+\d+','DATE DATE', jRreplaceApr1RQ)
+    jRreplaceApr3RQ = re.sub(r'APRIL\s+\d+','DATE DATE', jRreplaceApr2RQ)
+    jRreplaceMayRQ = re.sub(r'May\s+\d+','DATE DATE', jRreplaceApr3RQ)
+    jRreplaceMay1RQ = re.sub(r'MAY\s+\d+','DATE DATE', jRreplaceMayRQ)
+    jRreplaceJuneRQ = re.sub(r'Jun\s+\d+','DATE DATE', jRreplaceMay1RQ)
+    jRreplaceJune1RQ = re.sub(r'JUN\s+\d+','DATE DATE', jRreplaceJuneRQ)
+    jRreplaceJune2RQ = re.sub(r'June\s+\d+','DATE DATE', jRreplaceJune1RQ)
+    jRreplaceJune3RQ = re.sub(r'JUNE\s+\d+','DATE DATE', jRreplaceJune2RQ)
+    jRreplaceJulyRQ = re.sub(r'July\s+\d+','DATE DATE', jRreplaceJune3RQ)
+    jRreplaceJuly1RQ = re.sub(r'JULY\s+\d+','DATE DATE', jRreplaceJulyRQ)
+    jRreplaceAugRQ = re.sub(r'Aug\s+\d+','DATE DATE', jRreplaceJuly1RQ)
+    jRreplaceAug1RQ = re.sub(r'AUG\s+\d+','DATE DATE', jRreplaceAugRQ)
+    jRreplaceSeptRQ = re.sub(r'Sept\s+\d+','DATE DATE', jRreplaceAug1RQ)
+    jRreplaceSept1RQ = re.sub(r'SEPT\s+\d+','DATE DATE', jRreplaceSeptRQ)
+    jRreplaceOctRQ = re.sub(r'Oct\s+\d+','DATE DATE', jRreplaceSept1RQ)
+    jRreplaceOct1RQ = re.sub(r'OCT\s+\d+','DATE DATE', jRreplaceOctRQ)
+    jRreplaceNovRQ = re.sub(r'Nov\s+\d+','DATE DATE', jRreplaceOct1RQ)
+    jRreplaceNov1RQ = re.sub(r'NOV\s+\d+','DATE DATE', jRreplaceNovRQ)
+    jRreplaceDecRQ = re.sub(r'Dec\s+\d+','DATE DATE', jRreplaceNov1RQ)
+    jRreplaceDec1RQ = re.sub(r'DEC\s+\d+','DATE DATE', jRreplaceDecRQ)
 
-# In[5]:
+    jRreplaceJanAK = re.sub(r'January\s+\d+','DATE DATE', jRreplaceDec1RQ)
+    jRreplaceJan1AK = re.sub(r'JANUARY\s+\d+','DATE DATE', jRreplaceJanAK)
+    jRreplaceFebAK = re.sub(r'February\s+\d+','DATE DATE', jRreplaceJan1AK)
+    jRreplaceFeb1AK = re.sub(r'FEBRUARY\s+\d+','DATE DATE', jRreplaceFebAK)
+    jRreplaceMarAK = re.sub(r'March\s+\d+','DATE DATE', jRreplaceFeb1AK)
+    jRreplaceMar1AK = re.sub(r'MARCH\s+\d+','DATE DATE', jRreplaceMarAK)
+    jRreplaceMar2AK = re.sub(r'March\s+\d+','DATE DATE', jRreplaceMar1AK)
+    jRreplaceMar3AK = re.sub(r'MARCH\s+\d+','DATE DATE', jRreplaceMar2AK)
+    jRreplaceAprAK = re.sub(r'April\s+\d+','DATE DATE', jRreplaceMar3AK)
+    jRreplaceApr1AK = re.sub(r'APRIL\s+\d+','DATE DATE', jRreplaceAprAK)
+    jRreplaceApr2AK = re.sub(r'April\s+\d+','DATE DATE', jRreplaceApr1AK)
+    jRreplaceApr3AK = re.sub(r'APRIL\s+\d+','DATE DATE', jRreplaceApr2AK)
+    jRreplaceMayAK = re.sub(r'May\s+\d+','DATE DATE', jRreplaceApr3AK)
+    jRreplaceMay1AK = re.sub(r'MAY\s+\d+','DATE DATE', jRreplaceMayAK)
+    jRreplaceJuneAK = re.sub(r'June\s+\d+','DATE DATE', jRreplaceMay1AK)
+    jRreplaceJune1AK = re.sub(r'JUNE\s+\d+','DATE DATE', jRreplaceJuneAK)
+    jRreplaceJune2AK = re.sub(r'June\s+\d+','DATE DATE', jRreplaceJune1AK)
+    jRreplaceJune3AK = re.sub(r'JUNE\s+\d+','DATE DATE', jRreplaceJune2AK)
+    jRreplaceJulyAK = re.sub(r'July\s+\d+','DATE DATE', jRreplaceJune3AK)
+    jRreplaceJuly1AK = re.sub(r'JULY\s+\d+','DATE DATE', jRreplaceJulyAK)
+    jRreplaceAugAK = re.sub(r'August\s+\d+','DATE DATE', jRreplaceJuly1AK)
+    jRreplaceAug1AK = re.sub(r'AUGUST\s+\d+','DATE DATE', jRreplaceAugAK)
+    jRreplaceSeptAK = re.sub(r'September\s+\d+','DATE DATE', jRreplaceAug1AK)
+    jRreplaceSept1AK = re.sub(r'SEPTEMBER\s+\d+','DATE DATE', jRreplaceSeptAK)
+    jRreplaceOctAK = re.sub(r'October\s+\d+','DATE DATE', jRreplaceSept1AK)
+    jRreplaceOct1AK = re.sub(r'OCTOBER\s+\d+','DATE DATE', jRreplaceOctAK)
+    jRreplaceNovAK = re.sub(r'November\s+\d+','DATE DATE', jRreplaceOct1AK)
+    jRreplaceNov1AK = re.sub(r'NOVEMBER\s+\d+','DATE DATE', jRreplaceNovAK)
+    jRreplaceDecAK = re.sub(r'December\s+\d+','DATE DATE', jRreplaceNov1AK)
+    jRreplaceDec1AK = re.sub(r'DECEMBER\s+\d+','DATE DATE', jRreplaceDecAK)
 
-
-
-#### the block below creates a listing of the files that will be input into Chronos
-inputTextFilePathList = []
-
-for filePath in inputFolderList:
-    for file in os.listdir(filePath):
-        if fnmatch.fnmatch(file, '*.txt'):
-            inputTextFilePathList.append(''.join((filePath+'/', file)))
-
-
-# In[6]:
-
-
-
-#### the block below takes the user's input to provide Chronos' requirements, runs Chronos then returns to this program 
-myDataInput = newDataInputPath
-myDataOutput = newDataOutputPath
-chronosPath = chronosLocation
-noChronoPY = re.sub(r'Chrono\.py','',chronosLocation)
-sampleFilesData = 'sample_files/official_train_MLmatrix_Win5_012618_data.csv'
-sampleFilesClass = 'sample_files/official_train_MLmatrix_Win5_012618_class.csv'
-joinFilesData = ''.join((noChronoPY, sampleFilesData))
-joinFilesClass = ''.join((noChronoPY, sampleFilesClass))
-##formatting the way below was needed to input into the subprocess.Popen while the .wait() provides being able to return the this program
-#command = "python3 %s -i %s -x "'.txt'" -o %s -m SVM -d %s -c %s" % (chronosPath,myDataInput,myDataOutput,joinFilesData,joinFilesClass)
-command = ["python3", chronosPath, "-i", myDataInput, "-x", ".txt", "-o", myDataOutput, "-m", "SVM", "-d", joinFilesData, "-c", joinFilesClass]
-
-p = subprocess.Popen(command).wait()
-
-
-# In[7]:
-
-
-
-#### the following block checks to see if Chronos has completed then returns a listing of the output folders 
-my_OutputPath = ''.join((pathForOutputFoldersForChronos, '/results/my_output/'))
-
-foldersForOutput = os.listdir(my_OutputPath)
-outputFolderList =[]
-while len(foldersForOutput) == 0:
-    foldersForOutput = os.listdir(my_OutputPath)
-    print('processing')
-    time.sleep(2)
-    for outputFolder in foldersForOutput:
-        outputFolderList.append(''.join((my_OutputPath, outputFolder)))
-            
-for outputFolder in foldersForOutput:
-    outputFolderList.append(''.join((my_OutputPath, outputFolder)))
-
-            
-
-
-# In[8]:
-
-
-
-#### the block below creates a listing of the completed files
-outputXMLFilePathList = []
-
-for outputXMLFilePath in outputFolderList:
-    for outputXMLFile in os.listdir(outputXMLFilePath):
-        if fnmatch.fnmatch(outputXMLFile, '*.xml') or fnmatch.fnmatch(outputXMLFile, '*.XML'):
-            outputXMLFilePathList.append(''.join((outputXMLFilePath+'/', outputXMLFile)))
-
-
-# In[10]:
-
-
-#### the block below uses the XML files to clean the txt files 
-counter = 0
-
-for inputFile1 in inputTextFilePathList: 
-    #### open the listing of XML files and iterates using a counter
-    xmlFile1 = open(outputXMLFilePathList[counter], 'r')
-    
-    #### read the XML file 
-    readxml = xmlFile1.read()
-
-    #### creates a copy of the text file so we can use
-    clean = readxml
-
-    #### removes the new line and tabs from the doc leaving us with tags joining each other
-    clean1 = re.sub(r'\n|\t','',clean)
-
-    textFile1 = open(inputFile1, 'r')
-
-    readIt = textFile1.read()
-
-    def dateCleanFunk(textFile, xmlFile, tagType):
-        #### this finds the tag and the data within and returns a list of needed data and tage type
-        monthOYear = r'<span>\d+,\d+</span><type>'+tagType+'</type>'
-        monthoYearCompile = re.compile(monthOYear, re.IGNORECASE)
-        monthOYearFind = monthoYearCompile.findall(clean1)
-
-        #### create an empty list to hold the results removing the tag location data
-        monthOYearPositionList = []
-
-        #### iterate through the monthOYearFind list and remove the data from the span tag we need and add to the list above
-        for monthOYearPositions in monthOYearFind:
-            monthOYearPosition = r'\d+,\d+'
-            monthOYearPositionCompile = re.compile(monthOYearPosition, re.IGNORECASE)
-            monthOYearPositionFind = monthOYearPositionCompile.findall(monthOYearPositions)
-            monthOYearPositionList.append(monthOYearPositionFind)
-
-        #### this is holding the listing for the locations that will be used to remove/change our day of month items
-        monthOYearLocationList = []
-
-        #### this takes the listing above and converts the contents from stings to int so we can use the numbers for location
-        for monthOYearNumbers in monthOYearPositionList:
-            for monthOYearSplitting in monthOYearNumbers:
-                monthOYearNumbersSplit = monthOYearSplitting.split(',')
-                monthOYearFinalNumbers = list(map(int, monthOYearNumbersSplit))
-                monthOYearLocationList.append(monthOYearFinalNumbers)
-
-        def dateReplace(text, startPosition, endPosition, placeHolder):
-            return (text[:startPosition]+placeHolder+text[endPosition:])
-
-        holdOutput =[textFile]
-
-        for thoseLocations in monthOYearLocationList:
-            lenghtOfHoldOutput = len(holdOutput)
-            lengthOfReplacement = len(textFile[thoseLocations[0]:thoseLocations[1]])
-            block = "\u00a9"
-            blockFill = block*lengthOfReplacement
-            less1 = lenghtOfHoldOutput-1
-            lastItemInList = holdOutput[less1]  
-            textHold = dateReplace(lastItemInList, thoseLocations[0], thoseLocations[1],blockFill)
-            holdOutput.append(textHold)
-
-        finalItem = len(holdOutput)
-        finalItemReturn = holdOutput[finalItem-1]
+############################################################################
 
 
-        return(finalItemReturn)
- 
-    #### this funcation calls the time methods from Chronos we use for cleaning 
-    testingList = dateCleanFunk(readIt, clean1,'Day-Of-Month')
-    testingMonth = dateCleanFunk(testingList, clean1,'Month-Of-Year')
-    testingYear = dateCleanFunk(testingMonth, clean1, 'Year')
-    #print(testingYear)
-    #replaceDay = dateCleanFunk(testingYear, clean1, 'Day')
-    #replaceMonth = dateCleanFunk(replaceDay, clean1, 'Month')
-    #replaceNumber = dateCleanFunk(replaceMonth, clean1, 'Number')
-    #the listing of what the output files names will be
+    djRreplaceJanRQ = re.sub(r'Jan\-\d+\-\d+','DATE', jRreplaceDec1AK)
+    djRreplaceJan1RQ = re.sub(r'JAN\-\d+\-\d+','DATE', djRreplaceJanRQ)
+    djRreplaceFebRQ = re.sub(r'Feb\-\d+\-\d+','DATE', djRreplaceJan1RQ)
+    djRreplaceFeb1RQ = re.sub(r'FEB\-\d+\-\d+','DATE', djRreplaceFebRQ)
+    djRreplaceMarRQ = re.sub(r'Mar\-\d+\-\d+','DATE', djRreplaceFeb1RQ)
+    djRreplaceMar1RQ = re.sub(r'MAR\-\d+\-\d+','DATE', djRreplaceMarRQ)
+    djRreplaceMar2RQ = re.sub(r'March\-\d+\-\d+','DATE', djRreplaceMar1RQ)
+    djRreplaceMar3RQ = re.sub(r'MARCH\-\d+\-\d+','DATE', djRreplaceMar2RQ)
+    djRreplaceAprRQ = re.sub(r'Apr\-\d+\-\d+','DATE', djRreplaceMar3RQ)
+    djRreplaceApr1RQ = re.sub(r'APR\-\d+\-\d+','DATE', djRreplaceAprRQ)
+    djRreplaceApr2RQ = re.sub(r'April\-\d+\-\d+','DATE', djRreplaceApr1RQ)
+    djRreplaceApr3RQ = re.sub(r'APRIL\-\d+\-\d+','DATE', djRreplaceApr2RQ)
+    djRreplaceMayRQ = re.sub(r'May\-\d+\-\d+','DATE', djRreplaceApr3RQ)
+    djRreplaceMay1RQ = re.sub(r'MAY\-\d+\-\d+','DATE', djRreplaceMayRQ)
+    djRreplaceJuneRQ = re.sub(r'Jun\-\d+\-\d+','DATE', djRreplaceMay1RQ)
+    djRreplaceJune1RQ = re.sub(r'JUN\-\d+\-\d+','DATE', djRreplaceJuneRQ)
+    djRreplaceJune2RQ = re.sub(r'June\-\d+\-\d+','DATE', djRreplaceJune1RQ)
+    djRreplaceJune3RQ = re.sub(r'JUNE\-\d+\-\d+','DATE', djRreplaceJune2RQ)
+    djRreplaceJulyRQ = re.sub(r'July\-\d+\-\d+','DATE', djRreplaceJune3RQ)
+    djRreplaceJuly1RQ = re.sub(r'JULY\-\d+\-\d+','DATE', djRreplaceJulyRQ)
+    djRreplaceAugRQ = re.sub(r'Aug\-\d+\-\d+','DATE', djRreplaceJuly1RQ)
+    djRreplaceAug1RQ = re.sub(r'AUG\-\d+\-\d+','DATE', djRreplaceAugRQ)
+    djRreplaceSeptRQ = re.sub(r'Sept\-\d+\-\d+','DATE', djRreplaceAug1RQ)
+    djRreplaceSept1RQ = re.sub(r'SEPT\-\d+\-\d+','DATE', djRreplaceSeptRQ)
+    djRreplaceOctRQ = re.sub(r'Oct\-\d+\-\d+','DATE', djRreplaceSept1RQ)
+    djRreplaceOct1RQ = re.sub(r'OCT\-\d+\-\d+','DATE', djRreplaceOctRQ)
+    djRreplaceNovRQ = re.sub(r'Nov\-\d+\-\d+','DATE', djRreplaceOct1RQ)
+    djRreplaceNov1RQ = re.sub(r'NOV\-\d+\-\d+','DATE', djRreplaceNovRQ)
+    djRreplaceDecRQ = re.sub(r'Dec\-\d+\-\d+','DATE', djRreplaceNov1RQ)
+    djRreplaceDec1RQ = re.sub(r'DEC\-\d+\-\d+','DATE', djRreplaceDecRQ)
 
-    #### this function replaces the copyright sign with one DATE token
-    replaceThisText = testingYear
-    copyRight = "\u00a9"
-    replace10 = re.sub(copyRight*11,'DATE',replaceThisText)
-    replace9 = re.sub(copyRight*10,'DATE',replace10)
-    replace8 = re.sub(copyRight*9,'DATE',replace9)
-    replace7 = re.sub(copyRight*8,'DATE',replace8)
-    replace6 = re.sub(copyRight*7,'DATE',replace7)
-    replace5 = re.sub(copyRight*6,'DATE',replace6)
-    replace4 = re.sub(copyRight*5,'DATE',replace5)
-    replace3 = re.sub(copyRight*4,'DATE',replace4)
-    replace2 = re.sub(copyRight*3,'DATE',replace3)
-    replace1 = re.sub(copyRight*2,'DATE',replace2)
-    replace0 = re.sub(copyRight*1,'DATE',replace1)
-    
-    replaceLastYear = re.sub(r'DATE\/DATE\/\d+','DATE', replace0)
-    replaceDate3 = re.sub(r'DATE\/DATE\/DATE','DATE', replaceLastYear)
-    replaceDateNumAtEnd = re.sub(r'DATE\d+','DATE', replaceDate3)
-    replaceNumThenDate = re.sub(r'\d+\/DATE\/DATE','DATE', replaceDateNumAtEnd)
-    replaceNumThenDateWithDash = re.sub(r'\d+\-DATE\-DATE','DATE', replaceNumThenDate)
-    replaceDateWordDateWithDash = re.sub(r'DATE\-\w+\-DATE','DATE', replaceNumThenDateWithDash)
-    replaceDateSlashData = re.sub(r'DATE\/\w+\/DATE','DATE', replaceDateWordDateWithDash)
-    replaceDateDashDashDate = re.sub(r'DATE\-DATE\-\w+','DATE', replaceDateSlashData)
-    replaceDateDashDash = re.sub(r'DATE\-\w+\-\w+','DATE', replaceDateDashDashDate)
-    replaceDatesandLotsofDashes = re.sub(r'DATE\-DATE\-DATE','DATE', replaceDateDashDash)     
-    
-    replaceJan = re.sub(r'Jan\-\w+\-\w+','DATE', replaceDatesandLotsofDashes)
+    djRreplaceJanAK = re.sub(r'January\-\d+\-\d+','DATE', djRreplaceDec1RQ)
+    djRreplaceJan1AK = re.sub(r'JANUARY\-\d+\-\d+','DATE', djRreplaceJanAK)
+    djRreplaceFebAK = re.sub(r'February\-\d+\-\d+','DATE', djRreplaceJan1AK)
+    djRreplaceFeb1AK = re.sub(r'FEBRUARY\-\d+\-\d+','DATE', djRreplaceFebAK)
+    djRreplaceMarAK = re.sub(r'March\-\d+\-\d+','DATE', djRreplaceFeb1AK)
+    djRreplaceMar1AK = re.sub(r'MARCH\-\d+\-\d+','DATE', djRreplaceMarAK)
+    djRreplaceMar2AK = re.sub(r'March\-\d+\-\d+','DATE', djRreplaceMar1AK)
+    djRreplaceMar3AK = re.sub(r'MARCH\-\d+\-\d+','DATE', djRreplaceMar2AK)
+    djRreplaceAprAK = re.sub(r'April\-\d+\-\d+','DATE', djRreplaceMar3AK)
+    djRreplaceApr1AK = re.sub(r'APRIL\-\d+\-\d+','DATE', djRreplaceAprAK)
+    djRreplaceApr2AK = re.sub(r'April\-\d+\-\d+','DATE', djRreplaceApr1AK)
+    djRreplaceApr3AK = re.sub(r'APRIL\-\d+\-\d+','DATE', djRreplaceApr2AK)
+    djRreplaceMayAK = re.sub(r'May\-\d+\-\d+','DATE', djRreplaceApr3AK)
+    djRreplaceMay1AK = re.sub(r'MAY\-\d+\-\d+','DATE', djRreplaceMayAK)
+    djRreplaceJuneAK = re.sub(r'June\-\d+\-\d+','DATE', djRreplaceMay1AK)
+    djRreplaceJune1AK = re.sub(r'JUNE\-\d+\-\d+','DATE', djRreplaceJuneAK)
+    djRreplaceJune2AK = re.sub(r'June\-\d+\-\d+','DATE', djRreplaceJune1AK)
+    djRreplaceJune3AK = re.sub(r'JUNE\-\d+\-\d+','DATE', djRreplaceJune2AK)
+    djRreplaceJulyAK = re.sub(r'July\-\d+\-\d+','DATE', djRreplaceJune3AK)
+    djRreplaceJuly1AK = re.sub(r'JULY\-\d+\-\d+','DATE', djRreplaceJulyAK)
+    djRreplaceAugAK = re.sub(r'August\-\d+\-\d+','DATE', djRreplaceJuly1AK)
+    djRreplaceAug1AK = re.sub(r'AUGUST\-\d+\-\d+','DATE', djRreplaceAugAK)
+    djRreplaceSeptAK = re.sub(r'September\-\d+\-\d+','DATE', djRreplaceAug1AK)
+    djRreplaceSept1AK = re.sub(r'SEPTEMBER\-\d+\-\d+','DATE', djRreplaceSeptAK)
+    djRreplaceOctAK = re.sub(r'October\-\d+\-\d+','DATE', djRreplaceSept1AK)
+    djRreplaceOct1AK = re.sub(r'OCTOBER\-\d+\-\d+','DATE', djRreplaceOctAK)
+    djRreplaceNovAK = re.sub(r'November\-\d+\-\d+','DATE', djRreplaceOct1AK)
+    djRreplaceNov1AK = re.sub(r'NOVEMBER\-\d+\-\d+','DATE', djRreplaceNovAK)
+    djRreplaceDecAK = re.sub(r'December\-\d+\-\d+','DATE', djRreplaceNov1AK)
+    djRreplaceDec1AK = re.sub(r'DECEMBER\-\d+\-\d+','DATE', djRreplaceDecAK)
+
+
+#############################################################################       
+    replaceJan = re.sub(r'Jan\-\w+\-\w+','DATE', djRreplaceDec1AK)
     replaceJan1 = re.sub(r'JAN\-\w+\-\w+','DATE', replaceJan)
     replaceFeb = re.sub(r'Feb\-\w+\-\w+','DATE', replaceJan1)
     replaceFeb1 = re.sub(r'FEB\-\w+\-\w+','DATE', replaceFeb)
@@ -324,7 +412,7 @@ for inputFile1 in inputTextFilePathList:
     replaceNov1 = re.sub(r'NOV\-\w+\-\w+','DATE', replaceNov)
     replaceDec = re.sub(r'Dec\-\w+\-\w+','DATE', replaceNov1)
     replaceDec1 = re.sub(r'DEC\-\w+\-\w+','DATE', replaceDec)
-    
+
     RreplaceJan = re.sub(r'\d+\-Jan\-\d+','DATE', replaceDec1)
     RreplaceJan1 = re.sub(r'\d+\-JAN\-\d+','DATE', RreplaceJan)
     RreplaceFeb = re.sub(r'\d+\-Feb\-\d+','DATE', RreplaceJan1)
@@ -355,7 +443,7 @@ for inputFile1 in inputTextFilePathList:
     RreplaceNov1 = re.sub(r'\d+\-NOV\-\d+','DATE', RreplaceNov)
     RreplaceDec = re.sub(r'\d+\-Dec\-\d+','DATE', RreplaceNov1)
     RreplaceDec1 = re.sub(r'\d+\-DEC\-\d+','DATE', RreplaceDec)
-    
+
     RreplaceJanR = re.sub(r'\d\-Jan\-\d+','DATE', RreplaceDec1)
     RreplaceJan1R = re.sub(r'\d\-JAN\-\d+','DATE', RreplaceJanR)
     RreplaceFebR = re.sub(r'\d\-Feb\-\d+','DATE', RreplaceJan1R)
@@ -386,8 +474,8 @@ for inputFile1 in inputTextFilePathList:
     RreplaceNov1R = re.sub(r'\d\-NOV\-\d+','DATE', RreplaceNovR)
     RreplaceDecR = re.sub(r'\d\-Dec\-\d+','DATE', RreplaceNov1R)
     RreplaceDec1R = re.sub(r'\d\-DEC\-\d+','DATE', RreplaceDecR)
-    
-    
+
+
     ######
     RreplaceJanA = re.sub(r'\d+\-January\-\d+','DATE', RreplaceDec1R)
     RreplaceJan1A = re.sub(r'\d+\-JANUARY\-\d+','DATE', RreplaceJanA)
@@ -419,7 +507,7 @@ for inputFile1 in inputTextFilePathList:
     RreplaceNov1A = re.sub(r'\d+\-NOVEMBER\-\d+','DATE', RreplaceNovA)
     RreplaceDecA = re.sub(r'\d+\-December\-\d+','DATE', RreplaceNov1A)
     RreplaceDec1A = re.sub(r'\d+\-DECEMBER\-\d+','DATE', RreplaceDecA)
-    
+
     RreplaceJanRB = re.sub(r'\d\-January\-\d+','DATE', RreplaceDec1A)
     RreplaceJan1RB = re.sub(r'\d\-JANUARY\-\d+','DATE', RreplaceJanRB)
     RreplaceFebRB = re.sub(r'\d\-February\-\d+','DATE', RreplaceJan1RB)
@@ -450,10 +538,10 @@ for inputFile1 in inputTextFilePathList:
     RreplaceNov1RB = re.sub(r'\d\-NOVEMBER\-\d+','DATE', RreplaceNovRB)
     RreplaceDecRB = re.sub(r'\d\-December\-\d+','DATE', RreplaceNov1RB)
     RreplaceDec1RB = re.sub(r'\d\-DECEMBER\-\d+','DATE', RreplaceDecRB)
-    
-    
+
+
     ####  ####  ####
-    
+
     RreplaceJanRP = re.sub(r'\d+Jan\d+','DATE', RreplaceDec1RB)
     RreplaceJan1RP = re.sub(r'\d+JAN\d+','DATE', RreplaceJanRP)
     RreplaceFebRP = re.sub(r'\d+Feb\d+','DATE', RreplaceJan1RP)
@@ -484,7 +572,7 @@ for inputFile1 in inputTextFilePathList:
     RreplaceNov1RP = re.sub(r'\d+NOV\d+','DATE', RreplaceNovRP)
     RreplaceDecRP = re.sub(r'\d+Dec\d+','DATE', RreplaceNov1RP)
     RreplaceDec1RP = re.sub(r'\d+DEC\d+','DATE', RreplaceDecRP)
-    
+
     RreplaceJanAS = re.sub(r'\d+January\d+','DATE', RreplaceDec1RP)
     RreplaceJan1AS = re.sub(r'\d+JANUARY\d+','DATE', RreplaceJanAS)
     RreplaceFebAS = re.sub(r'\d+February\d+','DATE', RreplaceJan1AS)
@@ -515,10 +603,10 @@ for inputFile1 in inputTextFilePathList:
     RreplaceNov1AS = re.sub(r'\d+NOVEMBER\d+','DATE', RreplaceNovAS)
     RreplaceDecAS = re.sub(r'\d+December\d+','DATE', RreplaceNov1AS)
     RreplaceDec1AS = re.sub(r'\d+DECEMBER\d+','DATE', RreplaceDecAS)
-    
-    
+
+
     ###  ### - 
-    
+
     RreplaceJanRQ = re.sub(r'Jan\-\d+','DATE', RreplaceDec1AS)
     RreplaceJan1RQ = re.sub(r'JAN\-\d+','DATE', RreplaceJanRQ)
     RreplaceFebRQ = re.sub(r'Feb\-\d+','DATE', RreplaceJan1RQ)
@@ -549,7 +637,7 @@ for inputFile1 in inputTextFilePathList:
     RreplaceNov1RQ = re.sub(r'NOV\-\d+','DATE', RreplaceNovRQ)
     RreplaceDecRQ = re.sub(r'Dec\-\d+','DATE', RreplaceNov1RQ)
     RreplaceDec1RQ = re.sub(r'DEC\-\d+','DATE', RreplaceDecRQ)
-    
+
     RreplaceJanAK = re.sub(r'January\-\d+','DATE', RreplaceDec1RQ)
     RreplaceJan1AK = re.sub(r'JANUARY\-\d+','DATE', RreplaceJanAK)
     RreplaceFebAK = re.sub(r'February\-\d+','DATE', RreplaceJan1AK)
@@ -580,13 +668,200 @@ for inputFile1 in inputTextFilePathList:
     RreplaceNov1AK = re.sub(r'NOVEMBER\-\d+','DATE', RreplaceNovAK)
     RreplaceDecAK = re.sub(r'December\-\d+','DATE', RreplaceNov1AK)
     RreplaceDec1AK = re.sub(r'DECEMBER\-\d+','DATE', RreplaceDecAK)
+
+#################################################10/20/2018
+
+   ######
+    gRreplaceJanA = re.sub(r'\d+\s+January','DATE DATE', RreplaceDec1AK)
+    gRreplaceJan1A = re.sub(r'\d+\s+JANUARY','DATE DATE', gRreplaceJanA)
+    gRreplaceFebA = re.sub(r'\d+\s+February','DATE DATE', gRreplaceJan1A)
+    gRreplaceFeb1A = re.sub(r'\d+\s+FEBRUARY','DATE DATE', gRreplaceFebA)
+    gRreplaceMarA = re.sub(r'\d+\s+March','DATE DATE', gRreplaceFeb1A)
+    gRreplaceMar1A = re.sub(r'\d+\s+MARCH','DATE DATE', gRreplaceMarA)
+    gRreplaceMar2A = re.sub(r'\d+\s+March','DATE DATE', gRreplaceMar1A)
+    gRreplaceMar3A = re.sub(r'\d+\s+MARCH','DATE DATE', gRreplaceMar2A)
+    gRreplaceAprA = re.sub(r'\d+\s+April','DATE DATE', gRreplaceMar3A)
+    gRreplaceApr1A = re.sub(r'\d+\s+APRIL','DATE DATE', gRreplaceAprA)
+    gRreplaceApr2A = re.sub(r'\d+\s+April','DATE DATE', gRreplaceApr1A)
+    gRreplaceApr3A = re.sub(r'\d+\s+APRIL','DATE DATE', gRreplaceApr2A)
+    gRreplaceMayA = re.sub(r'\d+\s+May','DATE DATE', gRreplaceApr3A)
+    gRreplaceMay1A = re.sub(r'\d+\s+MAY','DATE DATE', gRreplaceMayA)
+    gRreplaceJuneA = re.sub(r'\d+\s+June','DATE DATE', gRreplaceMay1A)
+    gRreplaceJune1A = re.sub(r'\d+\s+JUNE','DATE DATE', gRreplaceJuneA)
+    gRreplaceJune2A = re.sub(r'\d+\s+June','DATE DATE', gRreplaceJune1A)
+    gRreplaceJune3A = re.sub(r'\d+\s+JUNE','DATE DATE', gRreplaceJune2A)
+    gRreplaceJulyA = re.sub(r'\d+\s+July','DATE DATE', gRreplaceJune3A)
+    gRreplaceJuly1A = re.sub(r'\d+\s+JULY','DATE DATE', gRreplaceJulyA)
+    gRreplaceAugA = re.sub(r'\d+\s+August','DATE DATE', gRreplaceJuly1A)
+    gRreplaceAug1A = re.sub(r'\d+\s+AUGUST','DATE DATE', gRreplaceAugA)
+    gRreplaceSeptA = re.sub(r'\d+\s+September','DATE DATE', gRreplaceAug1A)
+    gRreplaceSept1A = re.sub(r'\d+\s+SEPTEMBER','DATE DATE', gRreplaceSeptA)
+    gRreplaceOctA = re.sub(r'\d+\s+October','DATE DATE', gRreplaceSept1A)
+    gRreplaceOct1A = re.sub(r'\d+\s+OCTOBER','DATE DATE', gRreplaceOctA)
+    gRreplaceNovA = re.sub(r'\d+\s+November','DATE DATE', gRreplaceOct1A)
+    gRreplaceNov1A = re.sub(r'\d+\s+NOVEMBER','DATE DATE', gRreplaceNovA)
+    gRreplaceDecA = re.sub(r'\d+\s+December','DATE DATE', gRreplaceNov1A)
+    gRreplaceDec1A = re.sub(r'\d+\s+DECEMBER','DATE DATE', gRreplaceDecA)
+
+
+    gRreplaceJanR = re.sub(r'\d+\s+Jan','DATE DATE', gRreplaceDec1A)
+    gRreplaceJan1R = re.sub(r'\d+\s+JAN','DATE DATE', gRreplaceJanR)
+    gRreplaceFebR = re.sub(r'\d+\s+Feb','DATE DATE', gRreplaceJan1R)
+    gRreplaceFeb1R = re.sub(r'\d+\s+FEB','DATE DATE', gRreplaceFebR)
+    gRreplaceMarR = re.sub(r'\d+\s+Mar','DATE DATE', gRreplaceFeb1R)
+    gRreplaceMar1R = re.sub(r'\d+\s+MAR','DATE DATE', gRreplaceMarR)
+    gRreplaceMar2R = re.sub(r'\d+\s+March','DATE DATE', gRreplaceMar1R)
+    gRreplaceMar3R = re.sub(r'\d+\s+MARCH','DATE DATE', gRreplaceMar2R)
+    gRreplaceAprR = re.sub(r'\d+\s+Apr','DATE DATE', gRreplaceMar3R)
+    gRreplaceApr1R = re.sub(r'\d+\s+APR','DATE DATE', gRreplaceAprR)
+    gRreplaceApr2R = re.sub(r'\d+\s+April','DATE DATE', gRreplaceApr1R)
+    gRreplaceApr3R = re.sub(r'\d+\s+APRIL','DATE DATE', gRreplaceApr2R)
+    gRreplaceMayR = re.sub(r'\d+\s+May','DATE DATE', gRreplaceApr3R)
+    gRreplaceMay1R = re.sub(r'\d+\s+MAY','DATE DATE', gRreplaceMayR)
+    gRreplaceJuneR = re.sub(r'\d+\s+Jun','DATE DATE', gRreplaceMay1R)
+    gRreplaceJune1R = re.sub(r'\d+\s+JUN','DATE DATE', gRreplaceJuneR)
+    gRreplaceJune2R = re.sub(r'\d+\s+June','DATE DATE', gRreplaceJune1R)
+    gRreplaceJune3R = re.sub(r'\d+\s+JUNE','DATE DATE', gRreplaceJune2R)
+    gRreplaceJulyR = re.sub(r'\d+\s+July','DATE DATE', gRreplaceJune3R)
+    gRreplaceJuly1R = re.sub(r'\d+\s+JULY','DATE DATE', gRreplaceJulyR)
+    gRreplaceAugR = re.sub(r'\d+\s+Aug','DATE DATE', gRreplaceJuly1R)
+    gRreplaceAug1R = re.sub(r'\d+\s+AUG','DATE DATE', gRreplaceAugR)
+    gRreplaceSeptR = re.sub(r'\d+\s+Sept','DATE DATE', gRreplaceAug1R)
+    gRreplaceSept1R = re.sub(r'\d+\s+SEPT','DATE DATE', gRreplaceSeptR)
+    gRreplaceOctR = re.sub(r'\d+\s+Oct','DATE DATE', gRreplaceSept1R)
+    gRreplaceOct1R = re.sub(r'\d+\s+OCT','DATE DATE', gRreplaceOctR)
+    gRreplaceNovR = re.sub(r'\d+\s+Nov','DATE DATE', gRreplaceOct1R)
+    gRreplaceNov1R = re.sub(r'\d+\s+NOV','DATE DATE', gRreplaceNovR)
+    gRreplaceDecR = re.sub(r'\d+\s+Dec','DATE DATE', gRreplaceNov1R)
+    gRreplaceDec1R = re.sub(r'\d+\s+DEC','DATE DATE', gRreplaceDecR)
+
+
+
+     ######
+    ogRreplaceJanA = re.sub(r'January\-\d+','DATE', gRreplaceDec1R)
+    ogRreplaceJan1A = re.sub(r'JANUARY\-\d+','DATE', ogRreplaceJanA)
+    ogRreplaceFebA = re.sub(r'February\-\d+','DATE', ogRreplaceJan1A)
+    ogRreplaceFeb1A = re.sub(r'FEBRUARY\-\d+','DATE', ogRreplaceFebA)
+    ogRreplaceMarA = re.sub(r'March\-\d+','DATE', ogRreplaceFeb1A)
+    ogRreplaceMar1A = re.sub(r'MARCH\-\d+','DATE', ogRreplaceMarA)
+    ogRreplaceMar2A = re.sub(r'March\-\d+','DATE', ogRreplaceMar1A)
+    ogRreplaceMar3A = re.sub(r'MARCH\-\d+','DATE', ogRreplaceMar2A)
+    ogRreplaceAprA = re.sub(r'April\-\d+','DATE', ogRreplaceMar3A)
+    ogRreplaceApr1A = re.sub(r'APRIL\-\d+','DATE', ogRreplaceAprA)
+    ogRreplaceApr2A = re.sub(r'April\-\d+','DATE', ogRreplaceApr1A)
+    ogRreplaceApr3A = re.sub(r'APRIL\-\d+','DATE', ogRreplaceApr2A)
+    ogRreplaceMayA = re.sub(r'May\-\d+','DATE', ogRreplaceApr3A)
+    ogRreplaceMay1A = re.sub(r'MAY\-\d+','DATE', ogRreplaceMayA)
+    ogRreplaceJuneA = re.sub(r'June\-\d+','DATE', ogRreplaceMay1A)
+    ogRreplaceJune1A = re.sub(r'JUNE\-\d+','DATE', ogRreplaceJuneA)
+    ogRreplaceJune2A = re.sub(r'June\-\d+','DATE', ogRreplaceJune1A)
+    ogRreplaceJune3A = re.sub(r'JUNE\-\d+','DATE', ogRreplaceJune2A)
+    ogRreplaceJulyA = re.sub(r'July\-\d+','DATE', ogRreplaceJune3A)
+    ogRreplaceJuly1A = re.sub(r'JULY\-\d+','DATE', ogRreplaceJulyA)
+    ogRreplaceAugA = re.sub(r'August\-\d+','DATE', ogRreplaceJuly1A)
+    ogRreplaceAug1A = re.sub(r'AUGUST\-\d+','DATE', ogRreplaceAugA)
+    ogRreplaceSeptA = re.sub(r'September\-\d+','DATE', ogRreplaceAug1A)
+    ogRreplaceSept1A = re.sub(r'SEPTEMBER\-\d+','DATE', ogRreplaceSeptA)
+    ogRreplaceOctA = re.sub(r'October\-\d+','DATE', ogRreplaceSept1A)
+    ogRreplaceOct1A = re.sub(r'OCTOBER\-\d+','DATE', ogRreplaceOctA)
+    ogRreplaceNovA = re.sub(r'November\-\d+','DATE', ogRreplaceOct1A)
+    ogRreplaceNov1A = re.sub(r'NOVEMBER\-\d+','DATE', ogRreplaceNovA)
+    ogRreplaceDecA = re.sub(r'December\-\d+','DATE', ogRreplaceNov1A)
+    ogRreplaceDec1A = re.sub(r'DECEMBER\-\d+','DATE', ogRreplaceDecA)
+
+
+
+    ogRreplaceJanR = re.sub(r'Jan\-\d+','DATE', ogRreplaceDec1A)
+    ogRreplaceJan1R = re.sub(r'JAN\-\d+','DATE', ogRreplaceJanR)
+    ogRreplaceFebR = re.sub(r'Feb\-\d+','DATE', ogRreplaceJan1R)
+    ogRreplaceFeb1R = re.sub(r'FEB\-\d+','DATE', ogRreplaceFebR)
+    ogRreplaceMarR = re.sub(r'Mar\-\d+','DATE', ogRreplaceFeb1R)
+    ogRreplaceMar1R = re.sub(r'MAR\-\d+','DATE', ogRreplaceMarR)
+    ogRreplaceMar2R = re.sub(r'March\-\d+','DATE', ogRreplaceMar1R)
+    ogRreplaceMar3R = re.sub(r'MARCH\-\d+','DATE', ogRreplaceMar2R)
+    ogRreplaceAprR = re.sub(r'Apr\-\d+','DATE', ogRreplaceMar3R)
+    ogRreplaceApr1R = re.sub(r'APR\-\d+','DATE', ogRreplaceAprR)
+    ogRreplaceApr2R = re.sub(r'April\-\d+','DATE', ogRreplaceApr1R)
+    ogRreplaceApr3R = re.sub(r'APRIL\-\d+','DATE', ogRreplaceApr2R)
+    ogRreplaceMayR = re.sub(r'May\-\d+','DATE', ogRreplaceApr3R)
+    ogRreplaceMay1R = re.sub(r'MAY\-\d+','DATE', ogRreplaceMayR)
+    ogRreplaceJuneR = re.sub(r'Jun\-\d+','DATE', ogRreplaceMay1R)
+    ogRreplaceJune1R = re.sub(r'JUN\-\d+','DATE', ogRreplaceJuneR)
+    ogRreplaceJune2R = re.sub(r'June\-\d+','DATE', ogRreplaceJune1R)
+    ogRreplaceJune3R = re.sub(r'JUNE\-\d+','DATE', ogRreplaceJune2R)
+    ogRreplaceJulyR = re.sub(r'July\-\d+','DATE', ogRreplaceJune3R)
+    ogRreplaceJuly1R = re.sub(r'JULY\-\d+','DATE', ogRreplaceJulyR)
+    ogRreplaceAugR = re.sub(r'Aug\-\d+','DATE', ogRreplaceJuly1R)
+    ogRreplaceAug1R = re.sub(r'AUG\-\d+','DATE', ogRreplaceAugR)
+    ogRreplaceSeptR = re.sub(r'Sept\-\d+','DATE', ogRreplaceAug1R)
+    ogRreplaceSept1R = re.sub(r'SEPT\-\d+','DATE', ogRreplaceSeptR)
+    ogRreplaceOctR = re.sub(r'Oct\-\d+','DATE', ogRreplaceSept1R)
+    ogRreplaceOct1R = re.sub(r'OCT\-\d+','DATE', ogRreplaceOctR)
+    ogRreplaceNovR = re.sub(r'Nov\-\d+','DATE', ogRreplaceOct1R)
+    ogRreplaceNov1R = re.sub(r'NOV\-\d+','DATE', ogRreplaceNovR)
+    ogRreplaceDecR = re.sub(r'Dec\-\d+','DATE', ogRreplaceNov1R)
+    ogRreplaceDec1R = re.sub(r'DEC\-\d+','DATE', ogRreplaceDecR)
+
+
+#####################################################10/20/2018
+    dPlusStuff = re.sub(r'DATE\%|DATE\&|DATE\$|DATE\*|DATE\^|DATE\#|DATE\@','DATE',ogRreplaceDec1R)
+
+    datest = re.sub(r'DATEst','DATE',dPlusStuff)
+    datend = re.sub(r'DATEnd','DATE',datest)
+    daterd = re.sub(r'DATErd','DATE',datend)
+    dateth = re.sub(r'DATEth','DATE',daterd)
+    dateCommaYear = re.sub(r'DATE\,\s+\d\d\d\d','DATE DATE',dateth)
     
-    dateWith2Spaces = re.sub(r'DATE\sDATE\sDate','DATE',RreplaceDec1AK)
-    dateWith1Space = re.sub(r'DATE\sDATE','DATE',dateWith2Spaces)
+    Monday = re.sub(r'Monday\s+DATE','DATE DATE',dateCommaYear)
+    Tuesday = re.sub(r'Tuesday\s+DATE','DATE DATE',Monday)
+    Wednesday = re.sub(r'Wednesday\s+DATE','DATE DATE',Tuesday)
+    Thursday = re.sub(r'Thursday\s+DATE','DATE DATE',Wednesday)
+    Friday = re.sub(r'Friday\s+DATE','DATE DATE',Thursday)
+    Saturday = re.sub(r'Saturday\s+DATE','DATE DATE',Friday)
+    Sunday = re.sub(r'Sunday\s+DATE','DATE DATE',Saturday)
     
+    monday = re.sub(r'monday\s+DATE','DATE DATE',Sunday)
+    tuesday = re.sub(r'tuesday\s+DATE','DATE DATE',monday)
+    wednesday = re.sub(r'wednesday\s+DATE','DATE DATE',tuesday)
+    thursday = re.sub(r'thursday\s+DATE','DATE DATE',wednesday)
+    friday = re.sub(r'friday\s+DATE','DATE DATE',thursday)
+    saturday = re.sub(r'saturday\s+DATE','DATE DATE',friday)
+    sunday = re.sub(r'sunday\s+DATE','DATE DATE',saturday)
+    
+    Mon = re.sub(r'Mon\s+DATE','DATE DATE',sunday)
+    Tues = re.sub(r'Tues\s+DATE','DATE DATE',Mon)
+    Tue = re.sub(r'Tue\s+DATE','DATE DATE',Tues)
+    Wed = re.sub(r'Wed\s+DATE','DATE DATE',Tue)
+    Thurs = re.sub(r'Thurs\s+DATE','DATE DATE',Wed)
+    Thur = re.sub(r'Thur\s+DATE','DATE DATE',Thurs)
+    Fri = re.sub(r'Fri\s+DATE','DATE DATE',Thur)
+    Sat = re.sub(r'Sat\s+DATE','DATE DATE',Fri)
+    Sun = re.sub(r'Sun\s+DATE','DATE DATE',Sat)
+    
+    mon = re.sub(r'mon\s+DATE','DATE DATE',Sun)
+    tues = re.sub(r'tues\s+DATE','DATE DATE',mon)
+    tue = re.sub(r'tue\s+DATE','DATE DATE',tues)
+    wed = re.sub(r'wed\s+DATE','DATE DATE',tue)
+    thurs = re.sub(r'thurs\s+DATE','DATE DATE',wed)
+    thur = re.sub(r'thur\s+DATE','DATE DATE',thurs)
+    fri = re.sub(r'fri\s+DATE','DATE DATE',thur)
+    sat = re.sub(r'sat\s+DATE','DATE DATE',fri)
+    sun = re.sub(r'sun\s+DATE','DATE DATE',sat)
+    
+    MON = re.sub(r'MON\s+DATE','DATE DATE',sun)
+    TUES = re.sub(r'TUES\s+DATE','DATE DATE',MON)
+    TUE = re.sub(r'TUE\s+DATE','DATE DATE',TUES)
+    WED = re.sub(r'WED\s+DATE','DATE DATE',TUE)
+    THURS = re.sub(r'THURS\s+DATE','DATE DATE',WED)
+    THUR = re.sub(r'THUR\s+DATE','DATE DATE',THURS)
+    FRI = re.sub(r'FRI\s+DATE','DATE DATE',THUR)
+    SAT = re.sub(r'SAT\s+DATE','DATE DATE',FRI)
+    SUN = re.sub(r'SUN\s+DATE','DATE DATE',SAT)
     
 
-    
+
+    #################################################################################################
+
     #### the following finds our target list idenifers and converts to unicode characters 
 
     numberMap1 = {r'\d+\.\)':'NUM',
@@ -611,7 +886,7 @@ for inputFile1 in inputTextFilePathList:
                   '19.)':u'\u0259',
                   '20.)':u'\u0260'}
 
-    replaceNumberMap1 = re.sub(r'\d+\.\)', lambda x: numberMap1.get(x.group(),x.group(0)),dateWith1Space)
+    replaceNumberMap1 = re.sub(r'\d+\.\)', lambda x: numberMap1.get(x.group(),x.group(0)),SUN)
 
     numberMap2 = {r'\d+\)':'NUM',
                   '1)':u'\u0261',
@@ -637,29 +912,6 @@ for inputFile1 in inputTextFilePathList:
 
     replaceNumberMap2 = re.sub(r'\d+\)', lambda x: numberMap2.get(x.group(),x.group(0)),replaceNumberMap1)
 
-    # numberMap3 = { r'\d+\s\)':'NUM',
-    #               '1 )':u'\u0281',
-    #               '2 )':u'\u0282',
-    #               '3 )':u'\u0283',
-    #               '4 )':u'\u0284',
-    #               '5 )':u'\u0285',
-    #               '6 )':u'\u0286',
-    #               '7 )':u'\u0287',
-    #               '8 )':u'\u0288',
-    #               '9 )':u'\u0289',
-    #               '10 )':u'\u0290',
-    #               '11 )':u'\u0291',
-    #               '12 )':u'\u0292',
-    #               '13 )':u'\u0293',
-    #               '14 )':u'\u0294',
-    #               '15 )':u'\u0295',
-    #               '16 )':u'\u0296',
-    #               '17 )':u'\u0297',
-    #               '18 )':u'\u0298',
-    #               '19 )':u'\u0299',
-    #               '20 )':u'\u029A'}
-
-    # replaceNumberMap3 = re.sub(r'\d+\s\)', lambda x: numberMap3.get(x.group(),x.group(0)),replaceNumberMap2)
 
     numberMap4 = {r'd+\.\s':'NUM',
                   '1. ':u'\u0200',
@@ -687,25 +939,8 @@ for inputFile1 in inputTextFilePathList:
 
 
     #### convert all remining numbers to NUM
-    numbers2NUM = re.sub(r'\d+\.\d+','NUM',replaceNumberMap4)
-    numbers2NUM1 = re.sub(r'\d+','NUM',numbers2NUM)
+    numbers2NUM1 = re.sub(r'(\d+)','NUM',replaceNumberMap4)
 
-
-    numberExtra = re.sub(r'\%NUM\%|\^NUM\^|\*NUM\*|\+NUM\+|\-NUM\-|\=NUM\=|\#NUM\#|\/NUM\/|\~NUM\~|\`NUM\`|\"NUM\"|\'NUM\'','NUM',numbers2NUM1)
-
-    numberExtra1 = re.sub(r'NUM\%|NUM\^|NUM\*|NUM\+|NUM\-|NUM\=|NUM\#|NUM\/|NUM\~|NUM\`|NUM\"|NUM\'','NUM',numberExtra)
-    
-    numberExtra2 = re.sub(r'\<NUM|\>NUM|NUM\smg|NUMmg|NUML|NUM\sL|NUMml|NUMml\.|NUMC\.|NUMC|NUMF\.|NUMF|NUMmg\.|\%NUM|\^NUM|\*NUM|\+NUM|\-NUM|\=NUM|\#NUM|\/NUM|\~NUM|\`NUM|\"NUM|\'NUM','NUM',numberExtra1)
-    
-    #numberExtra3 = re.sub(r'NUM\s+\,\s+NUM\s+\,\s+NUM\s+\,\s+NUM|NUM\s+\,\s+NUM\s+\,\s+NUM|NUM\s+\,\s+NUM','NUM',numberExtra2)
-    
-    numberExtra3A = re.sub(r'NUMPM|NUM\:NUM|NUMAM|NUM\:NUMPM','NUM',numberExtra2)
-    
-    numberExtra3B = re.sub(r'\w+NUM\w+|\w+NUM|NUM\w+|NUMPM|NUMAM','NUM',numberExtra3A)
-
-    numberExtra3C = re.sub(r'NUM\:NUM', 'NUM', numberExtra3B)
-    
-    numberExtra4 = re.sub(r'NUMNUMNUM|NUMNUM','NUM', numberExtra3C)
 
     ### remap the mapping of list identifers back to their original form
 
@@ -754,7 +989,7 @@ for inputFile1 in inputTextFilePathList:
 
 
 
-    replaceRemapNumberMap1 = re.sub(remapNumberMap11, '1.)',numberExtra4)
+    replaceRemapNumberMap1 = re.sub(remapNumberMap11, '1.)',numbers2NUM1)
     replaceRemapNumberMap11 = re.sub(remapNumberMap12, '2.)',replaceRemapNumberMap1)
     replaceRemapNumberMap12 = re.sub(remapNumberMap13, '3.)',replaceRemapNumberMap11)
     replaceRemapNumberMap13 = re.sub(remapNumberMap14, '4.)',replaceRemapNumberMap12)
@@ -843,72 +1078,6 @@ for inputFile1 in inputTextFilePathList:
     replaceRemapNumberMap219 = re.sub(remapNumberMap220, '20)',replaceRemapNumberMap218)
 
 
-    # remapNumberMap3 = {u'\u0281':'1 )',
-    #                    u'\u0282':'2 )',
-    #                    u'\u0283':'3 )',
-    #                    u'\u0284':'4 )',
-    #                    u'\u0285':'5 )',
-    #                    u'\u0286':'6 )',
-    #                    u'\u0287':'7 )',
-    #                    u'\u0288':'8 )',
-    #                    u'\u0289':'9 )',
-    #                    u'\u0290':'10 )',
-    #                    u'\u0291':'11 )',
-    #                    u'\u0292':'12 )',
-    #                    u'\u0293':'13 )',
-    #                    u'\u0294':'14 )',
-    #                    u'\u0295':'15 )',
-    #                    u'\u0296':'16 )',
-    #                    u'\u0297':'17 )',
-    #                    u'\u0298':'18 )',
-    #                    u'\u0299':'19 )',
-    #                    u'\u029A':'20 )'}
-
-    # remapNumberMap31= u'\u0281'
-    # remapNumberMap32= u'\u0282'
-    # remapNumberMap33= u'\u0283'
-    # remapNumberMap34= u'\u0284'
-    # remapNumberMap35= u'\u0285'
-    # remapNumberMap36= u'\u0286'
-    # remapNumberMap37= u'\u0287'
-    # remapNumberMap38= u'\u0288'
-    # remapNumberMap39= u'\u0289'
-    # remapNumberMap310= u'\u0290'
-    # remapNumberMap311= u'\u0291'
-    # remapNumberMap312= u'\u0292'
-    # remapNumberMap313= u'\u0293'
-    # remapNumberMap314= u'\u0294'
-    # remapNumberMap315= u'\u0295'
-    # remapNumberMap316= u'\u0296'
-    # remapNumberMap317= u'\u0297'
-    # remapNumberMap318= u'\u0298'
-    # remapNumberMap319= u'\u0299'
-    # remapNumberMap320= u'\u029A'
-
-
-
-    # replaceRemapNumberMap3 = re.sub(remapNumberMap31, '1 )',replaceRemapNumberMap219)
-    # replaceRemapNumberMap31 = re.sub(remapNumberMap32, '2 )',replaceRemapNumberMap3)
-    # replaceRemapNumberMap32 = re.sub(remapNumberMap33, '3 )',replaceRemapNumberMap31)
-    # replaceRemapNumberMap33 = re.sub(remapNumberMap34, '4 )',replaceRemapNumberMap32)
-    # replaceRemapNumberMap34 = re.sub(remapNumberMap35, '5 )',replaceRemapNumberMap33)
-    # replaceRemapNumberMap35 = re.sub(remapNumberMap36, '6 )',replaceRemapNumberMap34)
-    # replaceRemapNumberMap36 = re.sub(remapNumberMap37, '7 )',replaceRemapNumberMap35)
-    # replaceRemapNumberMap37 = re.sub(remapNumberMap38, '8 )',replaceRemapNumberMap36)
-    # replaceRemapNumberMap38 = re.sub(remapNumberMap39, '9 )',replaceRemapNumberMap37)
-    # replaceRemapNumberMap39 = re.sub(remapNumberMap310, '10 )',replaceRemapNumberMap38)
-    # replaceRemapNumberMap310 = re.sub(remapNumberMap311, '11 )',replaceRemapNumberMap39)
-    # replaceRemapNumberMap311 = re.sub(remapNumberMap312, '12 )',replaceRemapNumberMap310)
-    # replaceRemapNumberMap312 = re.sub(remapNumberMap313, '13 )',replaceRemapNumberMap311)
-    # replaceRemapNumberMap313 = re.sub(remapNumberMap314, '14 )',replaceRemapNumberMap312)
-    # replaceRemapNumberMap314 = re.sub(remapNumberMap315, '15 )',replaceRemapNumberMap313)
-    # replaceRemapNumberMap315 = re.sub(remapNumberMap316, '16 )',replaceRemapNumberMap314)
-    # replaceRemapNumberMap316 = re.sub(remapNumberMap317, '17 )',replaceRemapNumberMap315)
-    # replaceRemapNumberMap317 = re.sub(remapNumberMap318, '18 )',replaceRemapNumberMap316)
-    # replaceRemapNumberMap318 = re.sub(remapNumberMap319, '19 )',replaceRemapNumberMap317)
-    # replaceRemapNumberMap319 = re.sub(remapNumberMap320, '20 )',replaceRemapNumberMap318)
-
-
     remapNumberMap4 = {u'\u0200':'1. ',
                        u'\u0201':'2. ',
                        u'\u0202':'3. ',
@@ -973,35 +1142,27 @@ for inputFile1 in inputTextFilePathList:
     replaceRemapNumberMap418 = re.sub(remapNumberMap419, '19. ',replaceRemapNumberMap417)
     replaceRemapNumberMap419 = re.sub(remapNumberMap420, '20. ',replaceRemapNumberMap418)
 
-    low = replaceRemapNumberMap419.lower()
-    #print(replaceRemapNumberMap419)
-
-    # outputTextFile = open('C:/Users/bat/Desktop/0002.txt','w')
-    # outputTextFile.write(replaceRemapNumberMap419)
-    # outputTextFile.close()
-
-    # openMe = open('C:/Users/wccramer/Desktop/0002.txt','r').read()
-    # print(OpenMe)
-
-
-    #### store the output file from all the cleaning 
-    mergeOutputName = os.path.join(outFolder+'/',foldersForInput[counter]+'.txt')    
-    finialOutputFileName = open(mergeOutputName,'w')
-    finialOutputFileName.write(low)
-    finialOutputFileName.close()
-    #counter = counter+1
     
-    #os.remove(mergeOutputName)
-newDataOutputPath1 = outFolder+'/results'
-newDataOutputPath2 = outFolder+'/data'
-newDataOutputPath3 = outFolder+'/chronosCleaned'
-shutil.rmtree(newDataOutputPath1)
-shutil.rmtree(newDataOutputPath2)
-shutil.rmtree(newDataOutputPath3)
-# os.rmdir(newDataOutputPath)
-# os.rmdir(newDataInputPath)
-#os.rmdir(chronosCleaned)
-            
-#print("Ya Done!")
-#print(numberReplace)
+    numberExtra = re.sub(r'\%NUM\%|\^NUM\^|\*NUM\*|\+NUM\+|NUM\-NUM|\=NUM\=|\#NUM\#','NUM',replaceRemapNumberMap419)
 
+    numberExtraA = re.sub(r"\/NUM\/|\~NUM\~|\`NUM\`|\"NUM\"|\'NUM\'",'NUM',numberExtra)
+
+    numberExtra1 = re.sub(r"NUM\%|NUM\^|NUM\*|NUM\+|NUM\=|NUM\#|NUM\/|NUM\~|NUM\`|NUM\"|NUM\'",'NUM',numberExtraA)
+
+    numberExtra2 = re.sub(r'\<NUM|\>NUM|NUMmg|NUML|NUMml|NUMml\.|NUMC\.', 'NUM',numberExtra1) 
+
+    numberExtra2A = re.sub(r'NUMC|NUMF\.|NUMF|NUMmg\.|\%NUM|\^NUM|\*NUM|\+NUM|NUM\-NUM\-NUM|\=NUM','NUM',numberExtra2)
+
+    numberExtra2B = re.sub(r"\#NUM|\/NUM|\~NUM|\`NUM|\"NUM|\'NUM",'NUM',numberExtra2A)
+
+    numberExtra3A = re.sub(r'NUMPM|NUM\:NUM\:NUM|NUM\:NUM|NUMAM|NUM\:NUMPM|(NUM\.NUM)','NUM',numberExtra2B)
+
+    numberExtra3B = re.sub(r'NUMPM|NUMAM|NUM\w+','NUM',numberExtra3A)
+
+    numberExtra4 = re.sub(r'(NUMNUMNUM)|(NUMNUM)|(NUM-NUM)|(NUM-NUM-NUM)','NUM', numberExtra3B)    
+    
+
+    low = numberExtra4.lower()
+         
+        
+    return(low)
