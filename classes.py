@@ -8,14 +8,14 @@ Authors: Jeffrey Smith, Bill Cramer, Evan French
 """
 
 import re
-from function_preprocessing import dNClean
+from preprocess import preprocess
 
 #Author: Jeffrey Smith
 class SentenceStructure:
 	"""
 	SentenceStructure represents a sentence taken from an input file. It splits the string based on whitespace and adds an END tag.
 	"""
-	def __init__(self, inString):
+	def __init__(self, inString, label = None):
 		"""
 		Constructor for SentenceStructure.
 		
@@ -24,17 +24,23 @@ class SentenceStructure:
 		:var originalSentence: Copy of the original string.
 		:var originalSentenceArray: An array of [string,string] tuples. The first string is a token, and the second is a holder for tags.
 		"""
-		processed = dNClean(inString)
-		self.originalSentence = processed
+		self.originalSentence = inString
 		self.originalSentenceArray = []
 		
 		#Split the string by whitespace and add it to the array.
-		for x in processed.split():
-			token = [x,""]
+		for x in inString.split():
+			if label == None:
+				token = [x,""]
+			else:
+				token = [x,label]
 			self.originalSentenceArray.append(token)
 			
 		#Add an end tag to the end of the array.
-		self.originalSentenceArray.append(["END",""])
+		if label == None:
+			self.originalSentenceArray.append(["END",""])
+		else:
+			self.originalSentenceArray[0][1] = label + ":Start"
+			self.originalSentenceArray.append(["END",label + ":End"])
 
 	"""
 	ModifiedSentenceArray creator for SentenceStructure.
@@ -48,9 +54,9 @@ class SentenceStructure:
 		
 		#Split the string by whitespace and add it to the array.
 		counter = 0
-		processdT = dNClean(inString)
+		self.modifiedSentence = preprocess(inString)
         
-		for x in processdT.split():
+		for x in self.modifiedSentence.split():
 			if not x == "END":
 				token = [x,"",counter]
 				self.modifiedSentenceArray.append(token)
@@ -87,4 +93,3 @@ class Annotation:
 		self.startWord = int(segments[1])
 		self.endWord = int(segments[3])
 		self.label = segments[4]
-	
