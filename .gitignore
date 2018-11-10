@@ -2,3 +2,10 @@
 /reference_standard_for_test_data/*
 /__pycache__/*
 *.ipynb
+Chrono-master/
+SVM_model.pkl
+_tin/
+_tout/
+subtest_an/
+subtest_in/
+supplemental_data/raw/cpt_full.xlsx
