@@ -15,7 +15,7 @@ Authors: Bill Cramer
 import re
 
 
-# In[3]:
+# In[11]:
 
 
 
@@ -37,12 +37,54 @@ def dNClean(sentence):
     #09.11.2014
     batch4 = re.sub(r'\d\d\d\d\.\d+\.\d+','DATE',batch3)
     batch5 = re.sub(r'\d+\.\d+\.\d\d\d\d','DATE',batch4)
-    #'Monday, 3 of August 2006'
-    batch6 = re.sub(r'\D+\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch5)
+    #'Monday, 3 of August 2006' 
+    batch6 = re.sub(r'Monday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch5)
+    batch6a = re.sub(r'Tuesday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6)
+    batch6b = re.sub(r'Wednesday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6a)
+    batch6c = re.sub(r'Thursday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6b)
+    batch6d = re.sub(r'Friday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6c)
+    batch6e = re.sub(r'Saturday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6d)
+    batch6f = re.sub(r'Sunday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6e)
+    batch6g = re.sub(r'monday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6f)
+    batch6h = re.sub(r'tuesday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6g)
+    batch6i = re.sub(r'wednesday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6h)
+    batch6j = re.sub(r'thursday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6i)
+    batch6k = re.sub(r'friday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6j)
+    batch6l = re.sub(r'saturday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6k)
+    batch6m = re.sub(r'sunday\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6l)
+    batch6n = re.sub(r'MONDAY\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6m)
+    batch6o = re.sub(r'TUESDAY\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6n)
+    batch6p = re.sub(r'WEDNESDAY\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6o)
+    batch6q = re.sub(r'THURSDAY\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6p)
+    batch6r = re.sub(r'FRIDAY\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6q)
+    batch6s = re.sub(r'SATURDAY\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6r)
+    batch6t = re.sub(r'SUNDAY\,\s+\d+\s+\D+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE DATE',batch6s)
+    
     #Sunday, 9 November 2014
-    batch7 = re.sub(r'\D+\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch6)
+    batch7 = re.sub(r'Sunday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch6t)
+    batch7a = re.sub(r'Monday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7)
+    batch7b = re.sub(r'Tuesday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7a)
+    batch7c = re.sub(r'Wednesday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7b)
+    batch7d = re.sub(r'Thursday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7c)
+    batch7e = re.sub(r'Friday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7d)
+    batch7f = re.sub(r'Saturday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7e)
+    batch7g = re.sub(r'sunday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7f)
+    batch7h = re.sub(r'monday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7g)
+    batch7i = re.sub(r'tuesday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7h)
+    batch7j = re.sub(r'wednesday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7i)
+    batch7k = re.sub(r'thursday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7j)
+    batch7l = re.sub(r'friday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7k)
+    batch7m = re.sub(r'saturday\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7l)
+    batch7n = re.sub(r'SUNDAY\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7m)
+    batch7o = re.sub(r'MONDAY\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7n)
+    batch7p = re.sub(r'TUESDAY\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7o)
+    batch7q = re.sub(r'WEDNESDAY\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7p)
+    batch7r = re.sub(r'THURSDAY\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7q)
+    batch7s = re.sub(r'FRIDAY\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7r)
+    batch7t = re.sub(r'SATURDAY\,\s+\d+\s+\D+\s+\d\d\d\d','DATE DATE DATE DATE',batch7s)
+    
     #11-18
-    batch8 = re.sub(r'\d\d\-\d+','DATE',batch7)
+    batch8 = re.sub(r'\d\d\-\d+','DATE',batch7t)
 
 
     sreplaceJan = re.sub(r'Jan\/\w+\/\w+','DATE', batch8)
