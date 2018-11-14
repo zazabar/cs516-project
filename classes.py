@@ -49,18 +49,20 @@ class SentenceStructure:
 	:return: Nothing.
 	:var modifiedSentenceArray: An array of [string,string,int] tuples. The first string is a token, and the second is a holder for tags. The int represents the position in the original string.
 	"""
-	def generateModifiedSentenceArray(self, inString):
+	def generateModifiedSentenceArray(self):
 		self.modifiedSentenceArray = []
 		
 		#Split the string by whitespace and add it to the array.
 		counter = 0
-		self.modifiedSentence = preprocess(inString)
+		self.modifiedSentence = preprocess(self.originalSentence)
         
 		for x in self.modifiedSentence.split():
 			if not x == "END":
 				token = [x,"",counter]
 				self.modifiedSentenceArray.append(token)
 				counter += 1
+				
+		assert(len(self.originalSentenceArray)-1 == len(self.modifiedSentenceArray)), "Assertion failed, sentences don't match. Original Sentence: " + self.originalSentence +" Modified Sentence: " + self.modifiedSentence
 		
 
 #Author: Evan French

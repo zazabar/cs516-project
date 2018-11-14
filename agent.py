@@ -187,14 +187,13 @@ class Agent:
 			#for j_ in range(0, len(y_)):
 			while j_ < (len(y_)-1):
 				if y.originalSentenceArray[j_][1] == "" or y.originalSentenceArray[j_][1] == None:
-					debugFile.write("Text: " + str(y.originalSentenceArray[j_][0]) +"\n") #DEBUG
-					debugFile.write("Truth: None\n") #DEBUG
-					debugFile.write("Pred: " + str(y_[j_]) + "\n\n") #DEBUG
 					if y_[j_] == "" or y_[j_] == None:
 						cf[0,0] += 1
 					else:
 						cf[0,2] += 1
-						
+						debugFile.write("Text: " + str(y.originalSentenceArray[j_][0]) +"\n") #DEBUG
+						debugFile.write("Truth: None\n") #DEBUG
+						debugFile.write("Pred: " + str(y_[j_]) + "\n\n") #DEBUG
 				else:
 					cls = ""
 					if "problem" in y.originalSentenceArray[j_][1]:
@@ -208,6 +207,7 @@ class Agent:
 						
 					if "Start" in y.originalSentenceArray[j_][1]:
 						#Check for same start
+						writeFlag = False #DEBUG
 						if y_[j_] == y.originalSentenceArray[j_][1]:
 							#We have at least a partial start.
 							fullSpan = True
@@ -225,33 +225,36 @@ class Agent:
 								cf[cls,0] += 1
 							else:
 								cf[cls,1] += 1
+								writeFlag = True
 							
 						else:
 							cf[cls,2] += 1
+							writeFlag = True
 							while not "End" in y.originalSentenceArray[j_][1] and j_ < len(y_)-1:
 								outText = outText + y.originalSentenceArray[j_][0] + " " #Debug
 								outTagsTruth = outTagsTruth + str(y.originalSentenceArray[j_][1]) + " " #Debug
 								outTagsPred = outTagsPred + str(y_[j_]) + " " #Debug
 								j_ += 1
 
-						outText = outText + y.originalSentenceArray[j_][0] + " " #Debug
-						outTagsTruth = outTagsTruth + str(y.originalSentenceArray[j_][1]) + " " #Debug
-						outTagsPred = outTagsPred + str(y_[j_]) + " " #Debug								
-						debugFile.write(outText + "\n")
-						debugFile.write(outTagsTruth + "\n")
-						debugFile.write(outTagsPred + "\n\n")
-						outText = "Text: "
-						outTagsTruth = "Truth: "
-						outTagsPred = "Pred: "
-						
+						if writeFlag:
+							outText = outText + y.originalSentenceArray[j_][0] + " " #Debug
+							outTagsTruth = outTagsTruth + str(y.originalSentenceArray[j_][1]) + " " #Debug
+							outTagsPred = outTagsPred + str(y_[j_]) + " " #Debug								
+							debugFile.write(outText + "\n")
+							debugFile.write(outTagsTruth + "\n")
+							debugFile.write(outTagsPred + "\n\n")
+							outText = "Text: "
+							outTagsTruth = "Truth: "
+							outTagsPred = "Pred: "
+
 					else:
-						debugFile.write("Text: " + str(y.originalSentenceArray[j_][0]) +"\n") #DEBUG
-						debugFile.write("Truth: " + str(y.originalSentenceArray[j_][1]) +"\n") #DEBUG
-						debugFile.write("Pred: " + str(y_[j_]) + "\n\n") #DEBUG
 						if y_[j_] == y.originalSentenceArray[j_][1]:
 							cf[cls,0] += 1
 						else:
 							cf[cls,2] += 1
+							debugFile.write("Text: " + str(y.originalSentenceArray[j_][0]) +"\n") #DEBUG
+							debugFile.write("Truth: " + str(y.originalSentenceArray[j_][1]) +"\n") #DEBUG
+							debugFile.write("Pred: " + str(y_[j_]) + "\n\n") #DEBUG
 							
 				j_ += 1
 				

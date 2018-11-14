@@ -14,8 +14,9 @@ use IO::Handle;
 select(STDOUT); 
 $| = 1;
 
+my $source = $ARGV[0];
 my $interface = Word2vec::Interface->new();
-my $result = $interface->W2VReadTrainedVectorDataFromFile( "./salldate.comp.200.bin" );
+my $result = $interface->W2VReadTrainedVectorDataFromFile( "./" . $source );
 
 if ($result != 0) {
 	print "FAILED\n";
