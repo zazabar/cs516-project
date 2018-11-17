@@ -57,12 +57,12 @@ class SentenceStructure:
 		self.modifiedSentence = preprocess(self.originalSentence)
         
 		for x in self.modifiedSentence.split():
-			if not x == "END":
-				token = [x,"",counter]
-				self.modifiedSentenceArray.append(token)
-				counter += 1
-				
-		assert(len(self.originalSentenceArray)-1 == len(self.modifiedSentenceArray)), "Assertion failed, sentences don't match. Original Sentence: " + self.originalSentence +" Modified Sentence: " + self.modifiedSentence
+			token = [x,"",counter]
+			self.modifiedSentenceArray.append(token)
+			counter += 1
+		self.modifiedSentenceArray.append(["END",""])
+						
+		assert(len(self.originalSentenceArray) == len(self.modifiedSentenceArray)), "Assertion failed, sentences don't match. Original Sentence: " + self.originalSentence +" Modified Sentence: " + self.modifiedSentence
 		
 
 #Author: Evan French

@@ -191,6 +191,73 @@ class TestSentenceStructures(unittest.TestCase):
 		os.remove(ann_file_path + '/test.con')
 		os.rmdir(raw_file_path)
 		os.rmdir(ann_file_path)
+	
+#Author: Jeffrey Smith
+class TestPreprocessing(unittest.TestCase):
+	def test_PreProcessing(self):
+		test_dict = {}
+		test_list = []
+		test_list.append(classes.SentenceStructure("3/13/2006 12:00:00 AM"))
+		test_list.append(classes.SentenceStructure("03/19/06 AT 01:00 PM"))
+		test_list.append(classes.SentenceStructure("Take with 8 oz of plain water SPIRIVA ( TIOTROPIUM ) 18"))
+		test_list.append(classes.SentenceStructure("Dr. Pump 3/25/05 1:30 ,"))
+		test_list.append(classes.SentenceStructure("1. TIKWELD , WILLAIDE V. , M.D. ( QT296 ) 03/19/06 10:53 AM"))
+		
+		test_list[0].generateModifiedSentenceArray()
+		test_list[1].generateModifiedSentenceArray()
+		test_list[2].generateModifiedSentenceArray()
+		test_list[3].generateModifiedSentenceArray()
+		test_list[4].generateModifiedSentenceArray()
+		
+		test_dict["0"] = test_list
+		
+		#Tests
+		self.assertEqual(len(test_dict["0"][0].originalSentenceArray), len(test_dict["0"][0].modifiedSentenceArray))
+		self.assertEqual(len(test_dict["0"][1].originalSentenceArray), len(test_dict["0"][1].modifiedSentenceArray))
+		self.assertEqual(len(test_dict["0"][2].originalSentenceArray), len(test_dict["0"][2].modifiedSentenceArray))
+		self.assertEqual(len(test_dict["0"][3].originalSentenceArray), len(test_dict["0"][3].modifiedSentenceArray))
+		self.assertEqual(len(test_dict["0"][4].originalSentenceArray), len(test_dict["0"][4].modifiedSentenceArray))
+		
+		self.assertEqual(test_dict["0"][0].modifiedSentenceArray[0][0], 'date')
+		self.assertEqual(test_dict["0"][0].modifiedSentenceArray[1][0], "date")
+		self.assertEqual(test_dict["0"][0].modifiedSentenceArray[2][0], "am")
+		
+		self.assertEqual(test_dict["0"][1].modifiedSentenceArray[0][0], "date")
+		self.assertEqual(test_dict["0"][1].modifiedSentenceArray[1][0], "at")
+		self.assertEqual(test_dict["0"][1].modifiedSentenceArray[2][0], "date")
+		self.assertEqual(test_dict["0"][1].modifiedSentenceArray[3][0], "pm")
+		
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[0][0], "take")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[1][0], "with")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[2][0], "num")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[3][0], "oz")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[4][0], "of")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[5][0], "plain")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[6][0], "water")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[7][0], "spiriva")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[8][0], "(")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[9][0], "tiotropium")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[10][0], ")")
+		self.assertEqual(test_dict["0"][2].modifiedSentenceArray[11][0], "num")
+		
+		self.assertEqual(test_dict["0"][3].modifiedSentenceArray[0][0], "dr.")
+		self.assertEqual(test_dict["0"][3].modifiedSentenceArray[1][0], "pump")
+		self.assertEqual(test_dict["0"][3].modifiedSentenceArray[2][0], "date")
+		self.assertEqual(test_dict["0"][3].modifiedSentenceArray[3][0], "date")
+		self.assertEqual(test_dict["0"][3].modifiedSentenceArray[4][0], ",")
+		
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[0][0], "1.")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[1][0], "tikweld")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[2][0], ",")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[3][0], "willaide")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[4][0], "v.")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[5][0], "m.d.")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[6][0], "(")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[7][0], "qt296")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[8][0], ")")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[9][0], "date")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[10][0], "date")
+		self.assertEqual(test_dict["0"][4].modifiedSentenceArray[11][0], "am")
 		
 if __name__ == '__main__':
 	unittest.main()
