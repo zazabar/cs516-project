@@ -5,7 +5,8 @@ Authors: Jeffrey Smith, Bill Cramer, Evan French
 """
 import sys, getopt, os, subprocess, re, configparser
 import agent
-from classes import SentenceStructure, Annotation
+from classes import SentenceStructure, Annotation, BatchContainer
+from preprocess import preprocess
 from random import sample
 import numpy as np
 
@@ -64,21 +65,30 @@ def main():
 	Main function of the application. Call -h or --help for command line inputs.
 	"""
 	dict_ = CreateAnnotatedSentenceStructures(config['ANNOTATION_FILE_PATH'], config['RAW_FILE_PATH'])
+	#TEST
+	dict_supplemental = CreateSupplementalSentenceStructures("./supplemental_data")
 	
 	AddModifiedSentenceArray(dict_)
+	#TEST
+	AddModifiedSentenceArray(dict_supplemental)
 
-	bx, by, bs, mapping = GenerateEmbeddings(dict_, config['EMBEDDING_FILE'])
+	tx,ty,ts,tm = GenerateEmbeddings(dict_, config['EMBEDDING_FILE'])
+	trainBatch = BatchContainer(tx,ty,ts,tm)
+	sx,sy,ss,sm = GenerateEmbeddings(dict_supplemental, config['EMBEDDING_FILE'])
+	supplementalBatch = BatchContainer(sx,sy,ss,sm)
 	
-	trainNetwork(bx,by,bs,mapping,dict_,int(config['EMBEDDING_SIZE']) + EXTRA_FEATURE_SIZE, CLASSES, buckets=int(config['BUCKETS']),epochs=int(config['EPOCHS']))
+	trainNetwork(trainBatch,dict_,int(config['EMBEDDING_SIZE']) + EXTRA_FEATURE_SIZE, CLASSES, int(config['BUCKETS']),int(config['EPOCHS']), supplementalBatch)
 	
 
 #Author: Jeffrey Smith
-def trainNetwork(batchX, batchY, seqLen, fileMap, dict, numFeatures, classes, buckets, epochs):
+def trainNetwork(trainBatch, dict, numFeatures, classes, buckets, epochs, supplementalBatch = None):
 	"""
 	Trains a neural network model. If one is not given, creates one.
 	"""		
 	#Setup Buckets for 10 fold cross validation
-	batchX, batchY, seqLen, batchMap = kFoldBucketGenerator(batchX, batchY, seqLen, buckets)
+	batchX, batchY, seqLen, batchMap = kFoldBucketGenerator(trainBatch.bx, trainBatch.by, trainBatch.bs, buckets)
+	if not supplementalBatch == None:
+		supBatchX, supBatchY, supSeqLen, _ = kFoldBucketGenerator(supplementalBatch.bx, supplementalBatch.by, supplementalBatch.bs, 10)
 	
 	#batchMap and fileMap are used later for evaluation.
 	
@@ -89,17 +99,22 @@ def trainNetwork(batchX, batchY, seqLen, fileMap, dict, numFeatures, classes, bu
 	for k in range(0, buckets):
 		myAgent = agent.Agent(numFeatures,4,int(config['MAX_SENTENCE_LENGTH']))
 		
-		#Train for 20 epochs.
+		#Train for j epochs.
 		for j in range(0, epochs):
 		
 			loss = 0
 			
+			#Train Supplemental
+			if not supplementalBatch == None:
+				for l in range(0, 10):
+					loss += myAgent.train(supBatchX[l], supBatchY[l], supSeqLen[l])
+
 			#Train each bucket where l != currentK
 			for l in range(0, buckets):
 				if l == k:
 					continue
 				loss += myAgent.train(batchX[l], batchY[l], seqLen[l])
-				
+	
 			print("Loss for Epoch " + str(j) + " is " + str(loss) + ".")
 			
 		#Evaluate after training.
@@ -114,7 +129,7 @@ def trainNetwork(batchX, batchY, seqLen, fileMap, dict, numFeatures, classes, bu
 		file.write("\n")
 		file.close()
 		
-		cf_ = myAgent.evalWithStructure(batchX[k], batchY[k], seqLen[k], k, fileMap, batchMap, dict)
+		cf_ = myAgent.evalWithStructure(batchX[k], batchY[k], seqLen[k], k, trainBatch.mapping, batchMap, dict)
 		sentenceLenienceList.append(cf_)
 		file = open("./outCFS", 'a')
 		outstr = np.array2string(cf_)
@@ -426,15 +441,31 @@ def CreateSentenceStructures(raw_file_path):
 
 		#Open the document
 		doc = open(document, "r")
+		
+		docText = doc.read()
+		docTextProcessed = preprocess(docText)
+		docTextProcessedSplit = docTextProcessed.splitlines()
+		
+		doc.close()
+		
+		doc = open(document, "r")
+		try:
+			#Iterate over sentences in the document
+			counter = 0
+			for sentence in doc.readlines():
+				#Create a SentenceStructure obj
+				ss = SentenceStructure(sentence)
+				ss.modifiedSentence = docTextProcessedSplit[counter]
 
-		#Iterate over sentences in the document
-		for sentence in doc.readlines():
-
-			#Create a SentenceStructure obj
-			ss = SentenceStructure(sentence)
-
-			#Add SentenceStructure obj to the list
-			docSentenceStructureList.append(ss)        
+				#Add SentenceStructure obj to the list
+				docSentenceStructureList.append(ss)        
+				
+				counter += 1
+		except:
+			print("ERR. " + str(document))
+			sys.exit(0)
+			
+		assert(len(docSentenceStructureList) == len(docTextProcessedSplit)), "Assertion Failed, array lengths don't match. " + str(len(docSentenceStructureList)) + " " + str(len(docTextProcessedSplit))
 
 		#Strip the extension from the file to get the document name
 		docName = os.path.splitext(document)[0]
@@ -478,7 +509,7 @@ def CreateAnnotatedSentenceStructures(ann_file_path, raw_file_path):
 
 			#Updated SentenceStructure
 			ss = AnnotateSentenceStructure(ss, annotations)
-
+		
 	#Return the updated ssDict
 	return ssDict
 
@@ -553,6 +584,65 @@ def CreateAnnotationDictionary(annotation_file_path):
 	#Return to the original directory
 	os.chdir(cwd)
 
+	#Return the dictionary
+	return docDictionary
+	
+#Author: Jeffrey Smith
+def CreateSupplementalSentenceStructures(supp_file_path):
+	"""
+	Create SentenceStructures from supplemental documents
+	
+	:param supp_file_path: Path to directory where supplemental documents are located
+	:return: Dictionary of lists of SentenceStructure objects keyed on document name stripped of extension
+	"""
+
+	#Create a dictionary of documents
+	docDictionary = {}
+
+	# cd into test file directory
+	cwd = os.getcwd()
+	os.chdir(supp_file_path)
+
+	#Iterate over documents in the supp_file_path directory
+	for document in os.listdir():
+
+		#Instantiate a list to hold a SentenceStructure for each sentence(line) in the document
+		docSentenceStructureList = []
+
+		#Open the document
+		doc = open(document, "r")
+		
+		docText = doc.read()
+		docTextProcessed = preprocess(docText)
+		docTextProcessedSplit = docTextProcessed.splitlines()
+		
+		doc.close()
+		
+		doc = open(document, "r")
+		
+		#Strip the extension from the file to get the document name
+		docName = os.path.splitext(document)[0]
+
+		#Iterate over sentences in the document
+		counter = 0
+		for sentence in doc.readlines():
+			#Create a SentenceStructure obj
+			ss = SentenceStructure(sentence, docName)
+			ss.modifiedSentence = docTextProcessedSplit[counter]
+
+			#Add SentenceStructure obj to the list
+			docSentenceStructureList.append(ss)      
+			counter += 1
+
+		#Add the SentenceStructureList to the dictionary
+		docDictionary[docName] = docSentenceStructureList
+
+		#Close the document
+		doc.close()
+		
+	#Return to original path
+	os.chdir(cwd)
+	
 	#Return the dictionary
 	return docDictionary
 

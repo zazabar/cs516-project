@@ -8,7 +8,6 @@ Authors: Jeffrey Smith, Bill Cramer, Evan French
 """
 
 import re
-from preprocess import preprocess
 
 #Author: Jeffrey Smith
 class SentenceStructure:
@@ -54,16 +53,25 @@ class SentenceStructure:
 		
 		#Split the string by whitespace and add it to the array.
 		counter = 0
-		self.modifiedSentence = preprocess(self.originalSentence)
         
 		for x in self.modifiedSentence.split():
-			if not x == "END":
-				token = [x,"",counter]
-				self.modifiedSentenceArray.append(token)
-				counter += 1
-				
-		assert(len(self.originalSentenceArray)-1 == len(self.modifiedSentenceArray)), "Assertion failed, sentences don't match. Original Sentence: " + self.originalSentence +" Modified Sentence: " + self.modifiedSentence
-		
+			token = [x,"",counter]
+			self.modifiedSentenceArray.append(token)
+			counter += 1
+		self.modifiedSentenceArray.append(["END",""])
+						
+		assert(len(self.originalSentenceArray) == len(self.modifiedSentenceArray)), "Assertion failed, sentences don't match. Original Sentence: " + self.originalSentence +" Modified Sentence: " + self.modifiedSentence
+
+#Author: Jeffrey Smith
+class BatchContainer:
+	"""
+	BatchContainer represents a container for running network batches through Tensorflow
+	"""
+	def __init__(self, bx, by, bs, mapping=None):
+		self.bx = bx
+		self.by = by
+		self.bs = bs
+		self.mapping = mapping
 
 #Author: Evan French
 class Annotation:
