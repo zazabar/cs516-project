@@ -3,18 +3,52 @@ run.py
 Scope: The entrance point for our program.
 Authors: Jeffrey Smith, Bill Cramer, Evan French
 """
-import sys, getopt, os, subprocess, re
+import sys, getopt, os, subprocess, re, configparser
 import agent
-from classes import SentenceStructure, Annotation
+from classes import SentenceStructure, Annotation, BatchContainer
+from preprocess import preprocess
 from random import sample
 import numpy as np
 
 np.set_printoptions(threshold=np.nan)
 
-#CONSTANTS
-MAX_SENTENCE_LENGTH = 205
-EMBEDDING_SIZE = 200
+configFile = configparser.ConfigParser()
+configFile.read_file(open('config.ini'))
+config = configFile['Main']
 
+#CONSTANTS
+if not 'MAX_SENTENCE_LENGTH' in config:
+	print("Missing MAX_SENTENCE_LENGTH in config.ini.")
+	sys.exit(0)
+	
+if not 'EMBEDDING_SIZE' in config:
+	print("Missing EMBEDDING_SIZE in config.ini")
+	sys.exit(0)
+	
+if not 'EMBEDDING_FILE' in config:
+	print("Missing EMBEDDING_FILE in config.ini")
+	sys.exit(0)	
+
+if not 'ANNOTATION_FILE_PATH' in config:
+	print("Missing ANNOTATION_FILE_PATH in config.ini")
+	sys.exit(0)	
+	
+if not 'RAW_FILE_PATH' in config:
+	print("Missing RAW_FILE_PATH in config.ini")
+	sys.exit(0)	
+
+if not 'BUCKETS' in config:
+	print("Missing BUCKETS in config.ini")
+	sys.exit(0)	
+
+if not 'EPOCHS' in config:
+	print("Missing EPOCHS in config.ini")
+	sys.exit(0)		
+	
+if not 'CLASSES' in config:
+	print("Missing CLASSES in config.ini")
+	sys.exit(0)		
+	
 FEATURE_INDEX_MAP = {"PUNC_OTHER" : 0,
 					"PUNC_COMMA" : 1,
 					"PUNC_PERIOD" : 2,
@@ -23,34 +57,38 @@ FEATURE_INDEX_MAP = {"PUNC_OTHER" : 0,
 
 EXTRA_FEATURE_SIZE = len(FEATURE_INDEX_MAP)
 
+CLASSES = config['CLASSES'].split(',')
+
 #Author: Jeffrey Smith
 def main():
 	"""
 	Main function of the application. Call -h or --help for command line inputs.
 	"""
-	
-	classes = []
-	classes.append("NONE")
-	classes.append("PROBLEM")
-	classes.append("TEST")
-	classes.append("TREATMENT")
-	
-	dict_ = CreateAnnotatedSentenceStructures("./subtest_an", "./subtest_in")
+	dict_ = CreateAnnotatedSentenceStructures(config['ANNOTATION_FILE_PATH'], config['RAW_FILE_PATH'])
+	#TEST
+	dict_supplemental = CreateSupplementalSentenceStructures("./supplemental_data")
 	
 	AddModifiedSentenceArray(dict_)
+	#TEST
+	AddModifiedSentenceArray(dict_supplemental)
 
-	bx, by, bs, mapping = GenerateEmbeddings(dict_)
+	tx,ty,ts,tm = GenerateEmbeddings(dict_, config['EMBEDDING_FILE'])
+	trainBatch = BatchContainer(tx,ty,ts,tm)
+	sx,sy,ss,sm = GenerateEmbeddings(dict_supplemental, config['EMBEDDING_FILE'])
+	supplementalBatch = BatchContainer(sx,sy,ss,sm)
 	
-	trainNetwork(bx,by,bs,mapping,dict_,EMBEDDING_SIZE + EXTRA_FEATURE_SIZE, classes, buckets=20,epochs=20)
+	trainNetwork(trainBatch,dict_,int(config['EMBEDDING_SIZE']) + EXTRA_FEATURE_SIZE, CLASSES, int(config['BUCKETS']),int(config['EPOCHS']), supplementalBatch)
 	
 
 #Author: Jeffrey Smith
-def trainNetwork(batchX, batchY, seqLen, fileMap, dict, numFeatures, classes, buckets=10, epochs=20):
+def trainNetwork(trainBatch, dict, numFeatures, classes, buckets, epochs, supplementalBatch = None):
 	"""
 	Trains a neural network model. If one is not given, creates one.
 	"""		
 	#Setup Buckets for 10 fold cross validation
-	batchX, batchY, seqLen, batchMap = kFoldBucketGenerator(batchX, batchY, seqLen, buckets)
+	batchX, batchY, seqLen, batchMap = kFoldBucketGenerator(trainBatch.bx, trainBatch.by, trainBatch.bs, buckets)
+	if not supplementalBatch == None:
+		supBatchX, supBatchY, supSeqLen, _ = kFoldBucketGenerator(supplementalBatch.bx, supplementalBatch.by, supplementalBatch.bs, 10)
 	
 	#batchMap and fileMap are used later for evaluation.
 	
@@ -59,19 +97,24 @@ def trainNetwork(batchX, batchY, seqLen, fileMap, dict, numFeatures, classes, bu
 	sentenceLenienceList = []
 	
 	for k in range(0, buckets):
-		myAgent = agent.Agent(numFeatures,4,MAX_SENTENCE_LENGTH)
+		myAgent = agent.Agent(numFeatures,4,int(config['MAX_SENTENCE_LENGTH']))
 		
-		#Train for 20 epochs.
+		#Train for j epochs.
 		for j in range(0, epochs):
 		
 			loss = 0
 			
+			#Train Supplemental
+			if not supplementalBatch == None:
+				for l in range(0, 10):
+					loss += myAgent.train(supBatchX[l], supBatchY[l], supSeqLen[l])
+
 			#Train each bucket where l != currentK
 			for l in range(0, buckets):
 				if l == k:
 					continue
 				loss += myAgent.train(batchX[l], batchY[l], seqLen[l])
-				
+	
 			print("Loss for Epoch " + str(j) + " is " + str(loss) + ".")
 			
 		#Evaluate after training.
@@ -86,7 +129,7 @@ def trainNetwork(batchX, batchY, seqLen, fileMap, dict, numFeatures, classes, bu
 		file.write("\n")
 		file.close()
 		
-		cf_ = myAgent.evalWithStructure(batchX[k], batchY[k], seqLen[k], k, fileMap, batchMap, dict)
+		cf_ = myAgent.evalWithStructure(batchX[k], batchY[k], seqLen[k], k, trainBatch.mapping, batchMap, dict)
 		sentenceLenienceList.append(cf_)
 		file = open("./outCFS", 'a')
 		outstr = np.array2string(cf_)
@@ -158,9 +201,9 @@ def trainNetwork(batchX, batchY, seqLen, fileMap, dict, numFeatures, classes, bu
 	file.write("Macro F1 Maximum: \t" + str(max(f1MacroList)) + "\n\n")
 	
 	file.write("=Sentence Level=\n")
-	file.write("CLASS \tSTRICT \tLENIENT \tMISS\n")
+	file.write("CLASS \tSTRICT \tLENIENT \tMISS \tS% \tL%\n")
 	for i in range(0, classCount):
-		file.write(str(classes[i]) + " \t" + str(totalSentenceLenience[i,0]) + " \t" + str(totalSentenceLenience[i,1]) + " \t" + str(totalSentenceLenience[i,2]) + "\n")
+		file.write(str(classes[i]) + " \t" + str(totalSentenceLenience[i,0]) + " \t" + str(totalSentenceLenience[i,1]) + " \t" + str(totalSentenceLenience[i,2]) + str(totalSentenceLenience[i,0]/np.sum(totalSentenceLenience[i,:])) + "\t" + str(np.sum(totalSentenceLenience[i,0:2])/np.sum(totalSentenceLenience[i,:])) + "\n")
 	file.write("\n")	
 		
 	for i in range(0, classCount):
@@ -178,7 +221,7 @@ def trainNetwork(batchX, batchY, seqLen, fileMap, dict, numFeatures, classes, bu
 #Author: Jeffrey Smith
 def kFoldBucketGenerator(batchX, batchY, seqLen, k):
 	"""
-	Takes a batch and shuffles it, then creates 10 subbatches of each.
+	Takes a batch and shuffles it, then creates k subbatches of each.
 	"""		
 	
 	indicies = sample(range(0, len(batchX)), len(batchX))
@@ -225,13 +268,13 @@ def printHelp():
 	return
 
 #Author: Jeffrey Smith
-def GenerateEmbeddings(d):
+def GenerateEmbeddings(d, embedFile):
 
 	if not os.path.isdir('./_arff'):
 		os.mkdir('_arff')
 
 	#Launch perl pipe
-	args = ['perl', './w2v.pl']
+	args = ['perl', './w2v.pl', embedFile]
 	p = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
 	outs, errs = [], []
 
@@ -259,7 +302,7 @@ def GenerateEmbeddings(d):
 	seqList = []
 	mapping = [] #A map to tie things back together.
 	
-		undefined = []
+	undefined = []
 	
 	try:
 		k = d.keys()
@@ -274,8 +317,8 @@ def GenerateEmbeddings(d):
 			#x: list of sentences
 			for x in d[k_]:
 				f.write("START\n")
-				tArray = np.zeros((MAX_SENTENCE_LENGTH,EMBEDDING_SIZE + EXTRA_FEATURE_SIZE), dtype=np.float32)
-				cArray = np.zeros((MAX_SENTENCE_LENGTH), dtype=np.float32)
+				tArray = np.zeros((int(config['MAX_SENTENCE_LENGTH']),int(config['EMBEDDING_SIZE']) + EXTRA_FEATURE_SIZE), dtype=np.float32)
+				cArray = np.zeros((int(config['MAX_SENTENCE_LENGTH'])), dtype=np.float32)
 
 				for z in range(0,len(x.modifiedSentenceArray)):
 					p.stdin.write(x.modifiedSentenceArray[z][0] + "\n")
@@ -295,13 +338,13 @@ def GenerateEmbeddings(d):
 						t = p.stdout.readline()
 
 						if "UNDEF" in t:
-							f.write(("0.0 " * EMBEDDING_SIZE) + str(class_) + "\n")
+							f.write(("0.0 " * int(config['EMBEDDING_SIZE'])) + str(class_) + "\n")
 							undefined.append(x.modifiedSentenceArray[z][0])
 							break
 						elif len(t) > 2:
 							#Temp Generate Embeddings
 							tSplit = t.split();
-							tArray[z][0:EMBEDDING_SIZE] = tSplit[1:EMBEDDING_SIZE+1]
+							tArray[z][0:int(config['EMBEDDING_SIZE'])] = tSplit[1:int(config['EMBEDDING_SIZE'])+1]
 							cArray[z] = class_
 							
 							f.write(t + " " + str(class_) + "\n")
@@ -311,23 +354,23 @@ def GenerateEmbeddings(d):
 							
 					#Generate Extra Features
 					if x.modifiedSentenceArray[z][0] == ":":
-						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
+						tArray[z][int(config['EMBEDDING_SIZE']) + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
 					elif x.modifiedSentenceArray[z][0] == ";":
-						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
+						tArray[z][int(config['EMBEDDING_SIZE']) + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
 					elif x.modifiedSentenceArray[z][0] == ",":
-						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_COMMA"]] = 1.0
+						tArray[z][int(config['EMBEDDING_SIZE']) + FEATURE_INDEX_MAP["PUNC_COMMA"]] = 1.0
 					elif x.modifiedSentenceArray[z][0] == ".":
-						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_PERIOD"]] = 1.0
+						tArray[z][int(config['EMBEDDING_SIZE']) + FEATURE_INDEX_MAP["PUNC_PERIOD"]] = 1.0
 					elif x.modifiedSentenceArray[z][0] == "[" or x.modifiedSentenceArray[z][0] == "]" or x.modifiedSentenceArray[z][0] == "(" or x.modifiedSentenceArray[z][0] == ")":
-						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
+						tArray[z][int(config['EMBEDDING_SIZE']) + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
 					elif x.modifiedSentenceArray[z][0] == "&quot;":
-						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
+						tArray[z][int(config['EMBEDDING_SIZE']) + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0
 					elif x.modifiedSentenceArray[z][0] == "'" or x.modifiedSentenceArray[z][0] == "'s":
-						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0				
+						tArray[z][int(config['EMBEDDING_SIZE']) + FEATURE_INDEX_MAP["PUNC_OTHER"]] = 1.0				
 					elif x.modifiedSentenceArray[z][0] == "num":
-						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["IS_NUM"]] = 1.0	
+						tArray[z][int(config['EMBEDDING_SIZE']) + FEATURE_INDEX_MAP["IS_NUM"]] = 1.0	
 					elif x.modifiedSentenceArray[z][0] == "date":
-						tArray[z][EMBEDDING_SIZE + FEATURE_INDEX_MAP["IS_DATE"]] = 1.0			
+						tArray[z][int(config['EMBEDDING_SIZE']) + FEATURE_INDEX_MAP["IS_DATE"]] = 1.0			
 						
 				#Add embeddings to our arrays.
 				embeddingList.append(tArray);
@@ -362,47 +405,12 @@ def GenerateEmbeddings(d):
 	
 #Author: Jeffrey Smith
 def AddModifiedSentenceArray(d):
-
-	if not os.path.isdir('./_tin'):
-		os.mkdir('_tin')
-	if not os.path.isdir('./_tout'):
-		os.mkdir('_tout')
-	
 	#Get each list of SentenceStructures from map.
 	v = d.values()
 
 	for x in v:
-		#Create a temp file.
-		f = open('_tin/o.txt','w+')
-
-		#Write every sentence to a file.
 		for y in x:
-			tSentence = y.originalSentence
-			regTemp = re.compile(r'\b([\d]+-?)+\b')
-			regTemp2 = re.compile(r'\b([\d]+)\b')
-			outSentence = regTemp.sub('NUM', tSentence)
-			outSentence = regTemp2.sub('NUM', outSentence)
-			f.write(outSentence)
-
-		f.close()
-		
-		r = subprocess.run(["python3", "preprocess.py", "-i", "./_tin", "-o", "./_tout"], stdout=None, stderr=subprocess.DEVNULL) 
-		if r.returncode != 0:
-			print("Program did not exit correctly.")
-
-		
-		f = open('_tout/o.txt', 'r+')
-		
-		#Read every sentence back to modified sentence array.
-		for y in x:
-			y.generateModifiedSentenceArray(f.readline())
-
-		f.close()
-		os.remove('_tin/o.txt')
-		os.remove('_tout/o.txt')
-	
-	os.rmdir('_tin')
-	os.rmdir('_tout')
+			y.generateModifiedSentenceArray()
 
 
 #Author: Evan French
@@ -433,15 +441,31 @@ def CreateSentenceStructures(raw_file_path):
 
 		#Open the document
 		doc = open(document, "r")
+		
+		docText = doc.read()
+		docTextProcessed = preprocess(docText)
+		docTextProcessedSplit = docTextProcessed.splitlines()
+		
+		doc.close()
+		
+		doc = open(document, "r")
+		try:
+			#Iterate over sentences in the document
+			counter = 0
+			for sentence in doc.readlines():
+				#Create a SentenceStructure obj
+				ss = SentenceStructure(sentence)
+				ss.modifiedSentence = docTextProcessedSplit[counter]
 
-		#Iterate over sentences in the document
-		for sentence in doc.readlines():
-
-			#Create a SentenceStructure obj
-			ss = SentenceStructure(sentence)
-
-			#Add SentenceStructure obj to the list
-			docSentenceStructureList.append(ss)        
+				#Add SentenceStructure obj to the list
+				docSentenceStructureList.append(ss)        
+				
+				counter += 1
+		except:
+			print("ERR. " + str(document))
+			sys.exit(0)
+			
+		assert(len(docSentenceStructureList) == len(docTextProcessedSplit)), "Assertion Failed, array lengths don't match. " + str(len(docSentenceStructureList)) + " " + str(len(docTextProcessedSplit))
 
 		#Strip the extension from the file to get the document name
 		docName = os.path.splitext(document)[0]
@@ -485,7 +509,7 @@ def CreateAnnotatedSentenceStructures(ann_file_path, raw_file_path):
 
 			#Updated SentenceStructure
 			ss = AnnotateSentenceStructure(ss, annotations)
-
+		
 	#Return the updated ssDict
 	return ssDict
 
@@ -560,6 +584,65 @@ def CreateAnnotationDictionary(annotation_file_path):
 	#Return to the original directory
 	os.chdir(cwd)
 
+	#Return the dictionary
+	return docDictionary
+	
+#Author: Jeffrey Smith
+def CreateSupplementalSentenceStructures(supp_file_path):
+	"""
+	Create SentenceStructures from supplemental documents
+	
+	:param supp_file_path: Path to directory where supplemental documents are located
+	:return: Dictionary of lists of SentenceStructure objects keyed on document name stripped of extension
+	"""
+
+	#Create a dictionary of documents
+	docDictionary = {}
+
+	# cd into test file directory
+	cwd = os.getcwd()
+	os.chdir(supp_file_path)
+
+	#Iterate over documents in the supp_file_path directory
+	for document in os.listdir():
+
+		#Instantiate a list to hold a SentenceStructure for each sentence(line) in the document
+		docSentenceStructureList = []
+
+		#Open the document
+		doc = open(document, "r")
+		
+		docText = doc.read()
+		docTextProcessed = preprocess(docText)
+		docTextProcessedSplit = docTextProcessed.splitlines()
+		
+		doc.close()
+		
+		doc = open(document, "r")
+		
+		#Strip the extension from the file to get the document name
+		docName = os.path.splitext(document)[0]
+
+		#Iterate over sentences in the document
+		counter = 0
+		for sentence in doc.readlines():
+			#Create a SentenceStructure obj
+			ss = SentenceStructure(sentence, docName)
+			ss.modifiedSentence = docTextProcessedSplit[counter]
+
+			#Add SentenceStructure obj to the list
+			docSentenceStructureList.append(ss)      
+			counter += 1
+
+		#Add the SentenceStructureList to the dictionary
+		docDictionary[docName] = docSentenceStructureList
+
+		#Close the document
+		doc.close()
+		
+	#Return to original path
+	os.chdir(cwd)
+	
 	#Return the dictionary
 	return docDictionary
 
